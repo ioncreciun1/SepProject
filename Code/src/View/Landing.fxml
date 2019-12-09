@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="550" minHeight="550" prefWidth="1000.0" prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LandingController">
+   <children>
+      <HBox fillHeight="false" prefHeight="550.0" prefWidth="950.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="550.0" prefWidth="230.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addExamPressed" prefHeight="20.0" prefWidth="160.0" text="Add">
+                     <VBox.margin>
+                        <Insets top="200.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#removeExamPressed" prefHeight="20.0" prefWidth="160.0" text="Remove">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#editExamPressed" prefHeight="20.0" prefWidth="160.0" text="Edit">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="550.0" prefWidth="722.0">
+               <children>
+                  <TableView prefHeight="524.0" prefWidth="721.0">
+                    <columns>
+                      <TableColumn prefWidth="58.0" text="Semester" />
+                      <TableColumn prefWidth="95.0" text="Course" />
+                        <TableColumn prefWidth="44.0" text="Group" />
+                        <TableColumn prefWidth="105.0" text="Examiners" />
+                        <TableColumn prefWidth="95.0" text="Type" />
+                        <TableColumn prefWidth="85.0" text="Room" />
+                        <TableColumn prefWidth="120.0" text="Date/Time Start" />
+                        <TableColumn prefWidth="120.0" text="Date/Time End" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TableView>
+                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="54.0" prefWidth="720.0" text="Error Label" textFill="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

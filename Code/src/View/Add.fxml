@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="600.0" minWidth="1300.4" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
+   <children>
+      <VBox prefHeight="550.0" prefWidth="950.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="950.0">
+               <children>
+                  <ImageView fitHeight="96.0" fitWidth="371.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label prefHeight="96.0" prefWidth="444.0" text="Add Exam">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="940.0" vbarPolicy="ALWAYS">
+               <content>
+                  <AnchorPane prefHeight="400.0" prefWidth="964.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Semester">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin></Label>
+                              <TextField fx:id="semesterField" prefHeight="20.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin></TextField>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="81.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Course">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="courseField" prefHeight="20.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="161.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Group">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="groupField" prefHeight="20.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="241.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Examiners">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="examinerField" prefHeight="20.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="321.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Type">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="typeField" prefHeight="25.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="401.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Room">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="roomField" prefHeight="25.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="481.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Date Start">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <DatePicker fx:id="dateField" prefHeight="25.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="641.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Date End">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <DatePicker prefHeight="25.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutY="801.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="150.0" text="Cancel">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="60.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="150.0" text="Add">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="60.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="561.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="150.0" text="Time Start">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="25.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="90.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="721.0" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="150.0" text="Time End">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="25.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="90.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin>
+            </ScrollPane>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="950.0" text="Error Label" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
