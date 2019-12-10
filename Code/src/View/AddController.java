@@ -1,5 +1,6 @@
 package View;
 
+import javafx.event.ActionEvent;
 import javafx.scene.layout.Region;
 
 public class AddController
@@ -20,5 +21,10 @@ public class AddController
   public Region getRoot()
   {
     return root;
+  }
+
+  public void cancel(ActionEvent event)
+  {
+    viewHandler.openView("landing");
   }
 }
