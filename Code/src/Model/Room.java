@@ -6,12 +6,18 @@ public class Room
   private int chairs;
   private boolean VGA;
   private int tables;
+  private int id;
 
-  public Room(boolean HDMI , boolean VGA, int chairs, int tables){
+  public Room(boolean HDMI , boolean VGA, int chairs, int tables, int id){
     this.HDMI = HDMI;
     this.VGA = VGA;
     this.chairs = chairs;
     this.tables  = tables;
+    this.id = id;
+  }
+
+  public int getId() {
+    return id;
   }
 
   public boolean isHDMI()

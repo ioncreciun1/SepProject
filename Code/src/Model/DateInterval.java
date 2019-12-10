@@ -4,7 +4,6 @@ public class DateInterval
 {
   private Date date1;
   private Date date2;
-  private Exam exam;
 
   public DateInterval(Date date1, Date date2){
     this.date1 = date1;
