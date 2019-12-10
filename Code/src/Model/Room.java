@@ -20,6 +20,10 @@ public class Room
     return id;
   }
 
+  /**
+   *
+   * @return true if Room have HDMI port
+   */
   public boolean isHDMI()
   {
     return HDMI;
@@ -35,29 +39,48 @@ public class Room
     return chairs;
   }
 
+  /**
+   * if number is negative it converts to a positive one
+   * @param chairs number of chairs in a room
+   */
   public void setChairs(int chairs)
   {
-    this.chairs = chairs;
+    if(chairs<0) this.chairs = -chairs;
+     else this.chairs = chairs;
   }
 
+  /**
+   *
+   * @return if Room has VGA port
+   */
   public boolean isVGA()
   {
     return VGA;
   }
+
 
   public void setVGA(boolean VGA)
   {
     this.VGA = VGA;
   }
 
+  /**
+   *
+   * @return number of tables
+   */
   public int getTables()
   {
     return tables;
   }
 
+  /**
+   * if number is negative converts it to a positive one
+   * @param tables
+   */
   public void setTables(int tables)
   {
-    this.tables = tables;
+    if(tables < 0) this.tables = -tables;
+   else  this.tables = tables;
   }
 
   @Override public String toString()

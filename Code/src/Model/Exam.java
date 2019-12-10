@@ -42,6 +42,7 @@ public class Exam
 
   public void setType(String type)
   {
+
     this.type = type;
   }
 

@@ -4,10 +4,20 @@ public class Date
 {
   private int day, month, year, hour, minute;
 
+
   public Date(int day, int month, int year, int hour, int minute) {
-    this.hour = hour;
-    this.minute = minute;
-    this.day = day;
+    if(hour>24 || hour < 0)
+    {
+      this.hour = 0;
+    }
+    else {
+      this.hour=hour;
+    }
+    if(minute>60) this.minute=59;
+     else if(minute<0) this.minute=0;
+    else this.minute = minute;
+    if(day> this.numberOfDaysInMonth()) this.day=numberOfDaysInMonth();
+  else  this.day = day;
     if (year < 0) {
       year = -year;
     }
