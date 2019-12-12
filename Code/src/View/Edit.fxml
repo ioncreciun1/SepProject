@@ -13,25 +13,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EditController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EditController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="950.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0">
          <children>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="950.0">
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                <children>
-                  <ImageView fitHeight="91.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="80.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@logo.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" top="5.0" />
                      </HBox.margin></ImageView>
-                  <Label prefHeight="91.0" prefWidth="583.0" text="Edit Exam">
+                  <Label prefHeight="80.0" prefWidth="583.0" text="Edit Exam">
                      <font>
                         <Font size="40.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="100.0" />
+                        <Insets left="115.0" />
                      </HBox.margin>
                   </Label>
                </children>
@@ -64,7 +64,10 @@
                         <Insets right="50.0" />
                      </HBox.margin>
                   </ComboBox>
-               </children></HBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
                <children>
                   <Label prefHeight="50.0" prefWidth="140.0" text="Course">
@@ -165,7 +168,7 @@
                   <TextField prefHeight="25.0" prefWidth="200.0" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="390.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="390.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="950.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="150.0" text="Cancel">
                      <font>
@@ -184,8 +187,11 @@
                      </HBox.margin>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
             </HBox>
-            <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="950.0" text="Error Label" textFill="RED">
+            <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="950.0" text="Error Label" textFill="RED">
                <font>
                   <Font size="18.0" />
                </font>
