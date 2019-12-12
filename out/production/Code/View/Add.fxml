@@ -205,7 +205,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeStart" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="90.0" />
                                  </HBox.margin>
@@ -222,7 +222,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeEnd" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="90.0" />
                                  </HBox.margin>

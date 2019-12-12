@@ -1,12 +1,10 @@
 package View;
 
-import Model.Date;
-import Model.DateInterval;
-import Model.Room;
-import Model.RoomList;
+import Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -22,17 +20,19 @@ import java.io.FileNotFoundException;
 
 public class AddController
 {
+
   public TextField courseField;
   public TextField groupField;
   public TextField examinerField;
   public TextField timeEnd;
   public TextField timeStart;
+  public ComboBox typeField;
   private RoomList roomList;
 
   public TextField semesterField;
   public DatePicker dateField;
   public DatePicker dateField2;
-  public ComboBox<String> roomField;
+  public ComboBox roomField;
   private Region root;
   private ViewHandler viewHandler;
   public AddController(){}
@@ -42,7 +42,6 @@ public class AddController
     this.viewHandler = viewHandler;
     this.root = root;
     reset();
-    updateRooms();
   }
 
   public void reset() {
@@ -61,33 +60,51 @@ public class AddController
 
   public void addExam(ActionEvent actionEvent) {
     //Todo: Examiners need their own list and then they are selected from the list, checked if available not just input
-    String semester = semesterField.getText();
-    String course = courseField.getText();
-    String group = groupField.toString();
+    String semesterS = semesterField.getText();
+    String courseS = courseField.getText();
+    String groupS = groupField.getText();
     String[] examiners = examinerField.getText().split(", ",2);
+    String examinerS = examiners[0];
+    String examinerS2 = examiners[1];
+    String roomS = roomField.getSelectionModel().getSelectedItem().toString();
     String[] timeStartS = timeStart.getText().split(":",2);
+    int startH = Integer.parseInt(timeStartS[0]);
+    int startM = Integer.parseInt(timeStartS[1]);
     String[] timeEndS = timeEnd.getText().split(":",2);
-    System.out.println(timeEndS);
-    System.out.println(timeStartS);
-    System.out.println(examiners);
-    System.out.println(group);
-    System.out.println(semester);
-    System.out.println(course);
-    System.out.println(getDateInterval().toString());
+    int endH = Integer.parseInt(timeEndS[0]);
+    int endM = Integer.parseInt(timeEndS[1]);
+
+
+    DateInterval dateInterval = getDateInterval();
+    dateInterval.getStartDate().setTime(startH,startM);
+    dateInterval.getEndDate().setTime(endH,endM);
+
+
+    System.out.println(groupS);
+    System.out.println(semesterS);
+    System.out.println(courseS);
+    System.out.println(examinerS);
+    System.out.println(examinerS2);
+    System.out.println(roomS);
     //Todo: get selections from lists and then create a test Exam
   }
 
   //Room Management
-  public void updateRooms(){
-    // TODO: Add rooms to selection
-    //String[] roomIds = new String[roomList.getRoomList().size()-1];
-    //for (int i = 0; i < roomList.getRoomList().size()-1; i++) {
-    //  roomIds[i] = roomList.getRoomList().get(i).getId()+"";
-    //}
-    //ObservableList<String> list = FXCollections.observableArrayList(roomIds);
-    //roomField.setItems(list);
-  }
 
+  @FXML
+  public void initialize() {
+    //Init Room Dropdown
+    roomList = new RoomList(); //Todo: getRoomList from file instead
+    roomField.getItems().removeAll(roomField.getItems());
+    for (int i = 0; i < roomList.getRoomList().size()-1; i++) {
+      roomField.getItems().add(roomList.getRoomList().get(i).getNumber());
+    }
+    roomField.getSelectionModel().select(roomList.getRoomList().get(0).getNumber());
+    //Init Type Dropdown
+    typeField.getItems().removeAll(typeField.getItems());
+    typeField.getItems().addAll("Mutual","Written");
+    typeField.getSelectionModel().select("Mutual");
+  }
   //Date Management
   public Date getDateStart(){
     LocalDate isoDate = dateField.getValue();
