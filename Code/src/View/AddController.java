@@ -58,7 +58,7 @@ public class AddController
     viewHandler.openView("landing");
   }
 
-  public void addExam(ActionEvent actionEvent) {
+  public void addExam(ActionEvent actionEvent) throws FileNotFoundException {
     //Todo: Examiners need their own list and then they are selected from the list, checked if available not just input
     String semesterS = semesterField.getText();
     String courseS = courseField.getText();
@@ -79,13 +79,14 @@ public class AddController
     dateInterval.getStartDate().setTime(startH,startM);
     dateInterval.getEndDate().setTime(endH,endM);
 
+    Room room = new Room(true,true,12,12,roomS);
+    Group group = new Group(groupS,20,Integer.parseInt(semesterS));
+    Examiner examiner = new Examiner(examinerS);
+    Course course = new Course(examiner,courseS);
+    Exam exam = new Exam(dateInterval,room,group,typeField.getSelectionModel().getSelectedItem().toString(),examiner,course);
 
-    System.out.println(groupS);
-    System.out.println(semesterS);
-    System.out.println(courseS);
-    System.out.println(examinerS);
-    System.out.println(examinerS2);
-    System.out.println(roomS);
+   ManageExamFiles files = new ManageExamFiles();
+   files.AddExamList(exam);
     //Todo: get selections from lists and then create a test Exam
   }
 
