@@ -2,101 +2,101 @@
 <ExamList>
 <Exam>
 <Semester>1</Semester>
-<Course>X</Course>  
-<Group>SDJ</Group>     
+<Course>Y</Course>  
+<Group>sa</Group>     
 <Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: bob<Examiner>
-</Examiners>     
-<Type>Mutual</Type>  
-<RoomNumber>0</RoomNumber>   
- <StartDate>
-<StartYear>11</StartYear>
-<StartMonth>12</StartMonth>
-<StartDay>31</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>19</EndYear>
-<EndMonth>12</EndMonth>
-<EndDay>31</EndDay>
-<EndHour>9</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>1</Semester>
-<Course>X</Course>  
-<Group>SDJ</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: bob<Examiner>
-</Examiners>     
-<Type>Mutual</Type>  
-<RoomNumber>0</RoomNumber>   
- <StartDate>
-<StartYear>11</StartYear>
-<StartMonth>12</StartMonth>
-<StartDay>31</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>19</EndYear>
-<EndMonth>12</EndMonth>
-<EndDay>31</EndDay>
-<EndHour>9</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>1</Semester>
-<Course>X</Course>  
-<Group>SDJ</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: bob<Examiner>
-</Examiners>     
-<Type>Mutual</Type>  
-<RoomNumber>0</RoomNumber>   
- <StartDate>
-<StartYear>11</StartYear>
-<StartMonth>12</StartMonth>
-<StartDay>31</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>19</EndYear>
-<EndMonth>12</EndMonth>
-<EndDay>31</EndDay>
-<EndHour>9</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>4</Semester>
-<Course>Z</Course>  
-<Group>RWD</Group>     
-<Examiners>
-<Teacher>Name: ba</Teacher>
-<Examiner>Name: trump<Examiner>
+<Teacher>Name: dsa</Teacher>
+<Examiner>Name: dsa<Examiner>
 </Examiners>     
 <Type>Written</Type>  
-<RoomNumber>4</RoomNumber>   
+<RoomNumber>2</RoomNumber>   
  <StartDate>
 <StartYear>2019</StartYear>
 <StartMonth>12</StartMonth>
-<StartDay>8</StartDay>
+<StartDay>12</StartDay>
 <StartHour>9</StartHour>
-<StartMinute>30</StartMinute>
+<StartMinute>0</StartMinute>
 </StartDate>   
  <EndDate>
 <EndYear>2019</EndYear>
 <EndMonth>12</EndMonth>
-<EndDay>5</EndDay>
-<EndHour>9</EndHour>
+<EndDay>13</EndDay>
+<EndHour>10</EndHour>
+<EndMinute>30</EndMinute>
+</EndDate>
+</Exam>
+<Exam>
+<Semester>1</Semester>
+<Course>Y</Course>  
+<Group>sa</Group>     
+<Examiners>
+<Teacher>Name: dsa</Teacher>
+<Examiner>Name: dsa<Examiner>
+</Examiners>     
+<Type>Written</Type>  
+<RoomNumber>2</RoomNumber>   
+ <StartDate>
+<StartYear>2019</StartYear>
+<StartMonth>12</StartMonth>
+<StartDay>12</StartDay>
+<StartHour>9</StartHour>
+<StartMinute>0</StartMinute>
+</StartDate>   
+ <EndDate>
+<EndYear>2019</EndYear>
+<EndMonth>12</EndMonth>
+<EndDay>13</EndDay>
+<EndHour>10</EndHour>
+<EndMinute>30</EndMinute>
+</EndDate>
+</Exam>
+<Exam>
+<Semester>1</Semester>
+<Course>Y</Course>  
+<Group>sa</Group>     
+<Examiners>
+<Teacher>Name: dsa</Teacher>
+<Examiner>Name: dsa<Examiner>
+</Examiners>     
+<Type>Written</Type>  
+<RoomNumber>2</RoomNumber>   
+ <StartDate>
+<StartYear>2019</StartYear>
+<StartMonth>12</StartMonth>
+<StartDay>12</StartDay>
+<StartHour>9</StartHour>
+<StartMinute>0</StartMinute>
+</StartDate>   
+ <EndDate>
+<EndYear>2019</EndYear>
+<EndMonth>12</EndMonth>
+<EndDay>13</EndDay>
+<EndHour>10</EndHour>
+<EndMinute>30</EndMinute>
+</EndDate>
+</Exam>
+<Exam>
+<Semester>1</Semester>
+<Course>Y</Course>  
+<Group>sa</Group>     
+<Examiners>
+<Teacher>Name: dsa</Teacher>
+<Examiner>Name: dsa<Examiner>
+</Examiners>     
+<Type>Written</Type>  
+<RoomNumber>2</RoomNumber>   
+ <StartDate>
+<StartYear>2019</StartYear>
+<StartMonth>12</StartMonth>
+<StartDay>12</StartDay>
+<StartHour>9</StartHour>
+<StartMinute>0</StartMinute>
+</StartDate>   
+ <EndDate>
+<EndYear>2019</EndYear>
+<EndMonth>12</EndMonth>
+<EndDay>13</EndDay>
+<EndHour>10</EndHour>
 <EndMinute>30</EndMinute>
 </EndDate>
 </Exam>
