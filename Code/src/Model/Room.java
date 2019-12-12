@@ -16,6 +16,7 @@ public class Room
    * @param tables number of tables
    * @param number number of room
    */
+
   public Room(boolean HDMI , boolean VGA, int chairs, int tables,String number){
     this.HDMI = HDMI;
     this.VGA = VGA;
