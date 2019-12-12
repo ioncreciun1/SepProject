@@ -50,6 +50,11 @@ public class Date
     return minute;
   }
 
+  public void setTime(int hour, int minute){
+    this.minute = minute;
+    this.hour = hour;
+  }
+
   public String getMonthName() {
     switch (month) {
       case 1:
