@@ -55,6 +55,7 @@ public class ManageExamFiles
   }
   public void ReadExamList() throws FileNotFoundException,NullPointerException
   {
+
   File file = new File("ExamList.txt");
     Scanner in = new Scanner(file);
     int semester = 0;
@@ -170,9 +171,9 @@ public class ManageExamFiles
         if(line.contains("</Exam>"))
         {
           DateInterval dateInterval = new DateInterval(new Date(StartYear,StartMonth,StartDay,StartHour,StartMinute),new Date(EndYear,EndMonth,EndDay,EndHour,EndMinute));
-          Room room = new Room(RoomNumber);
+          Room room = new Room(true,true,30,30,RoomNumber);
           Examiner teach = new Examiner(teacher);
-          Group group = new Group(groupName,20,1);
+          Group group = new Group(groupName,10,1);
           Examiner examiner = new Examiner(Examiner);
           Course course = new Course(teach,courseName);
           Exam exam = new Exam(dateInterval,room,group,type,examiner,course);

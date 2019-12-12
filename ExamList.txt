@@ -27,11 +27,11 @@
 </Exam>
 <Exam>
 <Semester>1</Semester>
-<Course>SDJ</Course>  
+<Course>SSE</Course>
 <Group>Y</Group>     
 <Examiners>
 <Teacher>Bob</Teacher>
-<Examiner>Wae<Examiner>
+<Examiner>SD<Examiner>
 </Examiners>     
 <Type>written</Type>  
 <RoomNumber>301.A</RoomNumber>   
@@ -43,7 +43,7 @@
 <StartMinute>30</StartMinute>
 </StartDate>   
  <EndDate>
-<EndYear>2000</EndYear>
+<EndYear>2010</EndYear>
 <EndMonth>1</EndMonth>
 <EndDay>10</EndDay>
 <EndHour>12</EndHour>

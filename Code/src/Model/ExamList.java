@@ -9,6 +9,7 @@ public class ExamList
 
 
   public void addExam(Exam exam){
+
     exams.add(exam);
   }
 
@@ -24,11 +25,20 @@ public class ExamList
    * @param date
    * @return
    */
-  public boolean isRoomTaken(Room room,DateInterval date)
+//  public boolean isRoomTaken(Room room,DateInterval date)
+//  {
+//    for(int i = 0;i<size();i++)
+//    {
+//      if(room.equals(exams.get(i).getRoom()) && ()
+//    }
+//    return false;
+//  }
+
+  public boolean isExaminerTaken(Examiner examiner,DateInterval dateInterval)
   {
-    for(int i = 0;i<size();i++)
+    for(int i=0;i<size();i++)
     {
-      //if(room.equals(exams.get(i).getRoom()) && ()
+      if(exams.get(i).getExaminer().equals(examiner) && (exams.get(i).getDateInterval().isBetween(dateInterval.getStartDate()) || exams.get(i).getDateInterval().isBetween(dateInterval.getEndDate()))) return true;
     }
     return false;
   }

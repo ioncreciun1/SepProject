@@ -24,7 +24,7 @@ public class ManageExamModelManager implements ManageExamModel
 
   @Override public void removeExam(Exam exam)
   {
-
+   list.removeExam(exam);
   }
 
   @Override public ExamList getAllExams()

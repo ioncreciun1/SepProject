@@ -6,7 +6,7 @@ public class Course
   private Examiner teacher;
 
   /**
-   * Contructor with 2 parameters that are initialize with method addExaminer
+   * Constructor with 2 parameters that are initialize with method addExaminer
    *
    * @param teacher
    * @param name

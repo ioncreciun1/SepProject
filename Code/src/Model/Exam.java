@@ -10,9 +10,9 @@ public class Exam
   private Course course;
 
   public Exam(DateInterval dateInterval,Room room, Group group, String type, Examiner examiner, Course course){
-    this.room = room;
+   setRoom(room);
     this.group = group;
-    this.type = type;
+    setType(type);
     this.examiner = examiner;
     this.dateInterval = dateInterval;
     this.course = course;
@@ -64,8 +64,6 @@ public class Exam
     if(isRoomSuitable(room))
     {this.room = room;}
   }
-
-
   /**
    * Check if number of students is equal or less than number of chairs in this room
    * @param room
@@ -73,7 +71,10 @@ public class Exam
    */
   public boolean isRoomSuitable(Room room)
   {
-    return room.getChairs() >= group.getNumberOfStudents();
+    //System.out.println(room.getChairs());
+    System.out.println(this.group);
+    return true;
+        //room.getChairs()>group.getNumberOfStudents();
   }
 
   public boolean equals(Object obj){

@@ -10,6 +10,16 @@ public class RoomList
     rooms.add(room);
   }
 
+  /**
+   *Get all Available Rooms in this Date Interval. If this room already is taken for exam in this date interval
+   *  or at least from one day(if exam is more than one day) then return false
+   * @param dateInterval Start date of Exam and End date of exam
+   * @return all available Rooms in this interval
+   */
+  public ArrayList<Room> getAllAvailableRooms(DateInterval dateInterval)
+  {
+    return null;
+  }
   public ArrayList<Room> getAllRoomsWithPort(String port){
     ArrayList<Room> rooms1 = new ArrayList<>();
     if (port.equals("HDMI")){
