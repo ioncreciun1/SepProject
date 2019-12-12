@@ -20,6 +20,12 @@ public class TestExam
     Exam testExam = new Exam(dateInterval, room, group, "written", teacher2,
         course);
 
+    ManageExamFiles file = new ManageExamFiles();
+    file.ReadExamList();
+    for(int i=0;i<file.getList().size();i++)
+    {
+      System.out.println(file.getList().get(i));
+    }
    // System.out.println(room);
    // System.out.println(testExam);
 

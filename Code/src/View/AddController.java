@@ -65,7 +65,7 @@ public class AddController
     String groupS = groupField.getText();
     String[] examiners = examinerField.getText().split(", ",2);
     String examinerS = examiners[0];
-    String examinerS2 = examiners[1];
+   // String examinerS2 = examiners[1];
     String roomS = roomField.getSelectionModel().getSelectedItem().toString();
     String[] timeStartS = timeStart.getText().split(":",2);
     int startH = Integer.parseInt(timeStartS[0]);
