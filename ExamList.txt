@@ -2,101 +2,51 @@
 <ExamList>
 <Exam>
 <Semester>1</Semester>
-<Course>Y</Course>  
-<Group>sa</Group>     
+<Course>SDJ</Course>  
+<Group>Y</Group>     
 <Examiners>
-<Teacher>Name: dsa</Teacher>
-<Examiner>Name: dsa<Examiner>
+<Teacher>Name: Name:</Teacher>
+<Examiner>Name: Wade<Examiner>
 </Examiners>     
 <Type>Written</Type>  
-<RoomNumber>2</RoomNumber>   
+<RoomNumber>301.A</RoomNumber>   
  <StartDate>
-<StartYear>2019</StartYear>
-<StartMonth>12</StartMonth>
-<StartDay>12</StartDay>
+<StartYear>9</StartYear>
+<StartMonth>1</StartMonth>
+<StartDay>31</StartDay>
 <StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
+<StartMinute>30</StartMinute>
 </StartDate>   
  <EndDate>
-<EndYear>2019</EndYear>
-<EndMonth>12</EndMonth>
-<EndDay>13</EndDay>
-<EndHour>10</EndHour>
+<EndYear>11</EndYear>
+<EndMonth>1</EndMonth>
+<EndDay>31</EndDay>
+<EndHour>12</EndHour>
 <EndMinute>30</EndMinute>
 </EndDate>
 </Exam>
 <Exam>
 <Semester>1</Semester>
-<Course>Y</Course>  
-<Group>sa</Group>     
+<Course>SDJ</Course>  
+<Group>Y</Group>     
 <Examiners>
-<Teacher>Name: dsa</Teacher>
-<Examiner>Name: dsa<Examiner>
+<Teacher>Name: Bob</Teacher>
+<Examiner>Name: Wade<Examiner>
 </Examiners>     
 <Type>Written</Type>  
-<RoomNumber>2</RoomNumber>   
+<RoomNumber>301.A</RoomNumber>   
  <StartDate>
-<StartYear>2019</StartYear>
-<StartMonth>12</StartMonth>
-<StartDay>12</StartDay>
+<StartYear>2000</StartYear>
+<StartMonth>1</StartMonth>
+<StartDay>9</StartDay>
 <StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
+<StartMinute>30</StartMinute>
 </StartDate>   
  <EndDate>
-<EndYear>2019</EndYear>
-<EndMonth>12</EndMonth>
-<EndDay>13</EndDay>
-<EndHour>10</EndHour>
-<EndMinute>30</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>1</Semester>
-<Course>Y</Course>  
-<Group>sa</Group>     
-<Examiners>
-<Teacher>Name: dsa</Teacher>
-<Examiner>Name: dsa<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>2</RoomNumber>   
- <StartDate>
-<StartYear>2019</StartYear>
-<StartMonth>12</StartMonth>
-<StartDay>12</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>2019</EndYear>
-<EndMonth>12</EndMonth>
-<EndDay>13</EndDay>
-<EndHour>10</EndHour>
-<EndMinute>30</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>1</Semester>
-<Course>Y</Course>  
-<Group>sa</Group>     
-<Examiners>
-<Teacher>Name: dsa</Teacher>
-<Examiner>Name: dsa<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>2</RoomNumber>   
- <StartDate>
-<StartYear>2019</StartYear>
-<StartMonth>12</StartMonth>
-<StartDay>12</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>2019</EndYear>
-<EndMonth>12</EndMonth>
-<EndDay>13</EndDay>
-<EndHour>10</EndHour>
+<EndYear>2000</EndYear>
+<EndMonth>1</EndMonth>
+<EndDay>11</EndDay>
+<EndHour>12</EndHour>
 <EndMinute>30</EndMinute>
 </EndDate>
 </Exam>

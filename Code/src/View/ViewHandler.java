@@ -82,7 +82,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxml));
         Region root = loader.load();
         addController = loader.getController();
-        addController.init(this,root);
+        addController.init(this,model,root);
       }
       catch (IOException e)
       {

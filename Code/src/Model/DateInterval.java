@@ -18,7 +18,7 @@ public class DateInterval
 
  public boolean isBetween(Date date)
  {
-   return (date1.isBefore(date) && date.isBefore(date1));
+   return (date1.isBefore(date) && date.isBefore(date2));
  }
 
   public  Date getStartDate(){

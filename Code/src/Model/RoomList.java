@@ -17,6 +17,8 @@ public class RoomList
    *  or at least from one day(if exam is more than one day) then return false
    * @param dateInterval Start date of Exam and End date of exam
    * @return all available Rooms in this interval
+   *
+   * WE HAVE TO GET ALL ROOMS FROM FILE AND AFTER THAT TO CHECK WHICH ONE ARE NOT IN THIS LIST AND RETURN THEM
    */
   public ArrayList<Room> getAllAvailableRooms(DateInterval dateInterval)
   {

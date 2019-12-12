@@ -27,7 +27,7 @@ public class LandingController
   private ExamListViewModel viewModel;
   public LandingController(){}
 
-  public void addExamPressed(ActionEvent event) throws FileNotFoundException
+  public void addExamPressed() throws FileNotFoundException
   {
     viewHandler.openView("add");
 

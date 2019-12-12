@@ -22,29 +22,29 @@ public class ManageExamFiles
     for(int i = 0; i<list.size();i++)
     {
     xml +="\n<Exam>";
-    xml +="\n<Semester>" + exam.getGroup().getSemester() + "</Semester>";
-    xml +="\n<Course>" + exam.getCourse().getCourseName() + "</Course>";
-    xml +="  \n<Group>" + exam.getGroup().getName() + "</Group>";
+    xml +="\n<Semester>" + list.get(i).getGroup().getSemester() + "</Semester>";
+    xml +="\n<Course>" +  list.get(i).getCourse().getCourseName() + "</Course>";
+    xml +="  \n<Group>" +  list.get(i).getGroup().getName() + "</Group>";
       xml += "     \n<Examiners>";
 //          xm+ testExam.getExaminer() + "/" + testExam.getCourse().getTeacher()
-      xml+= "\n<Teacher>" + exam.getCourse().getTeacher() + "</Teacher>";
-      xml+="\n<Examiner>"+ exam.getExaminer() + "<Examiner>";
+      xml+= "\n<Teacher>" +  list.get(i).getCourse().getTeacher() + "</Teacher>";
+      xml+="\n<Examiner>"+  list.get(i).getExaminer() + "<Examiner>";
     xml += "\n</Examiners>";
-      xml += "     \n<Type>"  + exam.getType()  + "</Type>";
-    xml += "  \n<RoomNumber>" + exam.getRoom().getNumber() + "</RoomNumber>";
+      xml += "     \n<Type>"  +  list.get(i).getType()  + "</Type>";
+    xml += "  \n<RoomNumber>" +  list.get(i).getRoom().getNumber() + "</RoomNumber>";
     xml += "   \n <StartDate>" ;
-    xml+="\n<StartYear>" + exam.getDateInterval().getStartDate().getYear() + "</StartYear>";
-      xml+="\n<StartMonth>" + exam.getDateInterval().getStartDate().getMonth() + "</StartMonth>";
-      xml+="\n<StartDay>" + exam.getDateInterval().getStartDate().getDay() + "</StartDay>";
-      xml+="\n<StartHour>" + exam.getDateInterval().getStartDate().getHour() + "</StartHour>";
-      xml+="\n<StartMinute>" + exam.getDateInterval().getStartDate().getMinute() + "</StartMinute>";
+    xml+="\n<StartYear>" +  list.get(i).getDateInterval().getStartDate().getYear() + "</StartYear>";
+      xml+="\n<StartMonth>" +  list.get(i).getDateInterval().getStartDate().getMonth() + "</StartMonth>";
+      xml+="\n<StartDay>" +  list.get(i).getDateInterval().getStartDate().getDay() + "</StartDay>";
+      xml+="\n<StartHour>" +  list.get(i).getDateInterval().getStartDate().getHour() + "</StartHour>";
+      xml+="\n<StartMinute>" +  list.get(i).getDateInterval().getStartDate().getMinute() + "</StartMinute>";
   xml       += "\n</StartDate>";
       xml += "   \n <EndDate>" ;
-      xml+="\n<EndYear>" + exam.getDateInterval().getEndDate().getYear() + "</EndYear>";
-      xml+="\n<EndMonth>" + exam.getDateInterval().getEndDate().getMonth() + "</EndMonth>";
-      xml+="\n<EndDay>" + exam.getDateInterval().getEndDate().getDay() + "</EndDay>";
-      xml+="\n<EndHour>" + exam.getDateInterval().getEndDate().getHour() + "</EndHour>";
-      xml+="\n<EndMinute>" + exam.getDateInterval().getEndDate().getMinute() + "</EndMinute>";
+      xml+="\n<EndYear>" +  list.get(i).getDateInterval().getEndDate().getYear() + "</EndYear>";
+      xml+="\n<EndMonth>" +  list.get(i).getDateInterval().getEndDate().getMonth() + "</EndMonth>";
+      xml+="\n<EndDay>" +  list.get(i).getDateInterval().getEndDate().getDay() + "</EndDay>";
+      xml+="\n<EndHour>" +  list.get(i).getDateInterval().getEndDate().getHour() + "</EndHour>";
+      xml+="\n<EndMinute>" +  list.get(i).getDateInterval().getEndDate().getMinute() + "</EndMinute>";
       xml       += "\n</EndDate>";
     xml +="\n</Exam>";
     }

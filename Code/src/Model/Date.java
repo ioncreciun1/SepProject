@@ -4,158 +4,192 @@ public class Date
 {
   private int day, month, year, hour, minute;
 
+  public Date(int day, int month, int year, int hour, int minute)
+  {
+  setHour(hour);
+   setMinute(minute);
+   setYear(year);
+   setMonth(month);
+   setDay(day);
 
-  public Date(int day, int month, int year, int hour, int minute) {
-    if(hour>24 || hour < 0)
-    {
-      this.hour = 0;
-    }
-    else {
-      this.hour=hour;
-    }
-    if(minute>60) this.minute=59;
-     else if(minute<0) this.minute=0;
-    else this.minute = minute;
-    if(day> this.numberOfDaysInMonth()) this.day=numberOfDaysInMonth();
-  else  this.day = day;
-    if (year < 0) {
-      year = -year;
-    }
-    this.year = year;
-    if (month < 1) {
-      month = 1;
-    } else if (month > 12) {
-      month = 12;
-    }
-    this.month = month;
+
+
   }
 
-  public int getDay() {
+
+
+  public int getDay()
+  {
     return day;
   }
 
-  public int getMonth() {
+  public int getMonth()
+  {
     return month;
   }
 
-  public int getYear() {
+  public int getYear()
+  {
     return year;
   }
 
-  public int getHour() {
+  public int getHour()
+  {
     return hour;
   }
 
-  public int getMinute() {
+  public int getMinute()
+  {
     return minute;
   }
 
-  public void setTime(int hour, int minute){
-    this.minute = minute;
-    this.hour = hour;
+  public void setTime(int hour, int minute)
+  {
+    setMinute(minute);
+    setHour(hour);
   }
 
-  public String getMonthName() {
-    switch (month) {
-      case 1:
-        return "January";
-      case 2:
-        return "February";
-      case 3:
-        return "March";
-      case 4:
-        return "April";
-      case 5:
-        return "May";
-      case 6:
-        return "June";
-      case 7:
-        return "July";
-      case 8:
-        return "August";
-      case 9:
-        return "September";
-      case 10:
-        return "October";
-      case 11:
-        return "November";
-      default:
-        return "December";
+  /**
+   * Method that check if parameter date is before another date
+   * @param other date
+   * @return true if parameter other is before another date
+   */
+  public boolean isBefore(Date other)
+  {
+    if (other.getYear() > getYear())
+    {
+      return true;
+    }
+    else if (other.getYear() < getYear())
+    {
+      return false;
+    }
+    else if (other.getMonth() > getMonth())
+    {
+      return true;
+    }
+    else if (other.getMonth() < getMonth())
+    {
+      return false;
+    }
+    else if (other.getDay() > getDay())
+    {
+      return true;
+    }
+    else if (other.getDay() < getDay())
+    {
+      return false;
+    }
+    else if (other.getHour() > getHour())
+    {
+      return true;
+    }
+    else if (other.getHour() < getHour())
+    {
+      return false;
+    }
+    else if (other.getMinute() > getMinute())
+    {
+      return true;
+    }
+    else if (other.getMinute() < getMinute())
+    {
+      return false;
+    }
+
+    else
+    {
+      return false;
     }
   }
 
-  public boolean isBefore(Date other) {
-    if (other.getYear() > getYear()) {
-      return true;
-    } else if (other.getYear() < getYear()) {
-      return false;
-    } else if (other.getMonth() > getMonth()) {
-      return true;
-    } else if (other.getMonth() < getMonth()) {
-      return false;
-    } else if (other.getDay() > getDay()) {
-      return true;
-    } else if (other.getDay() < getDay()) {
-      return false;
+  public void setMonth(int month)
+  {
+    if (month < 1)
+    {
+      this.month = 1;
     }
+    else if (month > 12)
+    {
+      this.month = 12;
+    }
+    else this.month = month;
+  }
 
+  public void setYear(int year)
+  {
+    if (year < 0)
+    {
+      this.year = -year;
+    }
+    else  this.year = year;
+  }
 
-    else {
-      return false;
+  public void setDay(int day)
+  {
+    if (day > this.numberOfDaysInMonth())
+      this.day = numberOfDaysInMonth();
+    else
+      this.day = day;
+  }
+
+  public void setMinute(int minute)
+  {
+    if (minute > 60)
+      this.minute = 59;
+    else if (minute < 0)
+      this.minute = 0;
+    else
+      this.minute = minute;
+  }
+
+  public void setHour(int hour)
+  {
+    if (hour > 24 || hour < 0)
+    {
+      this.hour = 0;
+    }
+    else
+    {
+      this.hour = hour;
     }
   }
 
-
-  public String toString() {
+  public String toString()
+  {
     String dayNew, monthNew;
-    if (day < 10) {
+    if (day < 10)
+    {
       dayNew = "0" + day;
-    } else {
+    }
+    else
+    {
       dayNew = "" + day;
     }
-    if (month < 10) {
+    if (month < 10)
+    {
       monthNew = "0" + month;
-    } else {
+    }
+    else
+    {
       monthNew = "" + month;
     }
-    return dayNew + "/" + monthNew + "/" + year + " hour="+getHour()+" minute="+getMinute();
+    return dayNew + "/" + monthNew + "/" + year + " hour=" + getHour()
+        + " minute=" + getMinute();
   }
 
-  public static int convertToMonthNumber(String monthName){
-    if (monthName.equals("December")){
-      return 12;
-    }else if (monthName.equals("February")){
-      return 2;
-    }else if (monthName.equals("March")){
-      return 3;
-    }else if (monthName.equals("April")){
-      return 4;
-    }else if (monthName.equals("May")){
-      return 5;
-    }else if (monthName.equals("June")){
-      return 6;
-    }else if (monthName.equals("July")){
-      return 7;
-    }else if (monthName.equals("August")){
-      return 8;
-    }else if (monthName.equals("September")){
-      return 9;
-    }else if (monthName.equals("October")){
-      return 10;
-    }else if (monthName.equals("November")){
-      return 11;
-    }else{
-      return 1;
-    }
-  }
-  public boolean isLeapYear(){
+  public boolean isLeapYear()
+  {
     return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
   }
 
-  public int numberOfDaysInMonth(){
-    switch(month){
+  public int numberOfDaysInMonth()
+  {
+    switch (month)
+    {
       case 2:
-        if(isLeapYear()){
+        if (isLeapYear())
+        {
           return 29;
         }
         return 28;
@@ -164,39 +198,56 @@ public class Date
       case 9:
       case 11:
         return 30;
-      default: return 31;
+      default:
+        return 31;
     }
   }
 
-
-  public boolean equals(Object obj) {
+  public boolean equals(Object obj)
+  {
     if (!(obj instanceof Date))
       return false;
-    Date other = (Date)obj;
-    return (this.getDay() == other.getDay()) && (this.getMonth() == other.getMonth()) && (this.getYear() == other.getYear()) && this.getHour() == other.getHour() && this.getMinute() == other.getMinute();
+    Date other = (Date) obj;
+    return (this.getDay() == other.getDay()) && (this.getMonth() == other
+        .getMonth()) && (this.getYear() == other.getYear())
+        && this.getHour() == other.getHour() && this.getMinute() == other
+        .getMinute();
   }
 
-  public int hoursBetween(Date other){
+  public int hoursBetween(Date other)
+  {
     int days;
     int hours;
-    if(getDay() != other.getDay()){
-      if(getDay() < other.getDay()){
-        days = other.getDay()-getDay();
-        hours = other.getHour()-getHour();
-      }else {
-        days = getDay()-other.getDay();
-        hours = getHour()-other.getHour();
+    if (getDay() != other.getDay())
+    {
+      if (getDay() < other.getDay())
+      {
+        days = other.getDay() - getDay();
+        hours = other.getHour() - getHour();
       }
-      if(days != 0){
-        return hours+(24*days);
-      } else {
+      else
+      {
+        days = getDay() - other.getDay();
+        hours = getHour() - other.getHour();
+      }
+      if (days != 0)
+      {
+        return hours + (24 * days);
+      }
+      else
+      {
         return hours;
       }
-    } else {
-      if(getHour() < other.getHour()){
-        return other.getHour()-getHour();
-      }else {
-        return getHour()-other.getHour();
+    }
+    else
+    {
+      if (getHour() < other.getHour())
+      {
+        return other.getHour() - getHour();
+      }
+      else
+      {
+        return getHour() - other.getHour();
       }
     }
   }

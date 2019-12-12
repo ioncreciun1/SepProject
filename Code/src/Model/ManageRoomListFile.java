@@ -51,21 +51,13 @@ public class ManageRoomListFile {
                 line = line.replace("<HDMI>", "");
                 line = line.replace("</HDMI>", "");
                 String hdmiS = line.trim();
-                if (hdmiS.equals("true")){
-                    HDMI = true;
-                } else {
-                    HDMI = false;
-                }
+                HDMI = hdmiS.equals("true");
             }
             else if(line.contains("<VGA>")) {
                 line = line.replace("<VGA>", "");
                 line = line.replace("</VGA>", "");
                 String vgaS = line.trim();
-                if (vgaS.equals("true")){
-                    VGA = true;
-                } else {
-                    VGA = false;
-                }
+                VGA = vgaS.equals("true");
             }
             else if(line.contains("<Chairs>"))
             {

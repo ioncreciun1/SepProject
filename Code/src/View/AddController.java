@@ -29,13 +29,15 @@ public class AddController
   public DatePicker dateField2;
   public ComboBox roomField;
   private Region root;
+  private ManageExamModel model;
   private ViewHandler viewHandler;
   public AddController(){}
 
-  public void init(ViewHandler viewHandler,  Region root)
+  public void init(ViewHandler viewHandler, ManageExamModel model ,Region root)
   {
     this.viewHandler = viewHandler;
     this.root = root;
+    this.model = model;
     reset();
   }
 
@@ -48,7 +50,7 @@ public class AddController
     return root;
   }
 
-  public void cancel(ActionEvent event) throws FileNotFoundException
+  public void cancel() throws FileNotFoundException
   {
     viewHandler.openView("landing");
   }
@@ -61,7 +63,7 @@ public class AddController
     String groupS = groupField.getText();
     String[] examiners = examinerField.getText().split(", ",2);
     String examinerS = examiners[0];
-   // String examinerS2 = examiners[1];
+    String examinerS2 = examiners[1];
     String roomS = roomField.getSelectionModel().getSelectedItem().toString();
     String typeS = typeField.getSelectionModel().getSelectedItem().toString();
     String[] timeStartS = timeStart.getText().split(":",2);
@@ -105,8 +107,8 @@ public class AddController
     for (int i = 0; i < roomList.getRoomList().size()-1; i++) {
       roomField.getItems().add(roomList.getRoomList().get(i).getNumber());
     }
-    roomField.getSelectionModel().select(roomList.getRoomList().get(0).getNumber());
-    //Init Type Dropdown
+roomField.getSelectionModel().select(roomList.getRoomList().get(0).getNumber());
+    ///Init Type Dropdown
     typeField.getItems().removeAll(typeField.getItems());
     typeField.getItems().addAll("Mutual","Written");
     typeField.getSelectionModel().select("Mutual");
@@ -115,7 +117,7 @@ public class AddController
   public Date getDateStart(){
     LocalDate isoDate = dateField.getValue();
     ChronoLocalDate chronoDate =
-            ((isoDate != null) ? dateField.getChronology().date(isoDate) : null);
+        ((isoDate != null) ? dateField.getChronology().date(isoDate) : null);
     System.err.println("Selected date: " + chronoDate);
     String[] split = chronoDate.toString().split("-");
     int year = Integer.parseInt(split[0]);
@@ -127,7 +129,7 @@ public class AddController
   public Date getDateEnd(){
     LocalDate isoDate = dateField2.getValue();
     ChronoLocalDate chronoDate =
-            ((isoDate != null) ? dateField2.getChronology().date(isoDate) : null);
+        ((isoDate != null) ? dateField2.getChronology().date(isoDate) : null);
     System.err.println("Selected date: " + chronoDate);
     String[] split = chronoDate.toString().split("-");
     int year = Integer.parseInt(split[0]);
