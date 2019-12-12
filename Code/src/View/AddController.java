@@ -1,20 +1,15 @@
 package View;
 
 import Model.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import javafx.util.StringConverter;
 
-import javax.swing.*;
 import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
-import java.util.ArrayList;
 
 import java.io.FileNotFoundException;
 
@@ -59,6 +54,7 @@ public class AddController
   }
 
   public void addExam(ActionEvent actionEvent) throws FileNotFoundException {
+    boolean validated = false;
     //Todo: Examiners need their own list and then they are selected from the list, checked if available not just input
     String semesterS = semesterField.getText();
     String courseS = courseField.getText();
@@ -67,6 +63,7 @@ public class AddController
     String examinerS = examiners[0];
     String examinerS2 = examiners[1];
     String roomS = roomField.getSelectionModel().getSelectedItem().toString();
+    String typeS = typeField.getSelectionModel().getSelectedItem().toString();
     String[] timeStartS = timeStart.getText().split(":",2);
     int startH = Integer.parseInt(timeStartS[0]);
     int startM = Integer.parseInt(timeStartS[1]);
@@ -74,19 +71,27 @@ public class AddController
     int endH = Integer.parseInt(timeEndS[0]);
     int endM = Integer.parseInt(timeEndS[1]);
 
+    //VALIDATION
+    if (semesterS.length() == 1){
+
+    }else {
+      System.out.println("INVALID INPUT");
+    }
 
     DateInterval dateInterval = getDateInterval();
     dateInterval.getStartDate().setTime(startH,startM);
     dateInterval.getEndDate().setTime(endH,endM);
+    if (validated) {
+      Room room = new Room(true, true, 12, 12, roomS);
+      Group group = new Group(groupS, 20, Integer.parseInt(semesterS));
+      Examiner examiner = new Examiner(examinerS);
+      Examiner examiner1 = new Examiner(examinerS2);
+      Course course = new Course(examiner1, courseS);
+      Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
 
-    Room room = new Room(true,true,12,12,roomS);
-    Group group = new Group(groupS,20,Integer.parseInt(semesterS));
-    Examiner examiner = new Examiner(examinerS);
-    Course course = new Course(examiner,courseS);
-    Exam exam = new Exam(dateInterval,room,group,typeField.getSelectionModel().getSelectedItem().toString(),examiner,course);
-
-   ManageExamFiles files = new ManageExamFiles();
-   files.AddExamList(exam);
+      ManageExamFiles files = new ManageExamFiles();
+      files.AddExamList(exam);
+    }
     //Todo: get selections from lists and then create a test Exam
   }
 

@@ -8,10 +8,6 @@ public class RoomList
 {
   private ArrayList<Room> rooms = new ArrayList<>();
 
-  public RoomList(){
-    addRooms(); // Adds Pre-Set Rooms
-  }
-
   public void addRoom(Room room){
     rooms.add(room);
   }
@@ -31,18 +27,6 @@ public class RoomList
       }
     }
       return rooms1;
-  }
-
-  public void addRooms(){
-    int roomId = 0;
-    for (int i = 0; i < 40; i++) {
-        boolean randHDMI = new Random().nextBoolean();
-        boolean randVGI = new Random().nextBoolean();
-        int randST = new Random().nextInt(40) + 20;
-        Room room = new Room(randHDMI,randVGI,randST,randST,roomId+"");
-        roomId++;
-        rooms.add(room);
-    }
   }
 
   public ArrayList<Room> getRoomList(){
