@@ -12,6 +12,52 @@ public class ManageExamModelManager implements ManageExamModel
     return list.getExam(index);
   }
 
+  @Override public ArrayList<Course> getAllCourses(Group group)
+  {
+    return null;
+  }
+
+  @Override public boolean isCourseTaken(Course course, Group group)
+  {
+    return false;
+  }
+
+  @Override public boolean isExaminerTaken(Examiner examiner,
+      DateInterval dateInterval)
+  {
+    return false;
+  }
+
+  @Override public ArrayList<Group> getGroupsBySemester(int semester)
+  {
+    return null;
+  }
+
+  @Override public Group getGroup(int index)
+  {
+    return null;
+  }
+
+  @Override public Group getGroup(Group group)
+  {
+    return null;
+  }
+
+  @Override public void addGroup(Group group)
+  {
+
+  }
+
+  @Override public boolean isRoomTaken(Room room, DateInterval date)
+  {
+    return false;
+  }
+
+  @Override public void validateExam(Exam exam)
+  {
+
+  }
+
   @Override public void addExam(Exam exam)
   {
 
@@ -52,13 +98,8 @@ public class ManageExamModelManager implements ManageExamModel
     return null;
   }
 
-  @Override public void removeExaminer()
-  {
-
-  }
-
-  public void ManageExamModelManager()
-  {
-
-  }
+//  @Override public void removeExaminer()
+//  {
+//
+//  }
 }

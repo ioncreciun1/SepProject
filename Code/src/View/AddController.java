@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
@@ -22,6 +23,7 @@ public class AddController
   public TextField timeEnd;
   public TextField timeStart;
   public ComboBox typeField;
+  public Label errorLabel;
   private RoomList roomList;
 
   public TextField semesterField;
@@ -63,7 +65,7 @@ public class AddController
     String groupS = groupField.getText();
     String[] examiners = examinerField.getText().split(", ",2);
     String examinerS = examiners[0];
-    String examinerS2 = examiners[1];
+   // String examinerS2 = examiners[1];
     String roomS = roomField.getSelectionModel().getSelectedItem().toString();
     String typeS = typeField.getSelectionModel().getSelectedItem().toString();
     String[] timeStartS = timeStart.getText().split(":",2);
@@ -73,41 +75,50 @@ public class AddController
     int endH = Integer.parseInt(timeEndS[0]);
     int endM = Integer.parseInt(timeEndS[1]);
 
-    //VALIDATION
-    if (semesterS.length() == 1){
+//    //VALIDATION
+//    if (semesterS.length() == 1){
+//
+//    }else {
+//      System.out.println("INVALID INPUT");
+//    }
 
-    }else {
-      System.out.println("INVALID INPUT");
-    }
-
-    DateInterval dateInterval = getDateInterval();
-    dateInterval.getStartDate().setTime(startH,startM);
-    dateInterval.getEndDate().setTime(endH,endM);
-    if (validated) {
-      Room room = new Room(true, true, 12, 12, roomS);
+    try {
+      DateInterval dateInterval = getDateInterval();
+      dateInterval.getStartDate().setTime(startH,startM);
+      dateInterval.getEndDate().setTime(endH,endM);
+      Room room = new Room(true, true, 120, 12, roomS);
       Group group = new Group(groupS, 20, Integer.parseInt(semesterS));
       Examiner examiner = new Examiner(examinerS);
-      Examiner examiner1 = new Examiner(examinerS2);
-      Course course = new Course(examiner1, courseS);
+     // Examiner examiner1 = new Examiner(examinerS2);
+      Course course = new Course(examiner, courseS);
       Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
-
+      System.out.println(exam);
       ManageExamFiles files = new ManageExamFiles();
       files.AddExamList(exam);
     }
+    catch(Exception e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
+    viewHandler.openView("landing");
     //Todo: get selections from lists and then create a test Exam
   }
 
   //Room Management
 
   @FXML
-  public void initialize() {
+  public void initialize() throws FileNotFoundException
+  {
     //Init Room Dropdown
     roomList = new RoomList(); //Todo: getRoomList from file instead
     roomField.getItems().removeAll(roomField.getItems());
-    for (int i = 0; i < roomList.getRoomList().size()-1; i++) {
-      roomField.getItems().add(roomList.getRoomList().get(i).getNumber());
+    ManageExamFiles files = new ManageExamFiles();
+    files.readRoomList();
+    for (int i = 0; i < files.getRoomList().getRoomList().size(); i++) {
+      roomField.getItems().add(files.getRoomList().getRoomList().get(i).getNumber());
     }
-roomField.getSelectionModel().select(roomList.getRoomList().get(0).getNumber());
+
+roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).getNumber());
     ///Init Type Dropdown
     typeField.getItems().removeAll(typeField.getItems());
     typeField.getItems().addAll("Mutual","Written");

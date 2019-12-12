@@ -32,6 +32,8 @@ public class LandingController
     viewHandler.openView("add");
 
   }
+  //BIG FUCKING SHIT
+  //TABLE DON'T UPDATE AFTER ADDING A GRADE
   public void init(ViewHandler viewHandler,ManageExamModel model,  Region root)
       throws FileNotFoundException
   {
@@ -39,7 +41,6 @@ public class LandingController
     this.root = root;
     this.model=model;
     this.viewModel = new ExamListViewModel(model);
-
 semesterColumn.setCellValueFactory( cellDate -> cellDate.getValue().semesterPropertyProperty());
 courseColumn.setCellValueFactory(cellData -> cellData.getValue().coursePropertyProperty());
 groupColumn.setCellValueFactory(cellData -> cellData.getValue().groupPropertyProperty());
@@ -55,6 +56,7 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
   {
     errorLabel.setText("");
     tableViewExam.setItems(viewModel.update());
+
   }
 
   public Region getRoot()

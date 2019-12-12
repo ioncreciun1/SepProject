@@ -239,7 +239,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <Label alignment="CENTER" maxWidth="950.0" minWidth="950.0" prefHeight="26.0" prefWidth="950.0" text="Error Label" textFill="RED">
+            <Label alignment="CENTER" maxWidth="950.0" minWidth="950.0" prefHeight="26.0" prefWidth="950.0" text="Error Label" fx:id="errorLabel" textFill="RED">
                <font>
                   <Font size="18.0" />
                </font>

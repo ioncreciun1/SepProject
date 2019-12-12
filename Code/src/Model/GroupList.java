@@ -8,6 +8,18 @@ public class GroupList
   public GroupList () {
     list = new ArrayList<>();
   }
+  public ArrayList<Course> getAllCourses(Group group) {
+    return getGroup(group).getCourses();
+  }
+
+  /**
+   * ///////////////////////////////////////HAVE TO IMPLEMENT
+   * @return
+   */
+
+  public ArrayList<Group> getGroupsBySemester(int semester) {
+    return null;
+  }
   public void addGroup(Group group){
     list.add(group);
   }

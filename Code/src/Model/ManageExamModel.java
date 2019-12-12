@@ -14,6 +14,14 @@ public interface  ManageExamModel
   public void addRoom();
   public ArrayList<Room> getAllAvailableRooms();
   public ArrayList<Room> GetAllRoomsWithPort(String port);
-  public void removeExaminer();
-
+ // public void removeExaminer();
+  public ArrayList<Course> getAllCourses(Group group);
+  public boolean isRoomTaken(Room room,DateInterval date);
+  public boolean isExaminerTaken(Examiner examiner,DateInterval dateInterval);
+  public boolean isCourseTaken(Course course,Group group);
+  public void validateExam(Exam exam);
+  public void addGroup(Group group);
+  public Group getGroup(int index);
+  public Group getGroup(Group group);
+  public ArrayList<Group> getGroupsBySemester(int semester);
 }

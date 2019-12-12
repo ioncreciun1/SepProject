@@ -25,6 +25,15 @@ setSemester(semester);
 
 }
 
+public void addCourse(Course course)
+{
+  courses.add(course);
+}
+  public void setCourses(ArrayList<Course> courses)
+  {
+    this.courses = courses;
+  }
+
   /**
    *
    * @return number of students

@@ -5,14 +5,14 @@
 <VGA>false</VGA>
 <Chairs>28</Chairs>
 <Tables>28</Tables>
-<RoomID>0</RoomID>
+<RoomID>301.A</RoomID>
 </Room>
 <Room>
 <HDMI>true</HDMI>
 <VGA>false</VGA>
 <Chairs>42</Chairs>
 <Tables>42</Tables>
-<RoomID>1</RoomID>
+<RoomID>301.B</RoomID>
 </Room>
 <Room>
 <HDMI>false</HDMI>

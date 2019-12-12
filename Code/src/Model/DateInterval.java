@@ -6,8 +6,11 @@ public class DateInterval
   private Date date2;
 
   public DateInterval(Date date1, Date date2){
-    this.date1 = date1;
-    this.date2 = date2;
+    if(date1.isBefore(date2))
+    {
+      this.date1 = date1;
+      this.date2 = date2;
+    }
   }
 
   /**
