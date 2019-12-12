@@ -1,9 +1,11 @@
 package Model;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public interface  ManageExamModel
 {
+  public Exam getExam(int index) throws FileNotFoundException;
   public void addExam(Exam exam);
   public Exam getExam(Exam exam);
   public void removeExam(Exam exam);

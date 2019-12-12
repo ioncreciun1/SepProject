@@ -18,6 +18,8 @@ import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
 
+import java.io.FileNotFoundException;
+
 public class AddController
 {
   public TextField courseField;
@@ -52,7 +54,7 @@ public class AddController
     return root;
   }
 
-  public void cancel(ActionEvent event)
+  public void cancel(ActionEvent event) throws FileNotFoundException
   {
     viewHandler.openView("landing");
   }

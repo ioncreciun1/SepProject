@@ -7,21 +7,25 @@ public class Course
 
   /**
    * Contructor with 2 parameters that are initialize with method addExaminer
+   *
    * @param teacher
    * @param name
    */
-  public Course(Examiner teacher, String name){
-    addExaminer(teacher,name);
+  public Course(Examiner teacher, String name)
+  {
+    addExaminer(teacher, name);
   }
 
   /**
    * Set Teacher and course name
    * If course Name is null or it is bigger than 4 then value are not assigned
+   *
    * @param teacher Teacher for this course
-   * @param name course name
+   * @param name    course name
    */
-  public void addExaminer(Examiner teacher, String  name){
-    if (name !=null || name.length()<5)
+  public void addExaminer(Examiner teacher, String name)
+  {
+    if (!name.equals("") && name.length() < 5)
     {
       this.name = name;
       this.teacher = teacher;
@@ -30,24 +34,29 @@ public class Course
 
   /**
    * Getter for course name
+   *
    * @return course name as String
    */
-  public String getCourseName(){
+  public String getCourseName()
+  {
     return name;
   }
 
-  public Examiner getTeacher(){
+  public Examiner getTeacher()
+  {
     return teacher;
   }
 
-public String toString(){
+  public String toString()
+  {
     return "Course: " + name + "\n" + "Teacher: " + teacher;
-}
+  }
 
-public boolean equals(Object obj){
+  public boolean equals(Object obj)
+  {
     if (!(obj instanceof Course))
       return false;
-    Course other = (Course)obj;
+    Course other = (Course) obj;
     return this.name.equals(other.name) && this.teacher.equals(other.teacher);
-}
+  }
 }

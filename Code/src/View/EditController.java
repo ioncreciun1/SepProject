@@ -3,6 +3,8 @@ package View;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Region;
 
+import java.io.FileNotFoundException;
+
 public class EditController
 {
   private Region root;
@@ -23,7 +25,7 @@ public class EditController
     return root;
   }
 
-  public void cancel(ActionEvent event)
+  public void cancel(ActionEvent event) throws FileNotFoundException
   {
     viewHandler.openView("landing");
   }

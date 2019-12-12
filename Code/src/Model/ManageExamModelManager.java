@@ -1,9 +1,17 @@
 package Model;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class ManageExamModelManager implements ManageExamModel
 {
+  private ExamList list;
+  public  ManageExamModelManager(){list = new ExamList();}
+  @Override public Exam getExam(int index)
+  {
+    return list.getExam(index);
+  }
+
   @Override public void addExam(Exam exam)
   {
 

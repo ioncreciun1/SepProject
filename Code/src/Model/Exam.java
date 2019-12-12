@@ -4,21 +4,28 @@ public class Exam
 {
   private String type;
   private Group group;
-  private Examiner examiners;
+  private Examiner examiner;
   private Room room;
   private DateInterval dateInterval;
+  private Course course;
 
-  public Exam(DateInterval dateInterval,Room room, Group group, String type, Examiner examiners){
+  public Exam(DateInterval dateInterval,Room room, Group group, String type, Examiner examiner, Course course){
     this.room = room;
     this.group = group;
     this.type = type;
-    this.examiners = examiners;
+    this.examiner = examiner;
     this.dateInterval = dateInterval;
+    this.course = course;
   }
 
   public DateInterval getDateInterval()
   {
     return dateInterval;
+  }
+
+  public Course getCourse()
+  {
+    return course;
   }
 
   public Room getRoom()
@@ -34,20 +41,39 @@ public class Exam
     return type;
   }
 
-  public Examiner getExaminers()
+  public Examiner getExaminer()
   {
-    return examiners;
+    return examiner;
   }
 
-
+  /**
+   *Setter for exam type. Exam type can be only Written or Oral, other values are not accepted
+   * @param type type of Exam
+   */
   public void setType(String type)
   {
-
-    this.type = type;
+  if(type.equals("Oral") || type.equals("Written"))
+   { this.type = type;}
   }
 
-  public void setRooms(){
-    this.room = room;
+  /**
+   * Setter for room. check if Room is suitable
+   * @param room
+   */
+  public void setRoom(Room room){
+    if(isRoomSuitable(room))
+    {this.room = room;}
+  }
+
+
+  /**
+   * Check if number of students is equal or less than number of chairs in this room
+   * @param room
+   * @return true if room is suitable
+   */
+  public boolean isRoomSuitable(Room room)
+  {
+    return room.getChairs() >= group.getNumberOfStudents();
   }
 
   public boolean equals(Object obj){
@@ -55,10 +81,10 @@ public class Exam
       return false;
     Exam other = (Exam) obj;
     return this.dateInterval.equals(other.dateInterval) && this.type.equals(other.type) && this.group.equals(other.group) &&
-        this.examiners.equals(other.examiners) && this.room.equals(other.room);
+        this.examiner.equals(other.examiner) && this.room.equals(other.room);
   }
 
   public String toString(){
-    return "type="+getType()+" group="+getGroup().toString()+" examiners="+getExaminers().toString()+" room="+getRoom().toString() + " dateInterval="+getDateInterval().toString();
+    return "type="+getType()+" group="+getGroup().toString()+" examiners="+getExaminer()+" room="+getRoom().toString() + " dateInterval="+getDateInterval().toString();
   }
 }

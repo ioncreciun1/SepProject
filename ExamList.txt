@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"standalone="no"?>
+<ExamList>
+<Exam>
+<Semester>1</Semester>
+<Course>SDJ</Course>  
+<Group>Y</Group>     
+<Examiners>
+<Teacher>Bob</Teacher>
+<Examiner>Wae<Examiner>
+</Examiners>     
+<Type>written</Type>  
+<RoomNumber>301.A</RoomNumber>   
+ <StartDate>
+<StartYear>2000</StartYear>
+<StartMonth>1</StartMonth>
+<StartDay>12</StartDay>
+<StartHour>9</StartHour>
+<StartMinute>30</StartMinute>
+</StartDate>   
+ <EndDate>
+<EndYear>2000</EndYear>
+<EndMonth>1</EndMonth>
+<EndDay>10</EndDay>
+<EndHour>12</EndHour>
+<EndMinute>30</EndMinute>
+</EndDate>
+</Exam>
+<Exam>
+<Semester>1</Semester>
+<Course>SDJ</Course>  
+<Group>Y</Group>     
+<Examiners>
+<Teacher>Bob</Teacher>
+<Examiner>Wae<Examiner>
+</Examiners>     
+<Type>written</Type>  
+<RoomNumber>301.A</RoomNumber>   
+ <StartDate>
+<StartYear>2000</StartYear>
+<StartMonth>1</StartMonth>
+<StartDay>12</StartDay>
+<StartHour>9</StartHour>
+<StartMinute>30</StartMinute>
+</StartDate>   
+ <EndDate>
+<EndYear>2000</EndYear>
+<EndMonth>1</EndMonth>
+<EndDay>10</EndDay>
+<EndHour>12</EndHour>
+<EndMinute>30</EndMinute>
+</EndDate>
+</Exam>
+<ExamList>

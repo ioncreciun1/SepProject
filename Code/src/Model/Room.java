@@ -6,18 +6,43 @@ public class Room
   private int chairs;
   private boolean VGA;
   private int tables;
-  private int id;
+  private String number;
 
-  public Room(boolean HDMI , boolean VGA, int chairs, int tables, int id){
+  /**
+   * Five Parameter Constructor
+   * @param HDMI for port HDMI
+   * @param VGA port VGA for computer
+   * @param chairs number of chairs
+   * @param tables number of tables
+   * @param number number of room
+   */
+  public Room(boolean HDMI , boolean VGA, int chairs, int tables,String number){
     this.HDMI = HDMI;
     this.VGA = VGA;
     this.chairs = chairs;
     this.tables  = tables;
-    this.id = id;
+    this.number = number;
   }
 
-  public int getId() {
-    return id;
+  /**
+   * One parameter constructor with number of room
+   * @param number
+   */
+  public Room (String number) {
+    this.number = number;
+    this.tables = 0;
+    this.VGA = false;
+    this.HDMI = false;
+    this.chairs = 0;
+  }
+
+  /**
+   * Getter for number
+   * @return number of room
+   */
+  public String getNumber()
+  {
+    return number;
   }
 
   /**
@@ -29,11 +54,19 @@ public class Room
     return HDMI;
   }
 
+  /**
+   * Setter for HDMI
+   * @param HDMI set true if there is HDMI port in this Room
+   */
   public void setHDMI(boolean HDMI)
   {
     this.HDMI = HDMI;
   }
 
+  /**
+   * Getter for chairs
+   * @return number of chairs
+   */
   public int getChairs()
   {
     return chairs;
@@ -58,7 +91,10 @@ public class Room
     return VGA;
   }
 
-
+  /**
+   * Seter for VGA port
+   * @param VGA for port VGA
+   */
   public void setVGA(boolean VGA)
   {
     this.VGA = VGA;
@@ -81,6 +117,12 @@ public class Room
   {
     if(tables < 0) this.tables = -tables;
    else  this.tables = tables;
+  }
+  public boolean equals(Object obj)
+  {
+    if(!(obj instanceof Room)) return false;
+    Room other = (Room) obj;
+    return this.chairs == other.chairs && this.HDMI == other.HDMI && this.VGA == other.VGA && this.tables == other.tables && this.number.equals(other.number);
   }
 
   @Override public String toString()

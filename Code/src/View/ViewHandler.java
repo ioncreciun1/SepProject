@@ -1,10 +1,12 @@
 package View;
 
+import Model.ManageExamModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ViewHandler
@@ -14,19 +16,19 @@ public class ViewHandler
   private AddController addController;
   private EditController editController;
   private LandingController landingController;
-  //private ManageExamListModel model
+  private ManageExamModel model;
 
   public ViewHandler ()
   {
 
     this.currentScene = new Scene(new Region());
   }
-  public void start(Stage primaryStage)
+  public void start(Stage primaryStage) throws FileNotFoundException
   {
     this.primaryStage = primaryStage;
     openView("landing");
   }
-  public void openView(String id)
+  public void openView(String id) throws FileNotFoundException
   {
     Region root = null;
     switch (id)
@@ -50,8 +52,8 @@ public class ViewHandler
     primaryStage.show();
   }
 
-  private Region landingView(String fxml)
-{
+  private Region landingView(String fxml) throws FileNotFoundException
+  {
   if(landingController == null)
   {
     try {
@@ -59,7 +61,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource(fxml));
       Region root = loader.load();
       landingController = loader.getController();
-      landingController.init(this,root);
+      landingController.init(this,model,root);
     }
     catch (IOException e)
     {

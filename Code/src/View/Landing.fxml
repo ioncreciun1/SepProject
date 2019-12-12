@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LandingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LandingController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0">
          <children>
@@ -58,16 +57,16 @@
                   </VBox>
                   <VBox prefHeight="550.0" prefWidth="722.0">
                      <children>
-                        <TableView prefHeight="524.0" prefWidth="721.0">
+                        <TableView fx:id="tableViewExam" prefHeight="524.0" prefWidth="721.0">
                           <columns>
-                            <TableColumn prefWidth="58.0" text="Semester" />
-                            <TableColumn prefWidth="95.0" text="Course" />
-                              <TableColumn prefWidth="44.0" text="Group" />
-                              <TableColumn prefWidth="105.0" text="Examiners" />
-                              <TableColumn prefWidth="95.0" text="Type" />
-                              <TableColumn prefWidth="85.0" text="Room" />
-                              <TableColumn prefWidth="120.0" text="Date/Time Start" />
-                              <TableColumn prefWidth="120.0" text="Date/Time End" />
+                            <TableColumn fx:id="semesterColumn" prefWidth="58.0" text="Semester" />
+                            <TableColumn fx:id="courseColumn" prefWidth="95.0" text="Course" />
+                              <TableColumn fx:id="groupColumn" prefWidth="44.0" text="Group" />
+                              <TableColumn fx:id="ExaminersColumn" prefWidth="105.0" text="Examiners" />
+                              <TableColumn fx:id="typeColumn" prefWidth="95.0" text="Type" />
+                              <TableColumn fx:id="roomColumn" prefWidth="85.0" text="Room" />
+                              <TableColumn fx:id="startTimeColumn" prefWidth="120.0" text="Date/Time Start" />
+                              <TableColumn fx:id="endTimeColumn" prefWidth="120.0" text="Date/Time End" />
                           </columns>
                            <VBox.margin>
                               <Insets right="5.0" top="5.0" />

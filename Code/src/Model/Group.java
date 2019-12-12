@@ -13,7 +13,6 @@ private int semester;
    * @param name name of Group
    * @param numberOfStudents
    * @param semester
-
    */
   public Group(String name, int numberOfStudents , int semester){
   this.name = name;

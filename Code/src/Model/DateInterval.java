@@ -10,6 +10,17 @@ public class DateInterval
     this.date2 = date2;
   }
 
+  /**
+   * if parameter date is between StartDate and End date return true, otherwise return false
+   * @param date specific date
+   * @return true or false
+   */
+
+ public boolean isBetween(Date date)
+ {
+   return false;
+ }
+
   public  Date getStartDate(){
     return date1;
   }
