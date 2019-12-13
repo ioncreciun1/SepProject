@@ -105,51 +105,34 @@ public class Date
 
   public void setMonth(int month)
   {
-    if (month < 1)
-    {
-      this.month = 1;
-    }
-    else if (month > 12)
-    {
-      this.month = 12;
-    }
-    else this.month = month;
+    if(month > 0 && month < 12) this.month = month;
   }
 
   public void setYear(int year)
   {
-    if (year < 0)
+    if (year > 0)
     {
-      this.year = -year;
+      this.year = year;
     }
-    else  this.year = year;
   }
 
   public void setDay(int day)
   {
-    if (day > this.numberOfDaysInMonth())
-      this.day = numberOfDaysInMonth();
-    else
+    if (day <= this.numberOfDaysInMonth() && day>0)
       this.day = day;
+
   }
 
   public void setMinute(int minute)
   {
-    if (minute > 60)
-      this.minute = 59;
-    else if (minute < 0)
-      this.minute = 0;
-    else
+    if(minute > 0 && minute <60) {
       this.minute = minute;
+    }
   }
 
   public void setHour(int hour)
   {
-    if (hour > 24 || hour < 0)
-    {
-      this.hour = 0;
-    }
-    else
+    if (hour < 24 && hour > 0)
     {
       this.hour = hour;
     }

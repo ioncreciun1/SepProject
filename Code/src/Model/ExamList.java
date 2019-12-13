@@ -54,8 +54,10 @@ public class ExamList
   {
     for(int i=0;i<size();i++)
     {
+      if(exams.get(i).getGroup().equals(group) )
+      {
 
-      //if(exams.get(i).getExaminer().equals(examiner) && (exams.get(i).getDateInterval().isBetween(dateInterval.getStartDate()) || exams.get(i).getDateInterval().isBetween(dateInterval.getEndDate()))) return true;
+      }
     }
     return false;
   }
@@ -72,4 +74,14 @@ public class ExamList
     }
     return null;
   }
+
+  public void removeExam(String course){
+  for(int i = 0; i < exams.size(); i++)
+  {
+    if(exams.get(i).getCourse().equals(course))
+    {
+      exams.remove(exams.get(i));
+    }
+  }
+}
 }

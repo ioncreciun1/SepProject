@@ -17,8 +17,8 @@ import java.io.FileNotFoundException;
 public class AddController
 {
 
-  public TextField courseField;
-  public TextField groupField;
+  public ComboBox courseField;
+  public ComboBox groupField;
   public TextField examinerField;
   public TextField timeEnd;
   public TextField timeStart;
@@ -26,10 +26,10 @@ public class AddController
   public Label errorLabel;
   private RoomList roomList;
 
-  public TextField semesterField;
+  public ComboBox<String> semesterField;
   public DatePicker dateField;
   public DatePicker dateField2;
-  public ComboBox roomField;
+  public ComboBox<String> roomField;
   private Region root;
   private ManageExamModel model;
   private ViewHandler viewHandler;
@@ -44,7 +44,7 @@ public class AddController
   }
 
   public void reset() {
-
+    errorLabel.setText("");
   }
 
   public Region getRoot()
@@ -60,9 +60,9 @@ public class AddController
   public void addExam(ActionEvent actionEvent) throws FileNotFoundException {
     boolean validated = false;
     //Todo: Examiners need their own list and then they are selected from the list, checked if available not just input
-    String semesterS = semesterField.getText();
-    String courseS = courseField.getText();
-    String groupS = groupField.getText();
+    int semesterS = Integer.parseInt(semesterField.getSelectionModel().getSelectedItem().toString());
+    String courseS = courseField.getSelectionModel().getSelectedItem().toString();
+    String groupS = groupField.getSelectionModel().getSelectedItem().toString();
     String[] examiners = examinerField.getText().split(", ",2);
     String examinerS = examiners[0];
    // String examinerS2 = examiners[1];
@@ -75,55 +75,61 @@ public class AddController
     int endH = Integer.parseInt(timeEndS[0]);
     int endM = Integer.parseInt(timeEndS[1]);
 
-//    //VALIDATION
-//    if (semesterS.length() == 1){
-//
-//    }else {
-//      System.out.println("INVALID INPUT");
-//    }
 
-    try {
+
+
       DateInterval dateInterval = getDateInterval();
       dateInterval.getStartDate().setTime(startH,startM);
       dateInterval.getEndDate().setTime(endH,endM);
       Room room = new Room(true, true, 120, 12, roomS);
-      Group group = new Group(groupS, 20, Integer.parseInt(semesterS));
+      Group group = new Group(groupS, 30, semesterS);
       Examiner examiner = new Examiner(examinerS);
-     // Examiner examiner1 = new Examiner(examinerS2);
       Course course = new Course(examiner, courseS);
       Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
-      System.out.println(exam);
       ManageExamFiles files = new ManageExamFiles();
       files.AddExamList(exam);
-    }
-    catch(Exception e)
-    {
-      errorLabel.setText(e.getMessage());
-    }
+
     viewHandler.openView("landing");
     //Todo: get selections from lists and then create a test Exam
   }
 
   //Room Management
 
+
   @FXML
   public void initialize() throws FileNotFoundException
   {
     //Init Room Dropdown
+
     roomList = new RoomList(); //Todo: getRoomList from file instead
     roomField.getItems().removeAll(roomField.getItems());
     ManageExamFiles files = new ManageExamFiles();
     files.readRoomList();
     for (int i = 0; i < files.getRoomList().getRoomList().size(); i++) {
+      //if(model.isRoomTaken(files.getRoomList().getRoomList().get(i),dateInterval))
       roomField.getItems().add(files.getRoomList().getRoomList().get(i).getNumber());
     }
+
 
 roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).getNumber());
     ///Init Type Dropdown
     typeField.getItems().removeAll(typeField.getItems());
-    typeField.getItems().addAll("Mutual","Written");
-    typeField.getSelectionModel().select("Mutual");
+    typeField.getItems().addAll("Oral","Written");
+    typeField.getSelectionModel().select("Oral");
+    //Init Semester
+    semesterField.getItems().removeAll(semesterField.getItems());
+    semesterField.getItems().addAll("1","2","3","4","5","6","7");
+    semesterField.getSelectionModel().select("3");
+    //Init Group
+    groupField.getItems().removeAll(groupField.getItems());
+    groupField.getItems().addAll("X","Y","Z");
+    groupField.getSelectionModel().select("X");
+    //Init Course
+    courseField.getItems().removeAll(courseField.getItems());
+    courseField.getItems().addAll("SDJ1","SSE1","SEP1","MSE1","RWD1");
+    courseField.getSelectionModel().select("SDJ1");
   }
+
   //Date Management
   public Date getDateStart(){
     LocalDate isoDate = dateField.getValue();
@@ -151,5 +157,31 @@ roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).ge
 
   public DateInterval getDateInterval(){
     return new DateInterval(getDateStart(),getDateEnd());
+  }
+
+  public void refreshCourse(ActionEvent event)
+  {
+    if(semesterField.getSelectionModel().getSelectedItem().toString().equals("1")) {
+      courseField.getItems().removeAll(courseField.getItems());
+      courseField.getItems().addAll("SDJ1","SSE1","SEP1","MSE1","RWD1");
+      courseField.getSelectionModel().select("SDJ1");
+    }
+    else if(semesterField.getSelectionModel().getSelectedItem().toString().equals("2"))
+    {
+      courseField.getItems().clear();
+      courseField.getItems().removeAll(courseField.getItems());
+      courseField.getItems().addAll("SDJ2","SWE1","DBS1","SEP2");
+      courseField.getSelectionModel().select("SDJ2");
+    }
+    else if(semesterField.getSelectionModel().getSelectedItem().toString().equals("3")) {
+      courseField.getItems().removeAll(courseField.getItems());
+      courseField.getItems().addAll("SDJ3","CAO1","DNP1","SEP3","NES1");
+      courseField.getSelectionModel().select("SDJ3");
+    }
+    else if(semesterField.getSelectionModel().getSelectedItem().toString().equals("4")) {
+      courseField.getItems().removeAll(courseField.getItems());
+      courseField.getItems().addAll("AND1","ESW1","DAI1","SEP4","INO1");
+      courseField.getSelectionModel().select("AND1");
+    }
   }
 }

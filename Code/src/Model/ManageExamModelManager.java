@@ -14,12 +14,27 @@ public class ManageExamModelManager implements ManageExamModel
 
   @Override public ArrayList<Course> getAllCourses(Group group)
   {
-    return null;
+    ArrayList<Course> courses= new ArrayList<>();
+    for(int i = 0;i<list.size();i++)
+    {
+      if(group.equals(list.getExam(i).getGroup()))
+      {
+        for(int j = 0;j<list.getExam(i).getGroup().getCourses().size();j++) {
+          courses.add(list.getExam(i).getGroup().getCourses().get(i));
+        }
+      }
+    }
+    return courses;
   }
 
   @Override public boolean isCourseTaken(Course course, Group group)
   {
     return false;
+  }
+
+  @Override public void validateExam(Exam exam)
+  {
+
   }
 
   @Override public boolean isExaminerTaken(Examiner examiner,
@@ -53,34 +68,34 @@ public class ManageExamModelManager implements ManageExamModel
     return false;
   }
 
-  @Override public void validateExam(Exam exam)
-  {
-
-  }
-
   @Override public void addExam(Exam exam)
   {
-
+list.addExam(exam);
   }
 
   @Override public Exam getExam(Exam exam)
   {
-    return null;
+    return list.getExam(exam);
   }
 
-  @Override public void removeExam(Exam exam)
+  @Override public void removeExam(String course)
   {
-   list.removeExam(exam);
+   list.removeExam(course);
   }
 
   @Override public ExamList getAllExams()
   {
+    return list;
+  }
+
+  @Override public Exam getExamsByDateInterval(DateInterval dateInterval)
+  {
     return null;
   }
 
-  @Override public Exam getExamsByDate(Date date)
+  @Override public void ValidateSemester(int semester)
   {
-    return null;
+    if(semester < 7 && semester > 0) throw new IllegalArgumentException("Insert semester again");
   }
 
   @Override public void addRoom()
@@ -97,9 +112,4 @@ public class ManageExamModelManager implements ManageExamModel
   {
     return null;
   }
-
-//  @Override public void removeExaminer()
-//  {
-//
-//  }
 }

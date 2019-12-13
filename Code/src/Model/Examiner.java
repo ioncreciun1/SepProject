@@ -9,7 +9,7 @@ public class Examiner
    * @param name the name of Examiner
    */
   public Examiner(String name){
-    if(!name.equals(""))this.name = name;
+   setName(name);
   }
 
   /**
@@ -23,6 +23,11 @@ public class Examiner
   public String toString()
   {
     return "Name: " + name;
+  }
+
+  public void setName(String name)
+  {
+      this.name = name;
   }
 
   /**

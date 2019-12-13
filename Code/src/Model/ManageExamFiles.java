@@ -10,6 +10,44 @@ public class ManageExamFiles
 {
  private ArrayList<Exam> list = new ArrayList<>();
  private RoomList roomList = new RoomList();
+ private GroupList groupList = new GroupList();
+ public void readGroupList() throws FileNotFoundException
+ {
+  File file = new File("GroupList.txt");
+   Scanner in = new Scanner(file);
+   String name = "";
+   int numberOfStudents = 1;
+   int semester = 1;
+   while(in.hasNext())
+   {
+     String line = in.next();
+     if(line.contains("<Name>")) {
+       line = line.replace("<Name>", "");
+       line = line.replace("</Name>", "");
+       name = line.trim();
+     }
+     else if(line.contains("<NumberOfStudents>")) {
+       line = line.replace("<NumberOfStudents>", "");
+       line = line.replace("</NumberOfStudents>", "");
+       String vgaS = line.trim();
+       numberOfStudents = Integer.parseInt(line.trim());
+     }
+     else if(line.contains("<Semester>"))
+     {
+       line = line.replace("<Semester>", "");
+       line = line.replace("</Semester>", "");
+       semester = Integer.parseInt(line.trim());
+     }
+
+     if(line.contains("</Group>"))
+     {
+       Group group = new Group(name,numberOfStudents,semester);
+       groupList.addGroup(group);
+     }
+
+   }
+
+ }
   public void addRoomToList(Room room) throws FileNotFoundException
   {
     readRoomList();
@@ -88,6 +126,8 @@ public class ManageExamFiles
   }
   public void AddExamList(Exam exam) throws FileNotFoundException
   {
+    //readRoomList();
+    //if(roomList.getRoomList().get(i).getNumber().equals())
     ReadExamList();
     list.add(exam);
     String fileName = "ExamList.txt";
@@ -108,7 +148,7 @@ public class ManageExamFiles
       xml+="\n<Examiner>"+  list.get(i).getExaminer() + "<Examiner>";
     xml += "\n</Examiners>";
       xml += "     \n<Type>"  +  list.get(i).getType()  + "</Type>";
-    xml += "  \n<RoomNumber>" +  list.get(i).getRoom().getNumber() + "</RoomNumber>";
+    xml += "  \n<RoomNumber>" + "301.A" + "</RoomNumber>";
     xml += "   \n <StartDate>" ;
     xml+="\n<StartYear>" +  list.get(i).getDateInterval().getStartDate().getYear() + "</StartYear>";
       xml+="\n<StartMonth>" +  list.get(i).getDateInterval().getStartDate().getMonth() + "</StartMonth>";
@@ -250,7 +290,7 @@ public class ManageExamFiles
           DateInterval dateInterval = new DateInterval(new Date(StartYear,StartMonth,StartDay,StartHour,StartMinute),new Date(EndYear,EndMonth,EndDay,EndHour,EndMinute));
           Room room = new Room(true,true,30,30,RoomNumber);
           Examiner teach = new Examiner(teacher);
-          Group group = new Group(groupName,10,1);
+          Group group = new Group(groupName,10,semester);
           Examiner examiner = new Examiner(Examiner);
           Course course = new Course(teach,courseName);
           Exam exam = new Exam(dateInterval,room,group,type,examiner,course);

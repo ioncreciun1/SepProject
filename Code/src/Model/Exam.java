@@ -1,5 +1,7 @@
 package Model;
 
+import java.io.FileNotFoundException;
+
 public class Exam
 {
   private String type;
@@ -12,11 +14,13 @@ public class Exam
   public Exam(DateInterval dateInterval, Room room, Group group, String type,
       Examiner examiner, Course course)
   {
-    if(room.getChairs() >= group.getNumberOfStudents()) setRoom(room);
+    if(room.getChairs() >= group.getNumberOfStudents()) // && isRoomTaken(room,dateInterval))
+      setRoom(room);
     this.group = group;
     setType(type);
 
-    this.examiner = examiner;
+   //if(isExaminerTaken(examiner,dateInterval))
+     this.examiner = examiner;
     this.dateInterval = dateInterval;
     this.course = course;
   }
@@ -59,6 +63,10 @@ public class Exam
     }
   }
 
+
+
+
+
   public Examiner getExaminer()
   {
     return examiner;
@@ -70,6 +78,7 @@ public class Exam
    */
   public void setRoom(Room room)
   {
+
       this.room = room;
 
   }
@@ -87,8 +96,10 @@ public class Exam
 
   public String toString()
   {
-    return "type=" + getType() + " group=" + getGroup().toString()
-        + " examiners=" + getExaminer() + " room=" + getRoom().toString()
+    return "type=" + getType()
+        + " group=" + getGroup().toString()
+        + " examiners=" + getExaminer() +
+        " room=" + getRoom().toString()
         + " dateInterval=" + getDateInterval().toString();
   }
 }

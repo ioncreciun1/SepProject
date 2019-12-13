@@ -3,7 +3,7 @@
 <Room>
 <HDMI>true</HDMI>
 <VGA>false</VGA>
-<Chairs>28</Chairs>
+<Chairs>40</Chairs>
 <Tables>28</Tables>
 <RoomID>301.A</RoomID>
 </Room>
@@ -24,7 +24,7 @@
 <Room>
 <HDMI>false</HDMI>
 <VGA>true</VGA>
-<Chairs>24</Chairs>
+<Chairs>40</Chairs>
 <Tables>24</Tables>
 <RoomID>3</RoomID>
 </Room>

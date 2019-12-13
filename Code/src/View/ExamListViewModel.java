@@ -18,7 +18,8 @@ public class ExamListViewModel
   {
     this.model=model;
     this.files = new ManageExamFiles();
-    files.ReadExamList();
+  files.ReadExamList();
+    System.out.println("I am here");
     list= FXCollections.observableArrayList();
   }
 
@@ -31,6 +32,7 @@ public class ExamListViewModel
     public ObservableList<ExamViewModel> update() throws FileNotFoundException,NullPointerException
   {
     ArrayList<Exam> exams = new ArrayList<>();
+  list.clear();
     System.out.println(files.getList().size());
     for(int i = 0;i<files.getList().size();i++)
     {
@@ -43,4 +45,15 @@ public class ExamListViewModel
     }
     return list;
   }
+
+  public void remove(String course){
+    for(int i = 0; i < list.size(); i++)
+    {
+      if(list.get(i).coursePropertyProperty().get().equals(course))
+      {
+        list.remove(list.get(i));
+      }
+    }
+  }
+
 }

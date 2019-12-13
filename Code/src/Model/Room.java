@@ -31,10 +31,10 @@ public class Room
    */
   public Room (String number) {
     this.number = number;
-    this.tables = 0;
+    this.tables = 1;
     this.VGA = false;
     this.HDMI = false;
-    this.chairs = 0;
+    this.chairs = 1;
   }
 
   /**
@@ -74,13 +74,12 @@ public class Room
   }
 
   /**
-   * if number is negative it converts to a positive one
+   * if number of chairs is bigger than zero assign it
    * @param chairs number of chairs in a room
    */
   public void setChairs(int chairs)
   {
-    if(chairs<0) this.chairs = -chairs;
-     else this.chairs = chairs;
+    if(chairs> 0 ) this.chairs = chairs;
   }
 
   /**
@@ -116,8 +115,7 @@ public class Room
    */
   public void setTables(int tables)
   {
-    if(tables < 0) this.tables = -tables;
-   else  this.tables = tables;
+if(tables > 0) this.tables = tables;
   }
   public boolean equals(Object obj)
   {

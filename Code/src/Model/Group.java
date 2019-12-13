@@ -10,9 +10,7 @@ private int semester;
 private ArrayList<Course> courses;
 
   /**
-   *Three parameter Constructor: If number of students is negative then convert to positive.
-   * If semester is negative convert to positive,
-   * else if Semester is bigger than seven then set it to seven
+   *Three parameter Constructor
    * @param name name of Group
    * @param numberOfStudents
    * @param semester
@@ -22,6 +20,7 @@ private ArrayList<Course> courses;
   this.courses = new ArrayList<>();
 setNumberOfStudents(numberOfStudents);
 setSemester(semester);
+
 
 }
 
@@ -63,33 +62,21 @@ public  ArrayList<Course> getCourses() {
 }
 
   /**
-   * setting semester. Negative semester is converting to positive, Semester bigger than seven si set to seven
-   * If semester is equal to zero then it is set to one
-   * //ADD SOMETHING MORE
+   * setting semester. If semester is from 1 to seven then we assign it
    * @param semester the semester
    */
   public void setSemester(int semester)
   {
-    if(semester<0 && this.semester>-8) this.semester = -semester;
-    else if(semester>7) this.semester = 7;
-    else if(semester == 0) this.semester = 1;
-    else if (semester>-7  && semester < 0) {
-      this.semester = 7;
-    }
-    else if(semester > 0  && semester<7)
-    {
-      this.semester=semester;
-    }
+    if(semester > 0 && semester <=7)
+    {this.semester = semester; }
   }
 
   /**
-   *  Setting number of Students. Negative number is converting to positive else if number of students = 0 set it to 1
+   *  Setting number of Students. IF number of students bigger than zero we assign this number
    * @param numberOfStudents number of Students
    */
   public void setNumberOfStudents(int numberOfStudents){
-  if(numberOfStudents<0) this.numberOfStudents = -numberOfStudents;
-  else if(numberOfStudents == 0) this.numberOfStudents = 1;
-  else this.numberOfStudents = numberOfStudents;
+  if(numberOfStudents > 0) this.numberOfStudents = numberOfStudents;
 }
 
 public boolean equals(Object obj){

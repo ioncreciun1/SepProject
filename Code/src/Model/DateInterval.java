@@ -5,6 +5,11 @@ public class DateInterval
   private Date date1;
   private Date date2;
 
+  /**
+   * Two parameter Constructor, Check if date1 is before date2
+   * @param date1 startDate
+   * @param date2 endDate
+   */
   public DateInterval(Date date1, Date date2){
     if(date1.isBefore(date2))
     {

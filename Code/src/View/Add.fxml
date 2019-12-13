@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="550.0" maxWidth="950.0" minHeight="550.0" minWidth="950.0" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
+<AnchorPane maxHeight="560.0" maxWidth="970.0" minHeight="550.0" minWidth="950.0" prefHeight="590.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
    <children>
       <VBox maxHeight="950.0" maxWidth="950.0" minHeight="550.0" minWidth="950.0" prefHeight="550.0" prefWidth="950.0">
          <children>
@@ -47,10 +47,11 @@
                                  <HBox.margin>
                                     <Insets left="270.0" />
                                  </HBox.margin></Label>
-                              <TextField fx:id="semesterField" prefHeight="20.0" prefWidth="200.0">
+                              <ComboBox fx:id="semesterField" onAction="#refreshCourse" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="100.0" />
-                                 </HBox.margin></TextField>
+                                 </HBox.margin>
+                              </ComboBox>
                            </children>
                            <opaqueInsets>
                               <Insets />
@@ -66,11 +67,11 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="courseField" prefHeight="20.0" prefWidth="200.0">
+                              <ComboBox fx:id="groupField" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="100.0" />
                                  </HBox.margin>
-                              </TextField>
+                              </ComboBox>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutY="161.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
@@ -83,11 +84,11 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="groupField" prefHeight="20.0" prefWidth="200.0">
+                              <ComboBox fx:id="courseField" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="100.0" />
                                  </HBox.margin>
-                              </TextField>
+                              </ComboBox>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutY="241.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
@@ -118,23 +119,6 @@
                                  </HBox.margin>
                               </Label>
                               <ComboBox fx:id="typeField" prefHeight="25.0" prefWidth="200.0">
-                                 <HBox.margin>
-                                    <Insets left="100.0" />
-                                 </HBox.margin>
-                              </ComboBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutY="401.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
-                           <children>
-                              <Label prefHeight="50.0" prefWidth="140.0" text="Room">
-                                 <font>
-                                    <Font size="30.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="270.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <ComboBox fx:id="roomField" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="100.0" />
                                  </HBox.margin>
@@ -209,6 +193,23 @@
                               </TextField>
                            </children>
                         </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutY="401.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="140.0" text="Room">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="270.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="roomField" prefHeight="25.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                           </children>
+                        </HBox>
                      </children>
                   </AnchorPane>
                </content>
@@ -239,7 +240,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <Label alignment="CENTER" maxWidth="950.0" minWidth="950.0" prefHeight="26.0" prefWidth="950.0" text="Error Label" fx:id="errorLabel" textFill="RED">
+            <Label fx:id="errorLabel" alignment="CENTER" maxWidth="950.0" minWidth="950.0" prefHeight="26.0" prefWidth="950.0" text="Error Label" textFill="RED">
                <font>
                   <Font size="18.0" />
                </font>

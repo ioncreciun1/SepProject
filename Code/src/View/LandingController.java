@@ -2,12 +2,12 @@ package View;
 
 import Model.ManageExamModel;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
 import java.io.FileNotFoundException;
+import java.util.Optional;
 
 public class LandingController
 {
@@ -40,7 +40,7 @@ public class LandingController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model=model;
-    this.viewModel = new ExamListViewModel(model);
+
 semesterColumn.setCellValueFactory( cellDate -> cellDate.getValue().semesterPropertyProperty());
 courseColumn.setCellValueFactory(cellData -> cellData.getValue().coursePropertyProperty());
 groupColumn.setCellValueFactory(cellData -> cellData.getValue().groupPropertyProperty());
@@ -54,6 +54,8 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
   }
   public void reset() throws FileNotFoundException
   {
+    this.viewModel = new ExamListViewModel(model);
+    System.out.println("I am now here");
     errorLabel.setText("");
     tableViewExam.setItems(viewModel.update());
 
@@ -63,8 +65,46 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
   {
     return root;
   }
-  public void removeExamPressed(ActionEvent event)
+
+  @FXML private void removeExamPressed()
   {
+    errorLabel.setText("");
+    try
+    {
+      ExamViewModel selectedItem = tableViewExam.getSelectionModel()
+          .getSelectedItem();
+      boolean remove = confirmation();
+      if (remove)
+      {
+        viewModel.remove(selectedItem.coursePropertyProperty().get());
+        tableViewExam.getSelectionModel().clearSelection();
+        model.removeExam(selectedItem.coursePropertyProperty().get());
+
+
+      }
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText("Item not found: " + e.getMessage());
+    }
+  }
+
+  private boolean confirmation()
+  {
+    int index = tableViewExam.getSelectionModel().getSelectedIndex();
+    ExamViewModel selectedItem = tableViewExam.getItems().get(index);
+    if (index < 0 || index >= tableViewExam.getItems().size())
+    {
+      return false;
+    }
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText(
+        "Remove exam: " + selectedItem.coursePropertyProperty().get() + selectedItem.semesterPropertyProperty().get()
+            + "-" + selectedItem.groupPropertyProperty().get() + ", "
+            + selectedItem.typePropertyProperty().get() + "?");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
 
   public void editExamPressed(ActionEvent event) throws FileNotFoundException

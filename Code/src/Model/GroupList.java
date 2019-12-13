@@ -20,6 +20,9 @@ public class GroupList
   public ArrayList<Group> getGroupsBySemester(int semester) {
     return null;
   }
+
+
+
   public void addGroup(Group group){
     list.add(group);
   }
