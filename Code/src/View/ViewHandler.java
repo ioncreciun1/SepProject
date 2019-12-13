@@ -1,6 +1,7 @@
 package View;
 
 import Model.ManageExamModel;
+import Model.ManageExamModelManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -18,9 +19,9 @@ public class ViewHandler
   private LandingController landingController;
   private ManageExamModel model;
 
-  public ViewHandler ()
+  public ViewHandler (ManageExamModel model)
   {
-
+    this.model=model;
     this.currentScene = new Scene(new Region());
   }
   public void start(Stage primaryStage) throws FileNotFoundException

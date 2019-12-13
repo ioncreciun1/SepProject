@@ -11,13 +11,22 @@ public class ManageExamFiles
  private ArrayList<Exam> list = new ArrayList<>();
  private RoomList roomList = new RoomList();
  private GroupList groupList = new GroupList();
- public void readGroupList() throws FileNotFoundException
+
+  public GroupList getGroupList()
+  {
+    return groupList;
+  }
+
+  public void readGroupList() throws FileNotFoundException
  {
   File file = new File("GroupList.txt");
    Scanner in = new Scanner(file);
    String name = "";
    int numberOfStudents = 1;
    int semester = 1;
+   String courseName = "";
+   String teacherName="";
+   ArrayList<Course> courses = new ArrayList<>();
    while(in.hasNext())
    {
      String line = in.next();
@@ -38,10 +47,29 @@ public class ManageExamFiles
        line = line.replace("</Semester>", "");
        semester = Integer.parseInt(line.trim());
      }
-
+     else if(line.contains("<CourseName>"))
+     {
+       line = line.replace("<CourseName>", "");
+       line = line.replace("</CourseName>", "");
+      courseName = line.trim();
+     }
+     else if(line.contains("<Teacher>"))
+     {
+       line = line.replace("<Teacher>", "");
+       line = line.replace("</Teacher>", "");
+       teacherName = line.trim();
+     }
+     if(line.contains("</Course>"))
+     {
+       courses.add(new Course(new Examiner(teacherName),courseName));
+     }
      if(line.contains("</Group>"))
      {
        Group group = new Group(name,numberOfStudents,semester);
+       for(int i=0;i<courses.size();i++)
+       {
+         group.addCourse(courses.get(i));
+       }
        groupList.addGroup(group);
      }
 
@@ -124,6 +152,20 @@ public class ManageExamFiles
     }
 
   }
+  public void removeExam(String course) throws FileNotFoundException
+  {
+    ReadExamList();
+    for(int i=0;i<list.size();i++)
+    {
+      if(list.get(i).getCourse().getCourseName().equals(course))
+      {
+        System.out.println("I am here");
+        list.remove(i);
+      }
+    }
+    System.out.println(list.size());
+
+  }
   public void AddExamList(Exam exam) throws FileNotFoundException
   {
     //readRoomList();
@@ -143,21 +185,22 @@ public class ManageExamFiles
     xml +="\n<Course>" +  list.get(i).getCourse().getCourseName() + "</Course>";
     xml +="  \n<Group>" +  list.get(i).getGroup().getName() + "</Group>";
       xml += "     \n<Examiners>";
-//          xm+ testExam.getExaminer() + "/" + testExam.getCourse().getTeacher()
-      xml+= "\n<Teacher>" +  list.get(i).getCourse().getTeacher() + "</Teacher>";
+      xml+= "\n<Teacher>" +  list.get(i).getCourse().getTeacher().getName() + "</Teacher>";
       xml+="\n<Examiner>"+  list.get(i).getExaminer() + "<Examiner>";
     xml += "\n</Examiners>";
       xml += "     \n<Type>"  +  list.get(i).getType()  + "</Type>";
     xml += "  \n<RoomNumber>" + "301.A" + "</RoomNumber>";
     xml += "   \n <StartDate>" ;
-    xml+="\n<StartYear>" +  list.get(i).getDateInterval().getStartDate().getYear() + "</StartYear>";
+    //list.get(i).getDateInterval().getStartDate().getYear()
+    xml+="\n<StartYear>" + 2019  + "</StartYear>";
       xml+="\n<StartMonth>" +  list.get(i).getDateInterval().getStartDate().getMonth() + "</StartMonth>";
       xml+="\n<StartDay>" +  list.get(i).getDateInterval().getStartDate().getDay() + "</StartDay>";
       xml+="\n<StartHour>" +  list.get(i).getDateInterval().getStartDate().getHour() + "</StartHour>";
       xml+="\n<StartMinute>" +  list.get(i).getDateInterval().getStartDate().getMinute() + "</StartMinute>";
   xml       += "\n</StartDate>";
       xml += "   \n <EndDate>" ;
-      xml+="\n<EndYear>" +  list.get(i).getDateInterval().getEndDate().getYear() + "</EndYear>";
+      //list.get(i).getDateInterval().getEndDate().getYear()
+      xml+="\n<EndYear>" +  2019 + "</EndYear>";
       xml+="\n<EndMonth>" +  list.get(i).getDateInterval().getEndDate().getMonth() + "</EndMonth>";
       xml+="\n<EndDay>" +  list.get(i).getDateInterval().getEndDate().getDay() + "</EndDay>";
       xml+="\n<EndHour>" +  list.get(i).getDateInterval().getEndDate().getHour() + "</EndHour>";
@@ -287,9 +330,11 @@ public class ManageExamFiles
         }
         if(line.contains("</Exam>"))
         {
-          DateInterval dateInterval = new DateInterval(new Date(StartYear,StartMonth,StartDay,StartHour,StartMinute),new Date(EndYear,EndMonth,EndDay,EndHour,EndMinute));
+          DateInterval dateInterval = new DateInterval(new Date(StartDay,StartMonth,StartYear,StartHour,StartMinute),new Date(EndDay,EndMonth,EndYear,EndHour,EndMinute));
+          //Find this room by roomNumber and add It
           Room room = new Room(true,true,30,30,RoomNumber);
           Examiner teach = new Examiner(teacher);
+          //Find group by group Name
           Group group = new Group(groupName,10,semester);
           Examiner examiner = new Examiner(Examiner);
           Course course = new Course(teach,courseName);

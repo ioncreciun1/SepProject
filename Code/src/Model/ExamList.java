@@ -81,6 +81,7 @@ public class ExamList
     if(exams.get(i).getCourse().equals(course))
     {
       exams.remove(exams.get(i));
+
     }
   }
 }

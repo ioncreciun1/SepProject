@@ -1,5 +1,7 @@
 package View;
 
+import Model.Course;
+import Model.ManageExamFiles;
 import Model.ManageExamModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,6 +70,7 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
 
   @FXML private void removeExamPressed()
   {
+    ManageExamFiles file = new ManageExamFiles();
     errorLabel.setText("");
     try
     {
@@ -76,9 +79,14 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
       boolean remove = confirmation();
       if (remove)
       {
+
         viewModel.remove(selectedItem.coursePropertyProperty().get());
+
         tableViewExam.getSelectionModel().clearSelection();
+
+
         model.removeExam(selectedItem.coursePropertyProperty().get());
+
 
 
       }

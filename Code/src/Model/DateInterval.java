@@ -10,13 +10,15 @@ public class DateInterval
    * @param date1 startDate
    * @param date2 endDate
    */
-  public DateInterval(Date date1, Date date2){
-    if(date1.isBefore(date2))
+  public DateInterval(Date date1, Date date2)
+  {
+    if (date1.isBefore(date2))
     {
       this.date1 = date1;
       this.date2 = date2;
     }
   }
+
 
   /**
    * if parameter date is between StartDate and End date return true, otherwise return false
@@ -26,7 +28,7 @@ public class DateInterval
 
  public boolean isBetween(Date date)
  {
-   return (date1.isBefore(date) && date.isBefore(date2));
+   return ((date1.isBefore(date) || date1.equals(date))&& (date.isBefore(date2) || date2.equals(date)));
  }
 
   public  Date getStartDate(){
@@ -41,6 +43,12 @@ public class DateInterval
   public DateInterval copy(){
     DateInterval other = new DateInterval(date1,date2);
     return other;
+  }
+  public boolean equals(Object obj)
+  {
+    if(!(obj instanceof  DateInterval)) return false;
+    DateInterval other = (DateInterval) obj;
+    return date1.equals(other.date1) && date2.equals(other.date2);
   }
 
   public String toString(){

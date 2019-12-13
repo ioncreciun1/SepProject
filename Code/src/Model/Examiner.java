@@ -22,7 +22,7 @@ public class Examiner
   }
   public String toString()
   {
-    return "Name: " + name;
+    return   name;
   }
 
   public void setName(String name)

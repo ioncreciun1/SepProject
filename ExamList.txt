@@ -2,251 +2,26 @@
 <ExamList>
 <Exam>
 <Semester>1</Semester>
-<Course>X</Course>  
-<Group>AS</Group>     
+<Course>SDJ1</Course>  
+<Group>X</Group>     
 <Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: BOB<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>6</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>0</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>30</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>10</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>0</EndDay>
-<EndHour>12</EndHour>
-<EndMinute>30</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>1</Semester>
-<Course>Y</Course>  
-<Group>MSE</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: SWA<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>0</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>14</StartDay>
-<StartHour>12</StartHour>
-<StartMinute>30</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>0</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>19</EndDay>
-<EndHour>16</EndHour>
-<EndMinute>30</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>1</Semester>
-<Course>as</Course>  
-<Group>asda</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: asda<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>14</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>0</StartDay>
-<StartHour>12</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>18</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>0</EndDay>
-<EndHour>14</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>3</Semester>
-<Course>X</Course>  
-<Group>SDJ</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: bob<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>0</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>1</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>0</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>12</EndDay>
-<EndHour>12</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>1</Semester>
-<Course>SSE1</Course>  
-<Group>Y</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: bOB<Examiner>
+<Teacher>SWD</Teacher>
+<Examiner>AS<Examiner>
 </Examiners>     
 <Type>Oral</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>11</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>0</StartDay>
-<StartHour>12</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>14</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>0</EndDay>
-<EndHour>16</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>4</Semester>
-<Course>DAI1</Course>  
-<Group>Y</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: SWA<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>0</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>7</StartDay>
-<StartHour>12</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>0</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>9</EndDay>
-<EndHour>11</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>3</Semester>
-<Course>RWD1</Course>  
-<Group>Z</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: Mom<Examiner>
-</Examiners>     
-<Type>Oral</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>23</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>0</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>30</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>25</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>0</EndDay>
-<EndHour>12</EndHour>
-<EndMinute>30</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>3</Semester>
-<Course>MSE1</Course>  
-<Group>Y</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: LARS<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>0</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>1</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>30</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>0</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>2</EndDay>
-<EndHour>15</EndHour>
-<EndMinute>30</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>3</Semester>
-<Course>DNP1</Course>  
-<Group>Z</Group>     
-<Examiners>
-<Teacher>Name: Name:</Teacher>
-<Examiner>Name: Bill<Examiner>
-</Examiners>     
-<Type>Written</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>1</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>0</StartDay>
-<StartHour>12</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>3</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>0</EndDay>
-<EndHour>14</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
-<Exam>
-<Semester>4</Semester>
-<Course>AND1</Course>  
-<Group>Z</Group>     
-<Examiners>
-<Teacher>Name: Ion</Teacher>
-<Examiner>Name: Ion<Examiner>
-</Examiners>     
-<Type>Written</Type>  
 <RoomNumber>301.A</RoomNumber>   
  <StartDate>
 <StartYear>2019</StartYear>
-<StartMonth>0</StartMonth>
-<StartDay>29</StartDay>
-<StartHour>12</StartHour>
-<StartMinute>0</StartMinute>
+<StartMonth>12</StartMonth>
+<StartDay>4</StartDay>
+<StartHour>8</StartHour>
+<StartMinute>30</StartMinute>
 </StartDate>   
  <EndDate>
 <EndYear>2019</EndYear>
-<EndMonth>0</EndMonth>
-<EndDay>30</EndDay>
-<EndHour>13</EndHour>
+<EndMonth>12</EndMonth>
+<EndDay>5</EndDay>
+<EndHour>9</EndHour>
 <EndMinute>30</EndMinute>
 </EndDate>
 </Exam>

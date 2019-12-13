@@ -46,7 +46,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="200.0">
+                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -78,7 +78,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="200.0">
+                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -104,7 +104,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="200.0">
+                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

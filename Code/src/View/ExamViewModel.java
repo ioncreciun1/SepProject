@@ -32,12 +32,12 @@ public class ExamViewModel
     this.semesterProperty = new SimpleIntegerProperty(
         exam.getGroup().getSemester());
     this.startYearProperty = new SimpleStringProperty(
-        exam.getDateInterval().getStartDate().getYear() +
+        exam.getDateInterval().getStartDate().getDay() +
             "/" + exam.getDateInterval().getStartDate().getMonth() + "/"
-            + exam.getDateInterval().getStartDate().getDay() + " " + exam.getDateInterval().getStartDate().getHour() +":" + exam.getDateInterval().getStartDate().getMinute());
+            + exam.getDateInterval().getStartDate().getYear() + " " + exam.getDateInterval().getStartDate().getHour() +":" + exam.getDateInterval().getStartDate().getMinute());
 
     this.endYearProperty = new SimpleStringProperty(
-        exam.getDateInterval().getEndDate().getYear() + "/" + exam.getDateInterval().getEndDate().getMonth() + "/" + exam.getDateInterval().getEndDate().getDay() + " " + exam.getDateInterval().getEndDate().getHour() + ":" + exam.getDateInterval().getEndDate().getMinute());
+        exam.getDateInterval().getEndDate().getDay() + "/" + exam.getDateInterval().getEndDate().getMonth() + "/" + exam.getDateInterval().getEndDate().getYear() + " " + exam.getDateInterval().getEndDate().getHour() + ":" + exam.getDateInterval().getEndDate().getMinute());
 
   }
 

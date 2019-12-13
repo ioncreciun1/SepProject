@@ -84,10 +84,15 @@ public boolean equals(Object obj){
     return false;
   Group other = (Group) obj;
   return this.numberOfStudents==other.numberOfStudents && this.name.equals(other.name) &&
-      this.semester==other.semester ;
+      this.semester==other.semester  && this.courses.equals(other.courses);
 }
 
 public String toString(){
-  return "Name: " + name + "Number of Students: " + numberOfStudents + "\n" + "Semester: " + semester;
+    String s = "";
+    for(int i = 0;i<courses.size();i++)
+    {
+      s+=courses.get(i) + "\n";
+    }
+  return "Name: " + name + "\nNumber of Students: " + numberOfStudents + "\n" + "Semester: " + semester + "\n" + s;
 }
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
@@ -60,40 +61,58 @@ public class AddController
   public void addExam(ActionEvent actionEvent) throws FileNotFoundException {
     boolean validated = false;
     //Todo: Examiners need their own list and then they are selected from the list, checked if available not just input
-    int semesterS = Integer.parseInt(semesterField.getSelectionModel().getSelectedItem().toString());
-    String courseS = courseField.getSelectionModel().getSelectedItem().toString();
-    String groupS = groupField.getSelectionModel().getSelectedItem().toString();
-    String[] examiners = examinerField.getText().split(", ",2);
-    String examinerS = examiners[0];
-   // String examinerS2 = examiners[1];
-    String roomS = roomField.getSelectionModel().getSelectedItem().toString();
-    String typeS = typeField.getSelectionModel().getSelectedItem().toString();
-    String[] timeStartS = timeStart.getText().split(":",2);
-    int startH = Integer.parseInt(timeStartS[0]);
-    int startM = Integer.parseInt(timeStartS[1]);
-    String[] timeEndS = timeEnd.getText().split(":",2);
-    int endH = Integer.parseInt(timeEndS[0]);
-    int endM = Integer.parseInt(timeEndS[1]);
+  int semesterS = Integer.parseInt(semesterField.getSelectionModel().getSelectedItem().toString());
+  String courseS = courseField.getSelectionModel().getSelectedItem().toString();
+  String groupS = groupField.getSelectionModel().getSelectedItem().toString();
+  String[] examiners = examinerField.getText().split(", ",2);
+  String examinerS = examiners[0];
+  // String examinerS2 = examiners[1];
+  String roomS = roomField.getSelectionModel().getSelectedItem().toString();
+  String typeS = typeField.getSelectionModel().getSelectedItem().toString();
+  String[] timeStartS = timeStart.getText().split(":",2);
+  int startH = Integer.parseInt(timeStartS[0]);
+  int startM = Integer.parseInt(timeStartS[1]);
+  String[] timeEndS = timeEnd.getText().split(":",2);
+  int endH = Integer.parseInt(timeEndS[0]);
+  int endM = Integer.parseInt(timeEndS[1]);
+  DateInterval dateInterval = getDateInterval();
+    //System.out.println(dateInterval);
+  dateInterval.getStartDate().setTime(startH,startM);
+   // System.out.println(getDateInterval());
 
+    System.out.println("Start year: " + dateInterval.getStartDate().getYear() );
+    System.out.println("End year: " + dateInterval.getEndDate().getYear() );
+  dateInterval.getEndDate().setTime(endH,endM);
+  Room room = new Room(true, true, 120, 12, roomS);
+  Group group = new Group(groupS, model.getNumberOfStudentsByGroupAndSemester(groupS,semesterS), semesterS);
+  Examiner examiner = new Examiner(examinerS);
+  Examiner teacher = new Examiner(model.getTeacherByCourseAndGroup(courseS,groupS).getName());
+  Course course = new Course(teacher, courseS);
 
+  Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
+  try{
+    System.out.println("Go Here");
+    errorLabel.setText("");
+    model.validateExam(exam);
 
-
-      DateInterval dateInterval = getDateInterval();
-      dateInterval.getStartDate().setTime(startH,startM);
-      dateInterval.getEndDate().setTime(endH,endM);
-      Room room = new Room(true, true, 120, 12, roomS);
-      Group group = new Group(groupS, 30, semesterS);
-      Examiner examiner = new Examiner(examinerS);
-      Course course = new Course(examiner, courseS);
-      Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
-      ManageExamFiles files = new ManageExamFiles();
-      files.AddExamList(exam);
-
+    ManageExamFiles files = new ManageExamFiles();
+    files.AddExamList(exam);
     viewHandler.openView("landing");
+  }catch (Exception e)
+  {
+    System.out.println("Some error");
+    errorLabel.setText("");
+    errorLabel.setText(e.getMessage());
+  }
+
+
+
+
     //Todo: get selections from lists and then create a test Exam
   }
 
   //Room Management
+
 
 
   @FXML
@@ -118,8 +137,8 @@ roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).ge
     typeField.getSelectionModel().select("Oral");
     //Init Semester
     semesterField.getItems().removeAll(semesterField.getItems());
-    semesterField.getItems().addAll("1","2","3","4","5","6","7");
-    semesterField.getSelectionModel().select("3");
+    semesterField.getItems().addAll("1","2","3","4");
+    semesterField.getSelectionModel().select("1");
     //Init Group
     groupField.getItems().removeAll(groupField.getItems());
     groupField.getItems().addAll("X","Y","Z");
@@ -140,7 +159,7 @@ roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).ge
     int year = Integer.parseInt(split[0]);
     int month = Integer.parseInt(split[1]);
     int day = Integer.parseInt(split[2]);
-    return new Date(day,month,year,0,0);
+    return new Date(day,month,2019,0,0);
   }
 
   public Date getDateEnd(){
@@ -152,10 +171,11 @@ roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).ge
     int year = Integer.parseInt(split[0]);
     int month = Integer.parseInt(split[1]);
     int day = Integer.parseInt(split[2]);
-    return new Date(day,month,year,0,0);
+    return new Date(day,month,2019,0,0);
   }
 
   public DateInterval getDateInterval(){
+
     return new DateInterval(getDateStart(),getDateEnd());
   }
 
@@ -182,6 +202,46 @@ roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).ge
       courseField.getItems().removeAll(courseField.getItems());
       courseField.getItems().addAll("AND1","ESW1","DAI1","SEP4","INO1");
       courseField.getSelectionModel().select("AND1");
+    }
+  }
+
+  public void validator(KeyEvent keyEvent) throws FileNotFoundException
+  {
+    int semesterS = Integer.parseInt(semesterField.getSelectionModel().getSelectedItem().toString());
+    String courseS = courseField.getSelectionModel().getSelectedItem().toString();
+    String groupS = groupField.getSelectionModel().getSelectedItem().toString();
+    String[] examiners = examinerField.getText().split(", ",2);
+    String examinerS = examiners[0];
+    // String examinerS2 = examiners[1];
+    String roomS = roomField.getSelectionModel().getSelectedItem().toString();
+    String typeS = typeField.getSelectionModel().getSelectedItem().toString();
+    String[] timeStartS = timeStart.getText().split(":",2);
+    int startH = Integer.parseInt(timeStartS[0]);
+    int startM = Integer.parseInt(timeStartS[1]);
+    String[] timeEndS = timeEnd.getText().split(":",2);
+    int endH = Integer.parseInt(timeEndS[0]);
+    int endM = Integer.parseInt(timeEndS[1]);
+    DateInterval dateInterval = getDateInterval();
+    dateInterval.getStartDate().setTime(startH,startM);
+    dateInterval.getEndDate().setTime(endH,endM);
+
+
+    Room room = new Room(true, true, 120, 12, roomS);
+    Group group = new Group(groupS, 30, semesterS);
+    Examiner examiner = new Examiner(examinerS);
+    Course course = new Course(examiner, courseS);
+    Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
+  }
+
+  public void initializeRoom(ActionEvent event) throws FileNotFoundException
+  {
+    roomList = new RoomList(); //Todo: getRoomList from file instead
+    roomField.getItems().removeAll(roomField.getItems());
+    ManageExamFiles files = new ManageExamFiles();
+    files.readRoomList();
+    for (int i = 0; i < model.getAllAvailableRooms(getDateInterval()).size(); i++) {
+      //if(model.isRoomTaken(files.getRoomList().getRoomList().get(i),dateInterval))
+      roomField.getItems().add(model.getAllAvailableRooms(getDateInterval()).get(i).getNumber());
     }
   }
 }

@@ -152,7 +152,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <DatePicker fx:id="dateField2" prefHeight="25.0" prefWidth="200.0">
+                              <DatePicker fx:id="dateField2" onAction="#initializeRoom" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="100.0" />
                                  </HBox.margin>
@@ -178,7 +178,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutY="721.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
-                              <Label prefHeight="50.0" prefWidth="150.0" text="Time End">
+                              <Label onKeyTyped="#validator" prefHeight="50.0" prefWidth="150.0" text="Time End">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -203,7 +203,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <ComboBox fx:id="roomField" prefHeight="25.0" prefWidth="200.0">
+                              <ComboBox fx:id="roomField"  prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="100.0" />
                                  </HBox.margin>

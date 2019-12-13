@@ -42,6 +42,15 @@ public class GroupList
     return list.get(index);
   }
 
+  public String toString()
+  {
+    String s = "";
+    for(int i = 0;i<list.size();i++)
+    {
+      s+=list.get(i) + "\n";
+    }
+    return s;
+  }
   
 
 }

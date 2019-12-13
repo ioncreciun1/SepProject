@@ -105,15 +105,12 @@ public class Date
 
   public void setMonth(int month)
   {
-    if(month > 0 && month < 12) this.month = month;
+    if(month > 0 && month < 13) this.month = month;
   }
 
   public void setYear(int year)
   {
-    if (year > 0)
-    {
-      this.year = year;
-    }
+    this.year = year;
   }
 
   public void setDay(int day)
@@ -234,4 +231,10 @@ public class Date
       }
     }
   }
+//  public boolean equals(Object obj)
+//  {
+//    if(!(obj instanceof Date)) return false;
+//    Date other = (Date)obj;
+//    return this.minute==other.minute && this.month == other.month && this.day == other.day && this.hour == other.hour && this.year == other.year;
+//  }
 }

@@ -18,8 +18,8 @@ public class ExamListViewModel
   {
     this.model=model;
     this.files = new ManageExamFiles();
-  files.ReadExamList();
-    System.out.println("I am here");
+    files.ReadExamList();
+    files.readGroupList();
     list= FXCollections.observableArrayList();
   }
 
@@ -36,7 +36,9 @@ public class ExamListViewModel
     System.out.println(files.getList().size());
     for(int i = 0;i<files.getList().size();i++)
     {
+
       exams.add(files.getList().get(i));
+
     }
     list.clear();
     for(int i=0;i<exams.size();i++)
