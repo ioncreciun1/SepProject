@@ -186,7 +186,7 @@ public class ManageExamFiles
     xml +="  \n<Group>" +  list.get(i).getGroup().getName() + "</Group>";
       xml += "     \n<Examiners>";
       xml+= "\n<Teacher>" +  list.get(i).getCourse().getTeacher().getName() + "</Teacher>";
-      xml+="\n<Examiner>"+  list.get(i).getExaminer() + "<Examiner>";
+      xml+="\n<Examiner>"+  list.get(i).getExaminer() + "</Examiner>";
     xml += "\n</Examiners>";
       xml += "     \n<Type>"  +  list.get(i).getType()  + "</Type>";
     xml += "  \n<RoomNumber>" + "301.A" + "</RoomNumber>";
@@ -208,7 +208,7 @@ public class ManageExamFiles
       xml       += "\n</EndDate>";
     xml +="\n</Exam>";
     }
-    xml +="\n<ExamList>";
+    xml +="\n</ExamList>";
     writer.println(xml);
     writer.flush();
     writer.close();

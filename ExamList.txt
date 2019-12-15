@@ -6,7 +6,7 @@
 <Group>X</Group>     
 <Examiners>
 <Teacher>SWD</Teacher>
-<Examiner>AS<Examiner>
+<Examiner>AS</Examiner>
 </Examiners>     
 <Type>Oral</Type>  
 <RoomNumber>301.A</RoomNumber>   
@@ -25,4 +25,4 @@
 <EndMinute>30</EndMinute>
 </EndDate>
 </Exam>
-<ExamList>
+</ExamList>
