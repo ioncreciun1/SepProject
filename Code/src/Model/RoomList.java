@@ -41,6 +41,25 @@ public class RoomList
       return rooms1;
   }
 
+  public boolean containsId(String id){
+    for (int i = 0; i < rooms.size()-1; i++) {
+      if (rooms.get(i).getNumber().equals(id)){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public Room getRoomById(String id){
+    for (int i = 0; i < rooms.size()-1; i++) {
+      if (rooms.get(i).getNumber().equals(id)){
+        return rooms.get(i);
+      }
+    }
+    System.out.println("ERROR - ROOM DOESN'T EXIST");
+    return null;
+  }
+
   public ArrayList<Room> getRoomList(){
     return rooms;
   }

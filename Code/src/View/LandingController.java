@@ -1,8 +1,6 @@
 package View;
 
-import Model.Course;
-import Model.ManageExamFiles;
-import Model.ManageExamModel;
+import Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -68,9 +66,11 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
     return root;
   }
 
-  @FXML private void removeExamPressed()
-  {
+  @FXML private void removeExamPressed() throws FileNotFoundException {
     ManageExamFiles file = new ManageExamFiles();
+    file.ReadExamList();
+    file.readRoomList();
+    file.readGroupList();
     errorLabel.setText("");
     try
     {
@@ -79,14 +79,30 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
       boolean remove = confirmation();
       if (remove)
       {
-
+        //create exam to remove from file
+        String[] startSplit = selectedItem.startYearPropertyProperty().getValue().split(" ");
+        String[] startDateSplit = startSplit[0].split("/");
+        String[] startTimeSplit = startSplit[1].split(":");
+        String[] endSplit = selectedItem.endYearPropertyProperty().getValue().split(" ");
+        String[] endDateSplit = endSplit[0].split("/");
+        String[] endTimeSplit = endSplit[1].split(":");
+        Date startDate = new Date(Integer.parseInt(startDateSplit[0]),Integer.parseInt(startDateSplit[1]),Integer.parseInt(startDateSplit[2]), Integer.parseInt(startTimeSplit[0]), Integer.parseInt(startTimeSplit[1]));
+        Date endDate = new Date(Integer.parseInt(endDateSplit[0]),Integer.parseInt(endDateSplit[1]),Integer.parseInt(endDateSplit[2]), Integer.parseInt(endTimeSplit[0]), Integer.parseInt(endTimeSplit[1]));
+        DateInterval dateInterval = new DateInterval(startDate,endDate);
+        Room room = file.getRoomList().getRoomById(selectedItem.roomPropertyProperty().getValue());
+        Group group = file.getGroupList().getGroup(Integer.parseInt(selectedItem.semesterPropertyProperty().getValue().toString()),selectedItem.groupPropertyProperty().getValue());
+        Examiner examiner = new Examiner(selectedItem.examinerPropertyProperty().getValue());
+        Course course = file.getGroupList().getCourse(selectedItem.coursePropertyProperty().getValue(),Integer.parseInt(selectedItem.semesterPropertyProperty().getValue().toString()),selectedItem.groupPropertyProperty().getValue());
+        Exam exam = new Exam(dateInterval, room, group, selectedItem.typePropertyProperty().getValue(),examiner,course);
+        file.RemoveExamFromList(exam);
+        System.out.println("EXAM STARTS HERE /n"+exam);
+        //remove this exam from view
         viewModel.remove(selectedItem.coursePropertyProperty().get());
 
         tableViewExam.getSelectionModel().clearSelection();
 
 
         model.removeExam(selectedItem.coursePropertyProperty().get());
-
 
 
       }

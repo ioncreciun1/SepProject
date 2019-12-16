@@ -19,6 +19,7 @@ public class ManageExamFiles
 
   public void readGroupList() throws FileNotFoundException
  {
+     groupList = new GroupList();
   File file = new File("GroupList.txt");
    Scanner in = new Scanner(file);
    String name = "";
@@ -104,6 +105,7 @@ public class ManageExamFiles
   }
   public void readRoomList() throws FileNotFoundException,NullPointerException
   {
+      roomList = new RoomList();
     File file = new File("RoomList.txt");
     Scanner in = new Scanner(file);
     boolean HDMI = false;
@@ -152,20 +154,7 @@ public class ManageExamFiles
     }
 
   }
-  public void removeExam(String course) throws FileNotFoundException
-  {
-    ReadExamList();
-    for(int i=0;i<list.size();i++)
-    {
-      if(list.get(i).getCourse().getCourseName().equals(course))
-      {
-        System.out.println("I am here");
-        list.remove(i);
-      }
-    }
-    System.out.println(list.size());
 
-  }
   public void AddExamList(Exam exam) throws FileNotFoundException
   {
     //readRoomList();
@@ -213,10 +202,58 @@ public class ManageExamFiles
     writer.flush();
     writer.close();
   }
+
+    public void RemoveExamFromList(Exam exam) throws FileNotFoundException
+    {
+        ReadExamList();
+        System.out.println("LIST1 ="+list);
+        list.remove(exam);
+        String fileName = "ExamList.txt";
+        File file = new File(fileName);
+        PrintWriter writer = new PrintWriter(file);
+        String xml = "";
+        xml += "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+        xml +="<ExamList>";
+        for(int i = 0; i<list.size();i++)
+        {
+            xml +="\n<Exam>";
+            xml +="\n<Semester>" + list.get(i).getGroup().getSemester() + "</Semester>";
+            xml +="\n<Course>" +  list.get(i).getCourse().getCourseName() + "</Course>";
+            xml +="  \n<Group>" +  list.get(i).getGroup().getName() + "</Group>";
+            xml += "     \n<Examiners>";
+            xml+= "\n<Teacher>" +  list.get(i).getCourse().getTeacher().getName() + "</Teacher>";
+            xml+="\n<Examiner>"+  list.get(i).getExaminer() + "</Examiner>";
+            xml += "\n</Examiners>";
+            xml += "     \n<Type>"  +  list.get(i).getType()  + "</Type>";
+            xml += "  \n<RoomNumber>" + "301.A" + "</RoomNumber>";
+            xml += "   \n <StartDate>" ;
+            //list.get(i).getDateInterval().getStartDate().getYear()
+            xml+="\n<StartYear>" + 2019  + "</StartYear>";
+            xml+="\n<StartMonth>" +  list.get(i).getDateInterval().getStartDate().getMonth() + "</StartMonth>";
+            xml+="\n<StartDay>" +  list.get(i).getDateInterval().getStartDate().getDay() + "</StartDay>";
+            xml+="\n<StartHour>" +  list.get(i).getDateInterval().getStartDate().getHour() + "</StartHour>";
+            xml+="\n<StartMinute>" +  list.get(i).getDateInterval().getStartDate().getMinute() + "</StartMinute>";
+            xml       += "\n</StartDate>";
+            xml += "   \n <EndDate>" ;
+            //list.get(i).getDateInterval().getEndDate().getYear()
+            xml+="\n<EndYear>" +  2019 + "</EndYear>";
+            xml+="\n<EndMonth>" +  list.get(i).getDateInterval().getEndDate().getMonth() + "</EndMonth>";
+            xml+="\n<EndDay>" +  list.get(i).getDateInterval().getEndDate().getDay() + "</EndDay>";
+            xml+="\n<EndHour>" +  list.get(i).getDateInterval().getEndDate().getHour() + "</EndHour>";
+            xml+="\n<EndMinute>" +  list.get(i).getDateInterval().getEndDate().getMinute() + "</EndMinute>";
+            xml       += "\n</EndDate>";
+            xml +="\n</Exam>";
+        }
+        xml +="\n</ExamList>";
+        writer.println(xml);
+        writer.flush();
+        writer.close();
+    }
+
   public void ReadExamList() throws FileNotFoundException,NullPointerException
   {
-
-  File file = new File("ExamList.txt");
+      list = new ArrayList<>();
+    File file = new File("ExamList.txt");
     Scanner in = new Scanner(file);
     int semester = 0;
     String courseName = null;
@@ -342,12 +379,6 @@ public class ManageExamFiles
           list.add(exam);
         }
     }
-
-
-
-
-
-
   }
 
   public ArrayList<Exam> getList() throws FileNotFoundException

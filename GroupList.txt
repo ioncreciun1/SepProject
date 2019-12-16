@@ -75,7 +75,6 @@
  <Teacher>SWA</Teacher>
  </Course>
 </Group>
-////////////////////////////////////
 <Group>
 <Name>Y</Name>
 <NumberOfStudents>25</NumberOfStudents>
@@ -139,7 +138,6 @@
  <Teacher>SWD</Teacher>
 </Course>
 </Group>
-////////////////////////
 <Group>
 <Name>Y</Name>
 <NumberOfStudents>25</NumberOfStudents>
@@ -190,7 +188,6 @@
  <Teacher>SWD</Teacher>
 </Course>
 </Group>
-///////////////////////////////////
 <Group>
 <Name>Y</Name>
 <NumberOfStudents>25</NumberOfStudents>
