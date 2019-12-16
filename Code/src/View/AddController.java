@@ -85,13 +85,18 @@ public class AddController
       chairs = files.getRoomList().getRoomList().get(i).getChairs();
     }
   }
+  if(groupField.getSelectionModel().getSelectedItem().toString().equals("----Select Group----"))
+  {
+    errorLabel.setText("Select a Group");
+  }
   Room room = new Room(hdmi, vga, chairs, table, roomS);
   Group group = new Group(groupS, model.getNumberOfStudentsByGroupAndSemester(groupS,semesterS), semesterS);
   Examiner examiner = new Examiner(examinerS);
   Examiner teacher = new Examiner(model.getTeacherByCourseAndGroup(courseS,groupS).getName());
   Course course = new Course(teacher, courseS);
-
+    System.out.println("get This fksadk: " + model.getAllAvailableRooms(getDateInterval()).size());
   Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
+
   try{
     errorLabel.setText("");
     System.out.println(getDateStart().toString());
@@ -101,25 +106,9 @@ public class AddController
     viewHandler.openView("landing");
   }catch (Exception e)
   {
-   // System.out.println(e.getMessage());
     errorLabel.setText("");
     errorLabel.setText(e.getMessage());
   }
-
-
-
-
-    //Todo: get selections from lists and then create a test Exam
-  }
-
-  //Room Management
-
-
-  public void initializeGroup() throws FileNotFoundException
-  {
-
-
-
   }
 
   @FXML
@@ -207,10 +196,11 @@ public class AddController
   {
     roomList = new RoomList(); //Todo: getRoomList from file instead
     roomField.getItems().removeAll(roomField.getItems());
-    roomField.getItems().add("----Add Room----");
-    roomField.getSelectionModel().select("----Add Room----");
+//    roomField.getItems().add("----Add Room----");
+//    roomField.getSelectionModel().select("----Add Room----");
     ManageExamFiles files = new ManageExamFiles();
     files.readRoomList();
+
     for (int i = 0; i < model.getAllAvailableRooms(getDateInterval()).size(); i++) {
         roomField.getItems().add(
             model.getAllAvailableRooms(getDateInterval()).get(i).getNumber());
@@ -222,8 +212,21 @@ public class AddController
   {
   }
 
-  public void validateDate(KeyEvent keyEvent)
+  public void validateDate()
   {
+    try{
+
+      model.validateTime(timeStart.toString());
+
+      System.out.println("Get More error");
+      model.validateTime(timeEnd.toString());
+      errorLabel.setText("");
+
+    }catch(Exception e)
+    {
+      errorLabel.setText("");
+      errorLabel.setText(e.getMessage());
+    }
   }
 
   public void refreshCourseAndGroup(ActionEvent event)

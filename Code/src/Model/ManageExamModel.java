@@ -21,4 +21,5 @@ public interface  ManageExamModel
   public void validateExam(Exam exam) throws FileNotFoundException;
   public boolean IsExamTaken(String course,String group, int semester)
       throws FileNotFoundException;
+  public void validateTime(String timeString);
 }

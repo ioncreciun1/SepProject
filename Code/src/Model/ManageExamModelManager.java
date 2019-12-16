@@ -24,7 +24,6 @@ public class ManageExamModelManager implements ManageExamModel
 
   @Override public void validateExam(Exam exam) throws FileNotFoundException
   {
-
     if(isExaminerTaken(exam.getExaminer(),exam.getDateInterval()))
     {
       for(int i = 0;i<file.getExamList().size();i++)
@@ -36,6 +35,10 @@ public class ManageExamModelManager implements ManageExamModel
         }
       }
     }
+    if(exam.getGroup().getName().equals("----Select Group----"))
+    {
+      throw new IllegalArgumentException("Select a group");
+    }
     if(IsExamTaken(exam.getCourse().getCourseName(),exam.getGroup().getName(),exam.getGroup().getSemester()))
     {
       throw new IllegalArgumentException("This Exam is already in the system");
@@ -43,12 +46,36 @@ public class ManageExamModelManager implements ManageExamModel
     if(exam.getDateInterval().getEndDate().isBefore(exam.getDateInterval().getStartDate())) {
       throw new IllegalArgumentException("End Date is before Start Date");
     }
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
     LocalDateTime now = LocalDateTime.now();
     if(exam.getDateInterval().getStartDate().isBefore(new Date(now.getDayOfMonth(),now.getMonthValue(),now.getYear(),now.getHour(),now.getMinute()))){
       throw new IllegalArgumentException("This Date past");
     }
 
+  }
+  public void validateTime(String timeString)
+  {
+    if(!validateTimeHourAndDate(timeString)) {
+      throw  new IllegalArgumentException("Set Valid time");
+    }
+
+  }
+  public boolean validateTimeHourAndDate(String timeString) {
+    if (timeString.length() != 5) return false;
+    if (!timeString.substring(2, 3).equals(":")) return false;
+    int hour = validateNumber(timeString.substring(0, 2));
+    int minute = validateNumber(timeString.substring(3));
+    if (hour < 0 || hour >= 24) return false;
+    if (minute < 0 || minute >= 60) return false;
+    return true;
+  }
+
+  public int validateNumber(String numberString) {
+    try {
+      int number = Integer.valueOf(numberString);
+      return number;
+    } catch (NumberFormatException e) {
+      return -1;
+    }
   }
 
   @Override public boolean IsExamTaken(String course, String group, int semester)
@@ -107,6 +134,7 @@ public class ManageExamModelManager implements ManageExamModel
           || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getStartDate()))
       )
       {
+        System.out.println("Room is taken");
         return true;
       }
     }
@@ -159,16 +187,25 @@ public class ManageExamModelManager implements ManageExamModel
   }
 
   @Override public ArrayList<Room> getAllAvailableRooms(
+      //TODO: DON"T STOP AFTER SPECIFIC SIZE
       DateInterval dateInterval) throws FileNotFoundException
   {
     file.readRoomList();
     ArrayList<Room> availableRooms = new ArrayList<>();
-    for(int i = 0;i<file.getRoomList().getRoomList().size();i++)
+    System.out.println("Size:" + file.getRoomList().getRoomList().size());
+    int i=0;
+    while(i<file.getRoomList().getRoomList().size()) {
+    //System.out.println("I am here" + i);
+    if (!isRoomTaken(file.getRoomList().getRoomList().get(i).getNumber(),
+        dateInterval))
     {
-      if(!isRoomTaken(file.getRoomList().getRoomList().get(i).getNumber(),dateInterval)) {
-        availableRooms.add(file.getRoomList().getRoomList().get(i));
-      }
+      //System.out.println("WTF");
+      availableRooms.add(file.getRoomList().getRoomList().get(i));
     }
+    if(i == file.getRoomList().getRoomList().size()-1) break;
+    i++;
+  }
+    System.out.println("Available size: " + availableRooms.size());
     return availableRooms;
   }
 
