@@ -3,6 +3,7 @@ package Model;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,6 +30,7 @@ public class ManageExamFiles
 
   public void readGroupList() throws FileNotFoundException
  {
+     ArrayList<Group> groups = new ArrayList<>();
   File file = new File("GroupList.txt");
    Scanner in = new Scanner(file);
    String name = "";
@@ -80,11 +82,11 @@ public class ManageExamFiles
        {
          group.addCourse(courses.get(i));
        }
-       groupList.addGroup(group);
+       groups.add(group);
      }
 
    }
-
+    groupList.setList(groups);
  }
   public void addRoomToList(Room room) throws FileNotFoundException
   {
@@ -114,7 +116,7 @@ public class ManageExamFiles
   }
   public void readRoomList() throws FileNotFoundException,NullPointerException
   {
-
+      ArrayList<Room> rooms = new ArrayList<>();
     File file = new File("RoomList.txt");
     Scanner in = new Scanner(file);
     boolean HDMI = false;
@@ -158,10 +160,10 @@ public class ManageExamFiles
       if(line.contains("</Room>"))
       {
         Room room = new Room(HDMI,VGA,chairs,tables,roomId);
-        roomList.addRoom(room);
+        rooms.add(room);
       }
     }
-
+    roomList.setRooms(rooms);
   }
 
   public void AddExamList(Exam exam) throws FileNotFoundException
@@ -207,6 +209,54 @@ public class ManageExamFiles
     writer.flush();
     writer.close();
   }
+
+    public void RemoveExamFromList(String course, int semester, String group, String type) throws FileNotFoundException
+    {
+        ReadExamList();
+        examList.removeExam(course,semester,group,type);
+        System.out.println(examList.toString());
+        String fileName = "ExamList.txt";
+        File file = new File(fileName);
+        PrintWriter writer = new PrintWriter(file);
+        String xml = "";
+        xml += "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+        xml +="<ExamList>";
+        for(int i = 0; i<getExamList().size();i++)
+        {
+            xml +="\n<Exam>";
+            xml +="\n<Semester>" + getExamList().getExam(i).getGroup().getSemester() + "</Semester>";
+            xml +="\n<Course>" +  getExamList().getExam(i).getCourse().getCourseName() + "</Course>";
+            xml +="  \n<Group>" +  getExamList().getExam(i).getGroup().getName() + "</Group>";
+            xml += "     \n<Examiners>";
+            xml+= "\n<Teacher>" +  getExamList().getExam(i).getCourse().getTeacher().getName() + "</Teacher>";
+            xml+="\n<Examiner>"+  getExamList().getExam(i).getExaminer() + "</Examiner>";
+            xml += "\n</Examiners>";
+            xml += "     \n<Type>"  +  getExamList().getExam(i).getType()  + "</Type>";
+            xml += "  \n<RoomNumber>" + "301.A" + "</RoomNumber>";
+            xml += "   \n <StartDate>" ;
+            //list.get(i).getDateInterval().getStartDate().getYear()
+            xml+="\n<StartYear>" + 2019  + "</StartYear>";
+            xml+="\n<StartMonth>" +  getExamList().getExam(i).getDateInterval().getStartDate().getMonth() + "</StartMonth>";
+            xml+="\n<StartDay>" +  getExamList().getExam(i).getDateInterval().getStartDate().getDay() + "</StartDay>";
+            xml+="\n<StartHour>" +  getExamList().getExam(i).getDateInterval().getStartDate().getHour() + "</StartHour>";
+            xml+="\n<StartMinute>" +  getExamList().getExam(i).getDateInterval().getStartDate().getMinute() + "</StartMinute>";
+            xml       += "\n</StartDate>";
+            xml += "   \n <EndDate>" ;
+            //list.get(i).getDateInterval().getEndDate().getYear()
+            xml+="\n<EndYear>" +  2019 + "</EndYear>";
+            xml+="\n<EndMonth>" +  getExamList().getExam(i).getDateInterval().getEndDate().getMonth() + "</EndMonth>";
+            xml+="\n<EndDay>" +  getExamList().getExam(i).getDateInterval().getEndDate().getDay() + "</EndDay>";
+            xml+="\n<EndHour>" +  getExamList().getExam(i).getDateInterval().getEndDate().getHour() + "</EndHour>";
+            xml+="\n<EndMinute>" +  getExamList().getExam(i).getDateInterval().getEndDate().getMinute() + "</EndMinute>";
+            xml       += "\n</EndDate>";
+            xml +="\n</Exam>";
+        }
+        xml +="\n</ExamList>";
+        writer.println(xml);
+        writer.flush();
+        writer.close();
+    }
+
   public void ReadExamList() throws FileNotFoundException,NullPointerException
   {
   ArrayList <Exam> exams= new ArrayList<>();
@@ -356,10 +406,15 @@ public class ManageExamFiles
           Examiner examiner = new Examiner(Examiner);
           Course course = new Course(teach,courseName);
           Exam exam = new Exam(dateInterval,room,group,type,examiner,course);
-          examList.addExam(exam);
+          exams.add(exam);
         }
-
+        examList.setExams(exams);
     }
+
+
+
+
+
   }
 
 }

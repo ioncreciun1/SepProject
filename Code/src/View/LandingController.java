@@ -1,8 +1,6 @@
 package View;
 
-import Model.Course;
-import Model.ManageExamFiles;
-import Model.ManageExamModel;
+import Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -68,9 +66,11 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
     return root;
   }
 
-  @FXML private void removeExamPressed()
-  {
+  @FXML private void removeExamPressed() throws FileNotFoundException {
     ManageExamFiles file = new ManageExamFiles();
+    file.ReadExamList();
+    file.readRoomList();
+    file.readGroupList();
     errorLabel.setText("");
     try
     {
@@ -79,16 +79,12 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
       boolean remove = confirmation();
       if (remove)
       {
-
+        //create exam to remove from file
+        file.RemoveExamFromList(selectedItem.coursePropertyProperty().getValue(),Integer.parseInt(selectedItem.semesterPropertyProperty().getValue().toString()),selectedItem.groupPropertyProperty().getValue(),selectedItem.typePropertyProperty().getValue());
+        //remove this exam from view
         viewModel.remove(selectedItem.coursePropertyProperty().get());
 
         tableViewExam.getSelectionModel().clearSelection();
-
-
-        model.removeExam(selectedItem.coursePropertyProperty().get());
-
-
-
       }
     }
     catch (Exception e)
