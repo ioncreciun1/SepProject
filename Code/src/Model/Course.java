@@ -42,6 +42,10 @@ public class Course
     return name;
   }
 
+  /**
+   *
+   * @return teacher for this course
+   */
   public Examiner getTeacher()
   {
     return teacher;

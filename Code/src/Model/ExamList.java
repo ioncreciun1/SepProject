@@ -17,50 +17,6 @@ public class ExamList
   public void removeExam(Exam exam){
     exams.remove(exam);
   }
-
-  /**
-   * Check for all rooms that were taken and if this room is taken for exactly this interval return true
-   * If only one day return true and message with what days exactly
-   * @param room
-   * @param date
-   * @return
-   */
-  public boolean isRoomTaken(Room room,DateInterval date)
-  {
-    for(int i = 0;i<size();i++)
-    {
-      if(room.equals(exams.get(i).getRoom())) return true;
-    }
-    return false;
-  }
-
-  public boolean isExaminerTaken(Examiner examiner,DateInterval dateInterval)
-  {
-    for(int i=0;i<size();i++)
-    {
-      if(exams.get(i).getExaminer().equals(examiner) && (exams.get(i).getDateInterval().isBetween(dateInterval.getStartDate()) || exams.get(i).getDateInterval().isBetween(dateInterval.getEndDate()))) return true;
-    }
-    return false;
-  }
-
-  /**
-   * check if this course for this group is in exam list
-   * If yes then
-   * @param course
-   * @param group
-   * @return
-   */
-  public boolean isCourseTaken(Course course,Group group)
-  {
-    for(int i=0;i<size();i++)
-    {
-      if(exams.get(i).getGroup().equals(group) )
-      {
-
-      }
-    }
-    return false;
-  }
   public Exam getExam(int index)
   {
     return exams.get(index);

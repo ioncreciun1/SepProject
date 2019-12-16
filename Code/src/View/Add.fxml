@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="550.0" maxWidth="950.0" minHeight="550.0" minWidth="950.0" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
+<AnchorPane maxHeight="550.0" maxWidth="950.0" minHeight="550.0" minWidth="950.0" prefHeight="570.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
    <children>
       <VBox maxHeight="550.0" maxWidth="950.0" minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="950.0">
          <children>
@@ -47,9 +47,9 @@
                                  <HBox.margin>
                                     <Insets left="270.0" />
                                  </HBox.margin></Label>
-                              <ComboBox fx:id="semesterField" onAction="#refreshCourse" prefWidth="200.0">
+                              <ComboBox fx:id="semesterField" onAction="#refreshCourseAndGroup" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="130.0" />
                                  </HBox.margin>
                               </ComboBox>
                            </children>
@@ -69,7 +69,7 @@
                               </Label>
                               <ComboBox fx:id="groupField" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="130.0" />
                                  </HBox.margin>
                               </ComboBox>
                            </children>
@@ -86,7 +86,7 @@
                               </Label>
                               <ComboBox fx:id="courseField" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="130.0" />
                                  </HBox.margin>
                               </ComboBox>
                            </children>
@@ -103,7 +103,7 @@
                               </Label>
                               <TextField fx:id="examinerField" prefHeight="20.0" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="130.0" />
                                  </HBox.margin>
                               </TextField>
                            </children>
@@ -120,7 +120,7 @@
                               </Label>
                               <ComboBox fx:id="typeField" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="130.0" />
                                  </HBox.margin>
                               </ComboBox>
                            </children>
@@ -137,7 +137,7 @@
                               </Label>
                               <DatePicker fx:id="dateField" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="130.0" />
                                  </HBox.margin>
                               </DatePicker>
                            </children>
@@ -152,16 +152,16 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <DatePicker fx:id="dateField2" onAction="#initializeRoom" prefHeight="25.0" prefWidth="200.0">
+                              <DatePicker fx:id="dateField2" onAction="#isDateBefore" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="130.0" />
                                  </HBox.margin>
                               </DatePicker>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutY="401.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
-                              <Label prefHeight="50.0" prefWidth="150.0" text="Time Start">
+                              <Label prefHeight="50.0" prefWidth="270.0" text="Time Start(HH:mm)">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -169,16 +169,16 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="timeStart" prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeStart" onAction="#validateDate" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="90.0" />
+                                    <Insets />
                                  </HBox.margin>
                               </TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutY="561.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
-                              <Label onKeyTyped="#validator" prefHeight="50.0" prefWidth="150.0" text="Time End">
+                              <Label prefHeight="50.0" prefWidth="270.0" text="Time End(hh:mm)">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -186,9 +186,9 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="timeEnd" prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeEnd" onKeyTyped="#validateDate" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="90.0" />
+                                    <Insets />
                                  </HBox.margin>
                               </TextField>
                            </children>
@@ -205,7 +205,7 @@
                               </Label>
                               <ComboBox fx:id="roomField" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="130.0" />
                                  </HBox.margin>
                               </ComboBox>
                            </children>

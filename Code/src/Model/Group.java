@@ -72,7 +72,7 @@ public  ArrayList<Course> getCourses() {
   }
 
   /**
-   *  Setting number of Students. IF number of students bigger than zero we assign this number
+   *  Setting number of Students. set number of students only if number is positive
    * @param numberOfStudents number of Students
    */
   public void setNumberOfStudents(int numberOfStudents){

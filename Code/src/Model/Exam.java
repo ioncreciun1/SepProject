@@ -62,11 +62,6 @@ public class Exam
       this.type = type;
     }
   }
-
-
-
-
-
   public Examiner getExaminer()
   {
     return examiner;
