@@ -13,6 +13,10 @@ public class ExamList
     exams.add(exam);
   }
 
+  public void setExams(ArrayList<Exam> exams) {
+    this.exams = exams;
+  }
+
   public int size(){return exams.size();}
   public void removeExam(Exam exam){
     exams.remove(exam);

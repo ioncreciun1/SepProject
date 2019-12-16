@@ -12,6 +12,9 @@ public class GroupList
     return getGroup(group).getCourses();
   }
 
+  public void setList(ArrayList<Group> list) {
+    this.list = list;
+  }
 
   public void addGroup(Group group){
     list.add(group);

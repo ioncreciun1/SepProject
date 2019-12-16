@@ -50,6 +50,10 @@ public class RoomList
     return false;
   }
 
+  public void setRooms(ArrayList<Room> rooms) {
+    this.rooms = rooms;
+  }
+
   public Room getRoomById(String id){
     for (int i = 0; i < rooms.size()-1; i++) {
       if (rooms.get(i).getNumber().equals(id)){
