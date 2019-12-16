@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 
 import java.io.FileNotFoundException;
+import java.time.chrono.Chronology;
 
 public class AddController
 {
@@ -46,7 +47,16 @@ public class AddController
     reset();
   }
 
-  public void reset() {
+  public void reset()
+  {
+    semesterField.getSelectionModel().select("1");
+    courseField.getSelectionModel().select("SDJ1");
+    groupField.getSelectionModel().select("----Select Group----");
+    typeField.getSelectionModel().select("Written");
+    timeEnd.setText("");
+    timeStart.setText("");
+    examinerField.setText("");
+    roomField.getSelectionModel().select("----Add Room----");
     errorLabel.setText("");
   }
 
@@ -94,14 +104,14 @@ public class AddController
   Examiner examiner = new Examiner(examinerS);
   Examiner teacher = new Examiner(model.getTeacherByCourseAndGroup(courseS,groupS).getName());
   Course course = new Course(teacher, courseS);
-    System.out.println("get This fksadk: " + model.getAllAvailableRooms(getDateInterval()).size());
   Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
 
   try{
     errorLabel.setText("");
-    System.out.println(getDateStart().toString());
+    model.validateTime(timeStart.getText());
+    model.validateTime(timeEnd.getText());
     model.validateExam(exam);
-    ManageExamFiles files = new ManageExamFiles();
+
     files.AddExamList(exam);
     viewHandler.openView("landing");
   }catch (Exception e)
@@ -190,53 +200,14 @@ public class AddController
   }
 
 
-
-
-  public void initializeRoom(ActionEvent event) throws FileNotFoundException
-  {
-    roomList = new RoomList(); //Todo: getRoomList from file instead
-    roomField.getItems().removeAll(roomField.getItems());
-//    roomField.getItems().add("----Add Room----");
-//    roomField.getSelectionModel().select("----Add Room----");
-    ManageExamFiles files = new ManageExamFiles();
-    files.readRoomList();
-
-    for (int i = 0; i < model.getAllAvailableRooms(getDateInterval()).size(); i++) {
-        roomField.getItems().add(
-            model.getAllAvailableRooms(getDateInterval()).get(i).getNumber());
-      }
-  }
-
-
-  public void isDateBefore(ActionEvent event)
-  {
-  }
-
-  public void validateDate()
-  {
-    try{
-
-      model.validateTime(timeStart.toString());
-
-      System.out.println("Get More error");
-      model.validateTime(timeEnd.toString());
-      errorLabel.setText("");
-
-    }catch(Exception e)
-    {
-      errorLabel.setText("");
-      errorLabel.setText(e.getMessage());
-    }
-  }
-
   public void refreshCourseAndGroup(ActionEvent event)
       throws FileNotFoundException
   {
     ManageExamFiles files = new ManageExamFiles();
     files.readGroupList();
     groupField.getItems().removeAll((groupField.getItems()));
-    groupField.getItems().add("---SelectGroup---");
-    groupField.getSelectionModel().select("---SelectGroup---");
+    groupField.getItems().add("----SelectGroup----");
+    groupField.getSelectionModel().select("----SelectGroup----");
     for(int i=0;i<files.getGroupList().size();i++)
     {
       if(files.getGroupList().getGroup(i).getSemester() == Integer.parseInt(semesterField.getSelectionModel().getSelectedItem()))

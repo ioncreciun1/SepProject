@@ -152,7 +152,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <DatePicker fx:id="dateField2" onAction="#isDateBefore" prefHeight="25.0" prefWidth="200.0">
+                              <DatePicker fx:id="dateField2"  prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="130.0" />
                                  </HBox.margin>
@@ -169,7 +169,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="timeStart" onKeyTyped="#validateDate" prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeStart"  prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -186,7 +186,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="timeEnd" onKeyTyped="#validateDate"  prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeEnd"   prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>

@@ -13,14 +13,7 @@ public class ManageExamModelManager implements ManageExamModel
   file= new ManageExamFiles();
   }
 
-  @Override public void validateDate(Date date)
-  {
-    if(isCorrectFormat(date))
-    {
-      throw  new IllegalArgumentException("Enter Valid End time");
-    }
 
-  }
 
   @Override public void validateExam(Exam exam) throws FileNotFoundException
   {
@@ -32,6 +25,21 @@ public class ManageExamModelManager implements ManageExamModel
         {
           throw new IllegalArgumentException(
               "Examiner is Taken for this Interval:" + file.getExamList().getExam(i).getDateInterval());
+        }
+      }
+    }
+    if(isRoomBigEnough(exam.getGroup().getNumberOfStudents(),exam.getGroup().getName()))
+    {
+      throw new IllegalArgumentException("Room is not big enough");
+    }
+    if(isRoomTaken(exam.getRoom().getNumber(),exam.getDateInterval()))
+    {
+      for(int i=0;i<file.getExamList().size();i++)
+      {
+
+        if(file.getExamList().getExam(i).getRoom().getNumber().equals(exam.getRoom().getNumber()))
+        {
+          throw new IllegalArgumentException("Room is taken for this date Interval:" + file.getExamList().getExam(i).getDateInterval());
         }
       }
     }
@@ -57,7 +65,6 @@ public class ManageExamModelManager implements ManageExamModel
     if(!validateTimeHourAndDate(timeString)) {
       throw  new IllegalArgumentException("Set Valid time");
     }
-
   }
   public boolean validateTimeHourAndDate(String timeString) {
     if (timeString.length() != 5) return false;
@@ -95,11 +102,6 @@ public class ManageExamModelManager implements ManageExamModel
     return false;
   }
 
-  public boolean isCorrectFormat(Date date)
-  {
-  return false;
-  }
-
   @Override public boolean isExaminerTaken(Examiner examiner, DateInterval dateInterval)
       throws FileNotFoundException
   {
@@ -130,11 +132,15 @@ public class ManageExamModelManager implements ManageExamModel
     {
 
       if(file.getExamList().getExam(i).getRoom().getNumber().equals(room)
-      && (file.getExamList().getExam(i).getDateInterval().equals(dateInterval)
-          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getStartDate()))
-      )
+          && (file.getExamList().getExam(i).getDateInterval().equals(dateInterval)
+          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getStartDate())
+          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getEndDate())
+          || (dateInterval.getStartDate().isBefore(file.getExamList().getExam(i).getDateInterval().getStartDate())
+          && !dateInterval.getEndDate().isBefore(file.getExamList().getExam(i).getDateInterval().getEndDate()))
+      ))
       {
-        System.out.println("Room is taken");
+        System.out.println("I am here");
+        System.out.println("I am here");
         return true;
       }
     }
@@ -146,11 +152,20 @@ public class ManageExamModelManager implements ManageExamModel
     list.addExam(exam);
   }
 
-  @Override
-  public void removeExam(String course, int semester, String group, String type) {
-    list.removeExam(course,semester,group,type);
-  }
+  @Override public boolean isRoomBigEnough(int numberOfStudents, String name)
+      throws FileNotFoundException
+  {
+    file.readRoomList();
+    for(int i=0;i<file.getRoomList().getRoomList().size();i++)
+    {
+      if(file.getRoomList().getRoomList().get(i).getNumber().equals(name) && file.getRoomList().getRoomList().get(i).getChairs() >= numberOfStudents)
+      {
+        return true;
+      }
+    }
+    return false;
 
+  }
 
   @Override public int getNumberOfStudentsByGroupAndSemester(String groupName,
       int semester) throws FileNotFoundException
@@ -186,28 +201,4 @@ public class ManageExamModelManager implements ManageExamModel
     }
     return null;
   }
-
-  @Override public ArrayList<Room> getAllAvailableRooms(
-      //TODO: DON"T STOP AFTER SPECIFIC SIZE
-      DateInterval dateInterval) throws FileNotFoundException
-  {
-    file.readRoomList();
-    ArrayList<Room> availableRooms = new ArrayList<>();
-    System.out.println("Size:" + file.getRoomList().getRoomList().size());
-    int i=0;
-    while(i<file.getRoomList().getRoomList().size()) {
-    //System.out.println("I am here" + i);
-    if (!isRoomTaken(file.getRoomList().getRoomList().get(i).getNumber(),
-        dateInterval))
-    {
-      //System.out.println("WTF");
-      availableRooms.add(file.getRoomList().getRoomList().get(i));
-    }
-    if(i == file.getRoomList().getRoomList().size()-1) break;
-    i++;
-  }
-    System.out.println("Available size: " + availableRooms.size());
-    return availableRooms;
-  }
-
 }

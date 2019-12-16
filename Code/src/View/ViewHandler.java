@@ -104,7 +104,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxml));
         Region root = loader.load();
         editController = loader.getController();
-        editController.init(this,root);
+        editController.init(this,model,root);
       }
       catch (IOException e)
       {

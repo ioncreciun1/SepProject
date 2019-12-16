@@ -46,7 +46,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0">
+                  <TextField fx:id="semesterField" editable="false" prefHeight="25.0" prefWidth="200.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -59,7 +59,7 @@
                         <Insets left="150.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker prefWidth="200.0" />
+                  <DatePicker fx:id="dateStartField" prefWidth="200.0" />
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -74,7 +74,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0">
+                  <TextField fx:id="courseField" editable="false" prefHeight="25.0" prefWidth="200.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -87,7 +87,7 @@
                         <Insets left="150.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefWidth="200.0" />
+                  <TextField fx:id="timeStartField" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="210.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
@@ -100,7 +100,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0">
+                  <TextField fx:id="groupField" editable="false" prefHeight="25.0" prefWidth="200.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -113,7 +113,7 @@
                         <Insets left="150.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker prefWidth="200.0" />
+                  <DatePicker fx:id="dateEndField" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="310.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
@@ -126,7 +126,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox prefWidth="200.0" />
+                  <ComboBox fx:id="typeField" prefWidth="200.0" />
                   <Label prefHeight="50.0" prefWidth="140.0" text="Time End">
                      <font>
                         <Font size="30.0" />
@@ -135,7 +135,7 @@
                         <Insets left="150.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefWidth="200.0" />
+                  <TextField fx:id="timeEndField" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="350.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
@@ -148,7 +148,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox prefHeight="25.0" prefWidth="200.0" />
+                  <ComboBox fx:id="roomField" prefHeight="25.0" prefWidth="200.0" />
                   <Label prefHeight="50.0" prefWidth="140.0" text="Examiner">
                      <font>
                         <Font size="30.0" />
@@ -157,7 +157,7 @@
                         <Insets left="150.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="examinerField" prefHeight="25.0" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="390.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="950.0">

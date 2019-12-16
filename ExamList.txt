@@ -1,3 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"standalone="no"?>
 <ExamList>
-</ExamList>
+<Exam>
+<Semester>1</Semester>
+<Course>SSE1</Course>  
+<Group>Z</Group>     
+<Examiners>
+<Teacher>Mona</Teacher>
+<Examiner>Bob<Examiner>
+</Examiners>     
+<Type>Oral</Type>  
+<RoomNumber>301.A</RoomNumber>   
+ <StartDate>
+<StartYear>2019</StartYear>
+<StartMonth>12</StartMonth>
+<StartDay>17</StartDay>
+<StartHour>10</StartHour>
+<StartMinute>30</StartMinute>
+</StartDate>   
+ <EndDate>
+<EndYear>2019</EndYear>
+<EndMonth>12</EndMonth>
+<EndDay>18</EndDay>
+<EndHour>10</EndHour>
+<EndMinute>12</EndMinute>
+</EndDate>
+</Exam>
+<ExamList>
