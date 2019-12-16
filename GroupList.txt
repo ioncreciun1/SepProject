@@ -1,78 +1,269 @@
 <?xml version="1.0" encoding="UTF-8"standalone="no"?>
 <GroupList>
 <Group>
-  <Name>Y</Name>
-  <NumberOfStudents>25</NumberOfStudents>
-  <Semester>1</Semester>
-  <Course>
-  <CourseName>SDJ1</CourseName>
-  <Teacher>SWD</Teacher>
-  </Course>
-    <Course>
-    <CourseName>RWD1</CourseName>
-    <Teacher>Lina</Teacher>
-    </Course>
-      <Course>
-      <CourseName>SSE1</CourseName>
-      <Teacher>Mona</Teacher>
-      </Course>
-        <Course>
-        <CourseName>MSE1</CourseName>
-        <Teacher>Lars</Teacher>
-        </Course>
-          <Course>
-          <CourseName>SEP1</CourseName>
-          <Teacher>SWD</Teacher>
-          </Course>
-          </Group>
-          <Group>
-            <Name>Z</Name>
-            <NumberOfStudents>23</NumberOfStudents>
-            <Semester>1</Semester>
-            <Course>
-            <CourseName>SDJ1</CourseName>
-            <Teacher>SWA</Teacher>
-            </Course>
-              <Course>
-              <CourseName>RWD1</CourseName>
-              <Teacher>Lina</Teacher>
-              </Course>
-                <Course>
-                <CourseName>SSE1</CourseName>
-                <Teacher>Mona</Teacher>
-                </Course>
-                  <Course>
-                  <CourseName>MSE1</CourseName>
-                  <Teacher>Lars</Teacher>
-                  </Course>
-                    <Course>
-                    <CourseName>SEP1</CourseName>
-                    <Teacher>SWA</Teacher>
-                    </Course>
-                    </Group>
-                     <Group>
-                                <Name>X</Name>
-                                <NumberOfStudents>23</NumberOfStudents>
-                                <Semester>1</Semester>
-                                <Course>
-                                <CourseName>SDJ1</CourseName>
-                                <Teacher>SWA</Teacher>
-                                </Course>
-                                  <Course>
-                                  <CourseName>RWD1</CourseName>
-                                  <Teacher>Lina</Teacher>
-                                  </Course>
-                                    <Course>
-                                    <CourseName>SSE1</CourseName>
-                                    <Teacher>Mona</Teacher>
-                                    </Course>
-                                      <Course>
-                                      <CourseName>MSE1</CourseName>
-                                      <Teacher>Lars</Teacher>
-                                      </Course>
-                                        <Course>
-                                        <CourseName>SEP1</CourseName>
-                                        <Teacher>SWA</Teacher>
-                                        </Course>
-                                        </Group>
+<Name>Y</Name>
+<NumberOfStudents>25</NumberOfStudents>
+<Semester>1</Semester>
+<Course>
+ <CourseName>SDJ1</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+<Course>
+ <CourseName>RWD1</CourseName>
+ <Teacher>Lina</Teacher>
+</Course>
+<Course>
+ <CourseName>SSE1</CourseName>
+ <Teacher>Mona</Teacher>
+</Course>
+<Course>
+ <CourseName>MSE1</CourseName>
+ <Teacher>Lars</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP1</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
+<Group>
+<Name>Z</Name>
+<NumberOfStudents>23</NumberOfStudents>
+<Semester>1</Semester>
+<Course>
+ <CourseName>SDJ1</CourseName>
+ <Teacher>SWA</Teacher>
+</Course>
+<Course>
+ <CourseName>RWD1</CourseName>
+ <Teacher>Lina</Teacher>
+</Course>
+<Course>
+ <CourseName>SSE1</CourseName>
+ <Teacher>Mona</Teacher>
+</Course>
+<Course>
+ <CourseName>MSE1</CourseName>
+ <Teacher>Lars</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP1</CourseName>
+ <Teacher>SWA</Teacher>
+</Course>
+</Group>
+<Group>
+<Name>X</Name>
+<NumberOfStudents>23</NumberOfStudents>
+<Semester>1</Semester>
+<Course>
+ <CourseName>SDJ1</CourseName>
+ <Teacher>SWA</Teacher>
+</Course>
+<Course>
+ <CourseName>RWD1</CourseName>
+ <Teacher>Lina</Teacher>
+</Course>
+<Course>
+ <CourseName>SSE1</CourseName>
+ <Teacher>Mona</Teacher>
+</Course>
+<Course>
+ <CourseName>MSE1</CourseName>
+ <Teacher>Lars</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP1</CourseName>
+ <Teacher>SWA</Teacher>
+ </Course>
+</Group>
+////////////////////////////////////
+<Group>
+<Name>Y</Name>
+<NumberOfStudents>25</NumberOfStudents>
+<Semester>2</Semester>
+<Course>
+ <CourseName>SDJ2</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+<Course>
+ <CourseName>SWE1</CourseName>
+ <Teacher>SWE</Teacher>
+</Course>
+<Course>
+ <CourseName>DBS1</CourseName>
+ <Teacher>DBS</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP2</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
+<Group>
+<Name>Z</Name>
+<NumberOfStudents>23</NumberOfStudents>
+<Semester>2</Semester>
+<Course>
+ <CourseName>SDJ2</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+<Course>
+ <CourseName>SWE1</CourseName>
+ <Teacher>SWE</Teacher>
+</Course>
+<Course>
+ <CourseName>DBS1</CourseName>
+ <Teacher>DBS</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP2</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
+<Group>
+<Name>X</Name>
+<NumberOfStudents>23</NumberOfStudents>
+<Semester>2</Semester>
+<Course>
+ <CourseName>SDJ2</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+<Course>
+ <CourseName>SWE1</CourseName>
+ <Teacher>SWE</Teacher>
+</Course>
+<Course>
+ <CourseName>DBS1</CourseName>
+ <Teacher>DBS</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP2</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
+////////////////////////
+<Group>
+<Name>Y</Name>
+<NumberOfStudents>25</NumberOfStudents>
+<Semester>3</Semester>
+<Course>
+ <CourseName>SDJ3</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+<Course>
+ <CourseName>CAO1</CourseName>
+ <Teacher>CAO</Teacher>
+</Course>
+<Course>
+ <CourseName>DNP1</CourseName>
+ <Teacher>DNP</Teacher>
+</Course>
+<Course>
+ <CourseName>NES1</CourseName>
+ <Teacher>NES</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP3</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
+<Group>
+<Name>Z</Name>
+<NumberOfStudents>23</NumberOfStudents>
+<Semester>3</Semester>
+<Course>
+ <CourseName>SDJ3</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+<Course>
+ <CourseName>CAO1</CourseName>
+ <Teacher>CAO</Teacher>
+</Course>
+<Course>
+ <CourseName>DNP1</CourseName>
+ <Teacher>DNP</Teacher>
+</Course>
+<Course>
+ <CourseName>NES1</CourseName>
+ <Teacher>NES</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP3</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
+///////////////////////////////////
+<Group>
+<Name>Y</Name>
+<NumberOfStudents>25</NumberOfStudents>
+<Semester>4</Semester>
+<Course>
+ <CourseName>AND1</CourseName>
+ <Teacher>AND</Teacher>
+</Course>
+<Course>
+ <CourseName>ESW1</CourseName>
+ <Teacher>ESW</Teacher>
+</Course>
+<Course>
+ <CourseName>DAI1</CourseName>
+ <Teacher>DAI</Teacher>
+</Course>
+<Course>
+ <CourseName>INO1</CourseName>
+ <Teacher>INO</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP4</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
+<Group>
+<Name>Z</Name>
+<NumberOfStudents>23</NumberOfStudents>
+<Semester>1</Semester>
+<Course>
+ <CourseName>AND1</CourseName>
+ <Teacher>AND</Teacher>
+</Course>
+<Course>
+ <CourseName>ESW1</CourseName>
+ <Teacher>ESW</Teacher>
+</Course>
+<Course>
+ <CourseName>DAI1</CourseName>
+ <Teacher>DAI</Teacher>
+</Course>
+<Course>
+ <CourseName>INO1</CourseName>
+ <Teacher>INO</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP4</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
+<Group>
+<Name>X</Name>
+<NumberOfStudents>23</NumberOfStudents>
+<Semester>1</Semester>
+<Course>
+ <CourseName>AND1</CourseName>
+ <Teacher>AND</Teacher>
+</Course>
+<Course>
+ <CourseName>ESW1</CourseName>
+ <Teacher>ESW</Teacher>
+</Course>
+<Course>
+ <CourseName>DAI1</CourseName>
+ <Teacher>DAI</Teacher>
+</Course>
+<Course>
+ <CourseName>INO1</CourseName>
+ <Teacher>INO</Teacher>
+</Course>
+<Course>
+ <CourseName>SEP4</CourseName>
+ <Teacher>SWD</Teacher>
+</Course>
+</Group>
 </GroupList>
