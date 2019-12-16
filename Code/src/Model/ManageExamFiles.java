@@ -13,21 +13,37 @@ public class ManageExamFiles
   private ExamList examList = new ExamList();
   private GroupList groupList = new GroupList();
 
+  /**
+   *
+   * @return list of groups from file
+   */
   public GroupList getGroupList()
   {
     return groupList;
   }
 
+  /**
+   *
+   * @return list of exams from file
+   */
   public ExamList getExamList()
   {
     return examList;
   }
 
+  /**
+   *
+   * @return list of rooms from file
+   */
   public RoomList getRoomList()
   {
     return roomList;
   }
 
+  /**
+   *  read all groups from file and add them to an arrayList
+   * @throws FileNotFoundException if file do not exist
+   */
   public void readGroupList() throws FileNotFoundException
  {
      ArrayList<Group> groups = new ArrayList<>();
@@ -88,6 +104,12 @@ public class ManageExamFiles
    }
     groupList.setList(groups);
  }
+
+  /**
+   *  add room to a file
+   * @param room
+   * @throws FileNotFoundException
+   */
   public void addRoomToList(Room room) throws FileNotFoundException
   {
     readRoomList();
@@ -114,6 +136,12 @@ public class ManageExamFiles
     writer.flush();
     writer.close();
   }
+
+  /**
+   * read all rooms from a file and add them to an arrayList
+   * @throws FileNotFoundException
+   * @throws NullPointerException
+   */
   public void readRoomList() throws FileNotFoundException,NullPointerException
   {
       ArrayList<Room> rooms = new ArrayList<>();
@@ -166,6 +194,11 @@ public class ManageExamFiles
     roomList.setRooms(rooms);
   }
 
+  /**
+   * add an exam to a file
+   * @param exam
+   * @throws FileNotFoundException
+   */
   public void AddExamList(Exam exam) throws FileNotFoundException
   {
     ReadExamList();
@@ -187,7 +220,7 @@ public class ManageExamFiles
       xml+="\n<Examiner>"+  examList.getExam(i).getExaminer() + "<Examiner>";
     xml += "\n</Examiners>";
       xml += "     \n<Type>"  +  examList.getExam(i).getType()  + "</Type>";
-    xml += "  \n<RoomNumber>" + "301.A" + "</RoomNumber>";
+    xml += "  \n<RoomNumber>" + examList.getExam(i).getRoom().getNumber() + "</RoomNumber>";
     xml += "   \n <StartDate>" ;
     xml+="\n<StartYear>" + examList.getExam(i).getDateInterval().getStartDate().getYear()  + "</StartYear>";
       xml+="\n<StartMonth>" +  examList.getExam(i).getDateInterval().getStartDate().getMonth() + "</StartMonth>";
@@ -210,6 +243,14 @@ public class ManageExamFiles
     writer.close();
   }
 
+  /**
+   * Remove an exam from a file based on course name,semester, group name and type
+   * @param course course name
+   * @param semester semester
+   * @param group group name
+   * @param type exan type
+   * @throws FileNotFoundException
+   */
     public void RemoveExamFromList(String course, int semester, String group, String type) throws FileNotFoundException
     {
         ReadExamList();
@@ -257,6 +298,11 @@ public class ManageExamFiles
         writer.close();
     }
 
+  /**
+   * read all exams from a list and add them to an arrayList
+   * @throws FileNotFoundException
+   * @throws NullPointerException
+   */
   public void ReadExamList() throws FileNotFoundException,NullPointerException
   {
   ArrayList <Exam> exams= new ArrayList<>();
@@ -410,11 +456,6 @@ public class ManageExamFiles
         }
         examList.setExams(exams);
     }
-
-
-
-
-
   }
 
 }

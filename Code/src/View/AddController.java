@@ -109,7 +109,7 @@ public class AddController
   try{
     errorLabel.setText("");
     model.validateTime(timeStart.getText());
-    model.validateTime(timeEnd.getText());
+   model.validateTime(timeEnd.getText());
     model.validateExam(exam);
 
     files.AddExamList(exam);

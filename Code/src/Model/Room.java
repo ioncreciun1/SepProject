@@ -110,13 +110,19 @@ public class Room
   }
 
   /**
-   * if number is negative converts it to a positive one
+   * set number of tables if it is positive
    * @param tables
    */
   public void setTables(int tables)
   {
 if(tables > 0) this.tables = tables;
   }
+
+  /**
+   *
+   * @param obj
+   * @return true if this room equals obj
+   */
   public boolean equals(Object obj)
   {
     if(!(obj instanceof Room)) return false;
@@ -124,6 +130,10 @@ if(tables > 0) this.tables = tables;
     return this.chairs == other.chairs && this.HDMI == other.HDMI && this.VGA == other.VGA && this.tables == other.tables && this.number.equals(other.number);
   }
 
+  /**
+   *
+   * @return room as string
+   */
   @Override public String toString()
   {
     return "Room{" + "HDMI=" + HDMI + ", chairs=" + chairs + ", VGA=" + VGA

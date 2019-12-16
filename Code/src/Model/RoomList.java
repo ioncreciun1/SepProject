@@ -6,22 +6,24 @@ import java.util.Random;
 
 public class RoomList
 {
-  private ArrayList<Room> rooms = new ArrayList<>();
+  private ArrayList<Room> rooms;
+  public RoomList(){
+    rooms = new ArrayList<>();
+  }
 
+  /**
+   *  add room to list
+   * @param room
+   */
   public void addRoom(Room room){
     rooms.add(room);
   }
 
   /**
-   *Get all Available Rooms in this Date Interval. If this room already is taken for exam in this date interval
-   *  or at least from one day(if exam is more than one day) then return false
-  // * @param dateInterval Start date of Exam and End date of exam
-   * @return all available Rooms in this interval
    *
+   * @param port
+   * @return all room with this specific port
    */
-
-
-
   public ArrayList<Room> getAllRoomsWithPort(String port){
     ArrayList<Room> rooms1 = new ArrayList<>();
     if (port.equals("HDMI")){
@@ -39,6 +41,11 @@ public class RoomList
       return rooms1;
   }
 
+  /**
+   *
+   * @param id name of room
+   * @return true if there is such room based on name
+   */
   public boolean containsId(String id){
     for (int i = 0; i < rooms.size()-1; i++) {
       if (rooms.get(i).getNumber().equals(id)){
@@ -48,10 +55,19 @@ public class RoomList
     return false;
   }
 
+  /**
+   *
+   * @param rooms set all rooms
+   */
   public void setRooms(ArrayList<Room> rooms) {
     this.rooms = rooms;
   }
 
+  /**
+   *
+   * @param id name of room
+   * @return return room from a list based on name
+   */
   public Room getRoomById(String id){
     for (int i = 0; i < rooms.size()-1; i++) {
       if (rooms.get(i).getNumber().equals(id)){
@@ -62,6 +78,10 @@ public class RoomList
     return null;
   }
 
+  /**
+   *
+   * @return all rooms
+   */
   public ArrayList<Room> getRoomList(){
     return rooms;
   }

@@ -6,6 +6,10 @@ public class Date
 
   /**
    * five Parameter constructor.
+   * Set only date if it smaller than number of days in month
+   * Hour can not be more than 24 and less than 0
+   * minute can not be more than 60 and less than 0
+   * month can be more than 12 and less than 0
    * @param day
    * @param month
    * @param year
@@ -24,37 +28,49 @@ public class Date
 
   }
 
-
-
+  /**
+   *
+   * @return day as number
+   */
   public int getDay()
   {
     return day;
   }
 
+  /**
+   *
+   * @return month as number
+   */
   public int getMonth()
   {
     return month;
   }
 
+  /**
+   *
+   * @return year
+   */
   public int getYear()
   {
     return year;
   }
 
+  /**
+   *
+   * @return hour
+   */
   public int getHour()
   {
     return hour;
   }
 
+  /**
+   *
+   * @return minute
+   */
   public int getMinute()
   {
     return minute;
-  }
-
-  public void setTime(int hour, int minute)
-  {
-    setMinute(minute);
-    setHour(hour);
   }
 
   /**
@@ -111,16 +127,28 @@ public class Date
     }
   }
 
+  /**
+   *
+   * @param month  month number
+   */
   public void setMonth(int month)
   {
     if(month > 0 && month < 13) this.month = month;
   }
 
+  /**
+   *
+   * @param year
+   */
   public void setYear(int year)
   {
     this.year = year;
   }
 
+  /**
+   *
+   * @param day as number
+   */
   public void setDay(int day)
   {
     if (day <= this.numberOfDaysInMonth() && day>0)
@@ -129,7 +157,6 @@ public class Date
   }
 
   /**
-   * set Minute if is between 0 and 60
    * @param minute
    */
   public void setMinute(int minute)
@@ -140,7 +167,6 @@ public class Date
   }
 
   /**
-   * set Hour if is between 0 and 24
    * @param hour
    */
   public void setHour(int hour)
@@ -151,6 +177,10 @@ public class Date
     }
   }
 
+  /**
+   *
+   * @return year-month-day hour:minute
+   */
   public String toString()
   {
     String dayNew, monthNew;
@@ -174,11 +204,19 @@ public class Date
         + ":" + getMinute();
   }
 
+  /**
+   *
+   * @return true if this year is a Leap year
+   */
   public boolean isLeapYear()
   {
     return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
   }
 
+  /**
+   *
+   * @return number of day in months based on their number
+   */
   public int numberOfDaysInMonth()
   {
     switch (month)
@@ -199,6 +237,11 @@ public class Date
     }
   }
 
+  /**
+   *
+   * @param obj object that is passed
+   * @return true if obj is equals to this date
+   */
   public boolean equals(Object obj)
   {
     if (!(obj instanceof Date))
@@ -210,6 +253,11 @@ public class Date
         .getMinute();
   }
 
+  /**
+   *
+   * @param other other date
+   * @return number of hours between this date and other
+   */
   public int hoursBetween(Date other)
   {
     int days;
@@ -247,10 +295,4 @@ public class Date
       }
     }
   }
-//  public boolean equals(Object obj)
-//  {
-//    if(!(obj instanceof Date)) return false;
-//    Date other = (Date)obj;
-//    return this.minute==other.minute && this.month == other.month && this.day == other.day && this.hour == other.hour && this.year == other.year;
-//  }
 }
