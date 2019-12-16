@@ -34,6 +34,7 @@ public class AddController
   private Region root;
   private ManageExamModel model;
   private ViewHandler viewHandler;
+  private ManageExamFiles files;
   public AddController(){}
 
   public void init(ViewHandler viewHandler, ManageExamModel model ,Region root)
@@ -41,6 +42,7 @@ public class AddController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
+    files = new ManageExamFiles();
     reset();
   }
 
@@ -59,8 +61,6 @@ public class AddController
   }
 
   public void addExam(ActionEvent actionEvent) throws FileNotFoundException {
-    boolean validated = false;
-    //Todo: Examiners need their own list and then they are selected from the list, checked if available not just input
   int semesterS = Integer.parseInt(semesterField.getSelectionModel().getSelectedItem().toString());
   String courseS = courseField.getSelectionModel().getSelectedItem().toString();
   String groupS = groupField.getSelectionModel().getSelectedItem().toString();
@@ -70,9 +70,22 @@ public class AddController
   String typeS = typeField.getSelectionModel().getSelectedItem().toString();
 
   DateInterval dateInterval = getDateInterval();
-
-
-  Room room = new Room(true, true, 120, 12, roomS);
+  boolean hdmi = false;
+  boolean vga = false;
+  int chairs = 0;
+  int table = 0;
+  files.readRoomList();
+  for(int i=0;i<files.getRoomList().getRoomList().size();i++)
+  {
+    if(files.getRoomList().getRoomList().get(i).getNumber().equals(roomS))
+    {
+      hdmi = files.getRoomList().getRoomList().get(i).isHDMI();
+      vga = files.getRoomList().getRoomList().get(i).isVGA();
+      table = files.getRoomList().getRoomList().get(i).getTables();
+      chairs = files.getRoomList().getRoomList().get(i).getChairs();
+    }
+  }
+  Room room = new Room(hdmi, vga, chairs, table, roomS);
   Group group = new Group(groupS, model.getNumberOfStudentsByGroupAndSemester(groupS,semesterS), semesterS);
   Examiner examiner = new Examiner(examinerS);
   Examiner teacher = new Examiner(model.getTeacherByCourseAndGroup(courseS,groupS).getName());
@@ -82,8 +95,6 @@ public class AddController
   try{
     errorLabel.setText("");
     System.out.println(getDateStart().toString());
-   // model.isValidDate(dateInterval.getStartDate().toString());
-   // model.validateDate(dateInterval.getEndDate());
     model.validateExam(exam);
     ManageExamFiles files = new ManageExamFiles();
     files.AddExamList(exam);
@@ -104,23 +115,27 @@ public class AddController
   //Room Management
 
 
+  public void initializeGroup() throws FileNotFoundException
+  {
+
+
+
+  }
 
   @FXML
   public void initialize() throws FileNotFoundException
   {
     //Init Room Dropdown
-
     roomList = new RoomList(); //Todo: getRoomList from file instead
     roomField.getItems().removeAll(roomField.getItems());
-    ManageExamFiles files = new ManageExamFiles();
+    roomField.getItems().add("----Add Room----");
+    roomField.getSelectionModel().select("----Add Room----");
+    files = new ManageExamFiles();
     files.readRoomList();
     for (int i = 0; i < files.getRoomList().getRoomList().size(); i++) {
       //if(model.isRoomTaken(files.getRoomList().getRoomList().get(i),dateInterval))
       roomField.getItems().add(files.getRoomList().getRoomList().get(i).getNumber());
     }
-
-
-roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).getNumber());
     ///Init Type Dropdown
     typeField.getItems().removeAll(typeField.getItems());
     typeField.getItems().addAll("Oral","Written");
@@ -130,9 +145,19 @@ roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).ge
     semesterField.getItems().addAll("1","2","3","4");
     semesterField.getSelectionModel().select("1");
     //Init Group
-    groupField.getItems().removeAll(groupField.getItems());
-    groupField.getItems().addAll("X","Y","Z");
-    groupField.getSelectionModel().select("X");
+
+
+    groupField.getItems().add("----Select Group----");
+    groupField.getSelectionModel().select("----Select Group----");
+    files.readGroupList();
+    for(int i=0;i<files.getGroupList().size();i++)
+    {
+      if(files.getGroupList().getGroup(i).getSemester() == 1)
+      {
+        groupField.getItems().add(files.getGroupList().getGroup(i).getName());
+      }}
+
+
     //Init Course
     courseField.getItems().removeAll(courseField.getItems());
     courseField.getItems().addAll("SDJ1","SSE1","SEP1","MSE1","RWD1");
@@ -175,8 +200,46 @@ roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).ge
     return new DateInterval(getDateStart(),getDateEnd());
   }
 
-  public void refreshCourse(ActionEvent event)
+
+
+
+  public void initializeRoom(ActionEvent event) throws FileNotFoundException
   {
+    roomList = new RoomList(); //Todo: getRoomList from file instead
+    roomField.getItems().removeAll(roomField.getItems());
+    roomField.getItems().add("----Add Room----");
+    roomField.getSelectionModel().select("----Add Room----");
+    ManageExamFiles files = new ManageExamFiles();
+    files.readRoomList();
+    for (int i = 0; i < model.getAllAvailableRooms(getDateInterval()).size(); i++) {
+        roomField.getItems().add(
+            model.getAllAvailableRooms(getDateInterval()).get(i).getNumber());
+      }
+  }
+
+
+  public void isDateBefore(ActionEvent event)
+  {
+  }
+
+  public void validateDate(KeyEvent keyEvent)
+  {
+  }
+
+  public void refreshCourseAndGroup(ActionEvent event)
+      throws FileNotFoundException
+  {
+    ManageExamFiles files = new ManageExamFiles();
+    files.readGroupList();
+    groupField.getItems().removeAll((groupField.getItems()));
+    groupField.getItems().add("---SelectGroup---");
+    groupField.getSelectionModel().select("---SelectGroup---");
+    for(int i=0;i<files.getGroupList().size();i++)
+    {
+      if(files.getGroupList().getGroup(i).getSemester() == Integer.parseInt(semesterField.getSelectionModel().getSelectedItem()))
+      {
+        groupField.getItems().add(files.getGroupList().getGroup(i).getName());
+      }}
     if(semesterField.getSelectionModel().getSelectedItem().toString().equals("1")) {
       courseField.getItems().removeAll(courseField.getItems());
       courseField.getItems().addAll("SDJ1","SSE1","SEP1","MSE1","RWD1");
@@ -199,28 +262,5 @@ roomField.getSelectionModel().select(files.getRoomList().getRoomList().get(0).ge
       courseField.getItems().addAll("AND1","ESW1","DAI1","SEP4","INO1");
       courseField.getSelectionModel().select("AND1");
     }
-  }
-
-
-
-  public void initializeRoom(ActionEvent event) throws FileNotFoundException
-  {
-    roomList = new RoomList(); //Todo: getRoomList from file instead
-    roomField.getItems().removeAll(roomField.getItems());
-    ManageExamFiles files = new ManageExamFiles();
-    files.readRoomList();
-    for (int i = 0; i < model.getAllAvailableRooms(getDateInterval()).size(); i++) {
-        roomField.getItems().add(
-            model.getAllAvailableRooms(getDateInterval()).get(i).getNumber());
-      }
-  }
-
-
-  public void isDateBefore(ActionEvent event)
-  {
-  }
-
-  public void validateDate(KeyEvent keyEvent)
-  {
   }
 }

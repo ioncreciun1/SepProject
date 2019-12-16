@@ -1,8 +1,8 @@
 package Model;
 
 import java.io.FileNotFoundException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ManageExamModelManager implements ManageExamModel
@@ -40,7 +40,14 @@ public class ManageExamModelManager implements ManageExamModel
     {
       throw new IllegalArgumentException("This Exam is already in the system");
     }
-    //if(!IsExamTaken())
+    if(exam.getDateInterval().getEndDate().isBefore(exam.getDateInterval().getStartDate())) {
+      throw new IllegalArgumentException("End Date is before Start Date");
+    }
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+    LocalDateTime now = LocalDateTime.now();
+    if(exam.getDateInterval().getStartDate().isBefore(new Date(now.getDayOfMonth(),now.getMonthValue(),now.getYear(),now.getHour(),now.getMinute()))){
+      throw new IllegalArgumentException("This Date past");
+    }
 
   }
 
@@ -75,9 +82,12 @@ public class ManageExamModelManager implements ManageExamModel
       if(file.getExamList().getExam(i).getExaminer().equals(examiner)
           && (file.getExamList().getExam(i).getDateInterval().equals(dateInterval)
           || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getStartDate())
+          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getEndDate())
+          || (dateInterval.getStartDate().isBefore(file.getExamList().getExam(i).getDateInterval().getStartDate())
+               && !dateInterval.getEndDate().isBefore(file.getExamList().getExam(i).getDateInterval().getEndDate()))
           ))
       {
-        System.out.println(file.getExamList().getExam(i).getDateInterval().getStartDate());
+        System.out.println(file.getExamList().getExam(i).getDateInterval().getEndDate());
         return true;
       }
       }
