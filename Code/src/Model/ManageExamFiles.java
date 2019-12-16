@@ -210,11 +210,11 @@ public class ManageExamFiles
     writer.close();
   }
 
-    public void RemoveExamFromList(Exam exam) throws FileNotFoundException
+    public void RemoveExamFromList(String course, int semester, String group, String type) throws FileNotFoundException
     {
         ReadExamList();
-        System.out.println("LIST1 ="+getExamList());
-        getExamList().removeExam(exam);
+        examList.removeExam(course,semester,group,type);
+        System.out.println(examList.toString());
         String fileName = "ExamList.txt";
         File file = new File(fileName);
         PrintWriter writer = new PrintWriter(file);

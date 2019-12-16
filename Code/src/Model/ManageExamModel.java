@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public interface  ManageExamModel
 {
   public void addExam(Exam exam);
-  public void removeExam(String course);
+  public void removeExam(String course, int semester, String group, String type);
   public int getNumberOfStudentsByGroupAndSemester(String groupName,int semester)
       throws FileNotFoundException;
   public Examiner getTeacherByCourseAndGroup(String course,String Group)

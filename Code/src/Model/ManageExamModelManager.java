@@ -118,10 +118,11 @@ public class ManageExamModelManager implements ManageExamModel
     list.addExam(exam);
   }
 
-  @Override public void removeExam(String course)
-  {
-   list.removeExam(course);
+  @Override
+  public void removeExam(String course, int semester, String group, String type) {
+    list.removeExam(course,semester,group,type);
   }
+
 
   @Override public int getNumberOfStudentsByGroupAndSemester(String groupName,
       int semester) throws FileNotFoundException

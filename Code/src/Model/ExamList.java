@@ -35,14 +35,19 @@ public class ExamList
     return null;
   }
 
-  public void removeExam(String course){
+  public void removeExam(String course, int semester, String group, String type){
+    System.out.println("INPUT COURSE"+course);
   for(int i = 0; i < exams.size(); i++)
   {
-    if(exams.get(i).getCourse().equals(course))
+    if(exams.get(i).getCourse().getCourseName().equals(course) && exams.get(i).getGroup().getSemester() == semester && exams.get(i).getGroup().getName().equals(group) && exams.get(i).getType().equals(type))
     {
       exams.remove(exams.get(i));
-
     }
   }
-}
+    System.out.println("ERROR EXAM NOT FOUND BY COURSE");
+  }
+  public String toString() {
+
+return exams.toString();
+  }
 }

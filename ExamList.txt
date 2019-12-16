@@ -1,28 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"standalone="no"?>
 <ExamList>
-<Exam>
-<Semester>1</Semester>
-<Course>SDJ1</Course>  
-<Group>X</Group>     
-<Examiners>
-<Teacher>SWD</Teacher>
-<Examiner>bob</Examiner>
-</Examiners>     
-<Type>Oral</Type>  
-<RoomNumber>301.A</RoomNumber>   
- <StartDate>
-<StartYear>2019</StartYear>
-<StartMonth>12</StartMonth>
-<StartDay>12</StartDay>
-<StartHour>9</StartHour>
-<StartMinute>0</StartMinute>
-</StartDate>   
- <EndDate>
-<EndYear>2019</EndYear>
-<EndMonth>12</EndMonth>
-<EndDay>17</EndDay>
-<EndHour>9</EndHour>
-<EndMinute>0</EndMinute>
-</EndDate>
-</Exam>
 </ExamList>

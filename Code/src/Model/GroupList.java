@@ -35,21 +35,25 @@ public class GroupList
     return list.get(index);
   }
 
-  public Group getGroup(int semester, String name){
-    for (int i = 0; i < list.size()-1; i++) {
+  public Group getGroup(int semester, String name, String courseName){
+    for (int i = 0; i < list.size(); i++) {
       if (getGroup(i).getName().equals(name) && getGroup(i).getSemester() == semester){
-        return getGroup(i);
+        for (int j = 0; j < getGroup(i).getCourses().size()-1; j++) {
+          if(getGroup(i).getCourses().get(j).getCourseName().equals(courseName)){
+            return getGroup(i);
+          }
+        }
       }
     }
     System.out.println("ERROR GROUP DOESNT EXIST");
     return null;
   }
 
-  public Course getCourse(String name, int semester, String groupName){
-    for (int i = 0; i < list.size()-1; i++) {
-      if (getGroup(i).getName().equals(groupName) && getGroup(i).getSemester() == semester){
-        for (int j = 0; j < getGroup(i).getCourses().size(); j++) {
-          if(getGroup(i).getCourses().get(j).getCourseName().equals(name)){
+  public Course getCourse(int semester, String name, String courseName){
+    for (int i = 0; i < list.size(); i++) {
+      if (getGroup(i).getName().equals(name) && getGroup(i).getSemester() == semester){
+        for (int j = 0; j < getGroup(i).getCourses().size()-1; j++) {
+          if(getGroup(i).getCourses().get(j).getCourseName().equals(courseName)){
             return getGroup(i).getCourses().get(j);
           }
         }
