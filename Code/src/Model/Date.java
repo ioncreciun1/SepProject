@@ -4,6 +4,14 @@ public class Date
 {
   private int day, month, year, hour, minute;
 
+  /**
+   * five Parameter constructor.
+   * @param day
+   * @param month
+   * @param year
+   * @param hour
+   * @param minute
+   */
   public Date(int day, int month, int year, int hour, int minute)
   {
   setHour(hour);
@@ -120,6 +128,10 @@ public class Date
 
   }
 
+  /**
+   * set Minute if is between 0 and 60
+   * @param minute
+   */
   public void setMinute(int minute)
   {
     if(minute > 0 && minute <60) {
@@ -127,6 +139,10 @@ public class Date
     }
   }
 
+  /**
+   * set Hour if is between 0 and 24
+   * @param hour
+   */
   public void setHour(int hour)
   {
     if (hour < 24 && hour > 0)
@@ -154,8 +170,8 @@ public class Date
     {
       monthNew = "" + month;
     }
-    return dayNew + "/" + monthNew + "/" + year + " hour=" + getHour()
-        + " minute=" + getMinute();
+    return year + "/" + monthNew + "/" + dayNew + " " + getHour()
+        + ":" + getMinute();
   }
 
   public boolean isLeapYear()

@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="560.0" maxWidth="970.0" minHeight="550.0" minWidth="950.0" prefHeight="590.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
+<AnchorPane maxHeight="550.0" maxWidth="950.0" minHeight="550.0" minWidth="950.0" prefHeight="570.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
    <children>
-      <VBox maxHeight="950.0" maxWidth="950.0" minHeight="550.0" minWidth="950.0" prefHeight="550.0" prefWidth="950.0">
+      <VBox maxHeight="550.0" maxWidth="950.0" minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="950.0">
          <children>
             <HBox maxWidth="950.0" minWidth="950.0" prefHeight="80.0" prefWidth="950.0">
                <children>
@@ -34,9 +34,9 @@
                   </Label>
                </children>
             </HBox>
-            <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="950.0" minHeight="-Infinity" minWidth="941.0" prefHeight="351.0" prefWidth="941.0" vbarPolicy="ALWAYS">
+            <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="950.0" minHeight="-Infinity" minWidth="941.0" prefHeight="350.0" prefWidth="941.0" vbarPolicy="ALWAYS">
                <content>
-                  <AnchorPane prefHeight="720.0" prefWidth="964.0">
+                  <AnchorPane prefHeight="800.0" prefWidth="964.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="950.0">
                            <children>
@@ -91,7 +91,7 @@
                               </ComboBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutY="241.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
+                        <HBox alignment="CENTER_LEFT" layoutY="721.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
                               <Label prefHeight="50.0" prefWidth="140.0" text="Examiners">
                                  <font>
@@ -108,7 +108,7 @@
                               </TextField>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutY="321.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
+                        <HBox alignment="CENTER_LEFT" layoutY="241.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
                               <Label prefHeight="50.0" prefWidth="140.0" text="Type">
                                  <font>
@@ -125,7 +125,7 @@
                               </ComboBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutY="481.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
+                        <HBox alignment="CENTER_LEFT" layoutY="321.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
                               <Label prefHeight="50.0" prefWidth="140.0" text="Date Start">
                                  <font>
@@ -142,7 +142,7 @@
                               </DatePicker>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutY="641.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
+                        <HBox alignment="CENTER_LEFT" layoutY="481.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
                               <Label prefHeight="50.0" prefWidth="140.0" text="Date End">
                                  <font>
@@ -152,14 +152,14 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <DatePicker fx:id="dateField2" onAction="#initializeRoom" prefHeight="25.0" prefWidth="200.0">
+                              <DatePicker fx:id="dateField2" onAction="#isDateBefore" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="100.0" />
                                  </HBox.margin>
                               </DatePicker>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutY="561.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
+                        <HBox alignment="CENTER_LEFT" layoutY="401.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
                               <Label prefHeight="50.0" prefWidth="150.0" text="Time Start">
                                  <font>
@@ -169,16 +169,16 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="timeStart" prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeStart" onAction="#validateDate" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="90.0" />
                                  </HBox.margin>
                               </TextField>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutY="721.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
+                        <HBox alignment="CENTER_LEFT" layoutY="561.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
-                              <Label onKeyTyped="#validator" prefHeight="50.0" prefWidth="150.0" text="Time End">
+                              <Label  prefHeight="50.0" prefWidth="150.0" text="Time End">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -186,14 +186,14 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="timeEnd" prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeEnd" onKeyTyped="#validateDate" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="90.0" />
                                  </HBox.margin>
                               </TextField>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutY="401.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
+                        <HBox alignment="CENTER_LEFT" layoutY="641.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="950.0">
                            <children>
                               <Label prefHeight="50.0" prefWidth="140.0" text="Room">
                                  <font>
@@ -203,7 +203,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <ComboBox fx:id="roomField"  prefHeight="25.0" prefWidth="200.0">
+                              <ComboBox fx:id="roomField" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="100.0" />
                                  </HBox.margin>

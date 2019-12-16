@@ -12,16 +12,6 @@ public class GroupList
     return getGroup(group).getCourses();
   }
 
-  /**
-   * ///////////////////////////////////////HAVE TO IMPLEMENT
-   * @return
-   */
-
-  public ArrayList<Group> getGroupsBySemester(int semester) {
-    return null;
-  }
-
-
 
   public void addGroup(Group group){
     list.add(group);

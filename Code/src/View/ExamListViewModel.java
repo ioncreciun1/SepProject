@@ -19,7 +19,6 @@ public class ExamListViewModel
     this.model=model;
     this.files = new ManageExamFiles();
     files.ReadExamList();
-    files.readGroupList();
     list= FXCollections.observableArrayList();
   }
 
@@ -32,12 +31,12 @@ public class ExamListViewModel
     public ObservableList<ExamViewModel> update() throws FileNotFoundException,NullPointerException
   {
     ArrayList<Exam> exams = new ArrayList<>();
-  list.clear();
-    System.out.println(files.getList().size());
-    for(int i = 0;i<files.getList().size();i++)
+    list.clear();
+    System.out.println(files.getExamList().size());
+    for(int i = 0;i<files.getExamList().size();i++)
     {
 
-      exams.add(files.getList().get(i));
+      exams.add(files.getExamList().getExam(i));
 
     }
     list.clear();

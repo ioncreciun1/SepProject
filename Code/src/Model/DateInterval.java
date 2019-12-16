@@ -40,10 +40,6 @@ public class DateInterval
   }
 
 
-  public DateInterval copy(){
-    DateInterval other = new DateInterval(date1,date2);
-    return other;
-  }
   public boolean equals(Object obj)
   {
     if(!(obj instanceof  DateInterval)) return false;
@@ -52,6 +48,6 @@ public class DateInterval
   }
 
   public String toString(){
-    return "Date 1: " + date1 + " Date 2: " + date2;
+    return  date1 + " - " + date2;
   }
 }

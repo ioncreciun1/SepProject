@@ -21,14 +21,22 @@ public class TestExam
     ManageExamModelManager model = new ManageExamModelManager();
   Date date3 = new Date(10,1,2000,12,30);
 //
-
+ ManageExamFiles file = new ManageExamFiles();
  DateInterval dateInterval = new DateInterval(date1, date2);
     Exam testExam = new Exam(dateInterval, room, group, "Written", teacher2, course);
    model.addExam(testExam);
+   file.ReadExamList();
+   file.AddExamList(testExam);
+    System.out.println(date3);
+   model.validateDate(date3);
+
+
+
+
   //  System.out.println(model.getAllExams().getExam(0).getDateInterval());
   //  System.out.println( model.isRoomTaken("301.A",new DateInterval(date1,date2)));
-   for(int i = 0;i<model.getAllAvailableRooms(dateInterval).size();i++)
-    { System.out.println(model.getAllAvailableRooms(dateInterval).get(i).getNumber());}
+//   for(int i = 0;i<model.getAllAvailableRooms(dateInterval).size();i++)
+//    { System.out.println(model.getAllAvailableRooms(dateInterval).get(i).getNumber());}
 //    model.addExam(testExam);
 //    System.out.println(new DateInterval(date1,date2));
 //    System.out.println(dateInterval);

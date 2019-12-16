@@ -51,38 +51,6 @@
                         <Insets />
                      </HBox.margin>
                   </TextField>
-                  <Label prefHeight="50.0" prefWidth="140.0" text="Room">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="150.0" />
-                     </HBox.margin>
-                  </Label>
-                  <ComboBox prefHeight="25.0" prefWidth="200.0">
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                  </ComboBox>
-               </children>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
-               <children>
-                  <Label prefHeight="50.0" prefWidth="140.0" text="Course">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="60.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </TextField>
                   <Label prefHeight="50.0" prefWidth="140.0" text="Date Start">
                      <font>
                         <Font size="30.0" />
@@ -91,12 +59,14 @@
                         <Insets left="150.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker prefHeight="25.0" prefWidth="200.0" />
+                  <DatePicker prefWidth="200.0" />
                </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="210.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
                <children>
-                  <Label prefHeight="50.0" prefWidth="140.0" text="Group">
+                  <Label prefHeight="50.0" prefWidth="140.0" text="Course">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -117,12 +87,12 @@
                         <Insets left="150.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="200.0" />
+                  <TextField prefWidth="200.0" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="310.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="210.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
                <children>
-                  <Label prefHeight="50.0" prefWidth="140.0" text="Examener">
+                  <Label prefHeight="50.0" prefWidth="140.0" text="Group">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -130,7 +100,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="200.0">
+                  <TextField editable="false" prefHeight="25.0" prefWidth="200.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -143,10 +113,10 @@
                         <Insets left="150.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker prefHeight="25.0" prefWidth="200.0" />
+                  <DatePicker prefWidth="200.0" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="350.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="310.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
                <children>
                   <Label prefHeight="50.0" prefWidth="140.0" text="Type">
                      <font>
@@ -156,8 +126,30 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox prefHeight="25.0" prefWidth="200.0" />
+                  <ComboBox prefWidth="200.0" />
                   <Label prefHeight="50.0" prefWidth="140.0" text="Time End">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField prefWidth="200.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="350.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="950.0">
+               <children>
+                  <Label prefHeight="50.0" prefWidth="140.0" text="Room">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox prefHeight="25.0" prefWidth="200.0" />
+                  <Label prefHeight="50.0" prefWidth="140.0" text="Examiner">
                      <font>
                         <Font size="30.0" />
                      </font>
