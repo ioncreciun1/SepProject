@@ -126,7 +126,6 @@ public class AddController
   public void initialize() throws FileNotFoundException
   {
     //Init Room Dropdown
-    roomList = new RoomList(); //Todo: getRoomList from file instead
     roomField.getItems().removeAll(roomField.getItems());
     roomField.getItems().add("----Add Room----");
     roomField.getSelectionModel().select("----Add Room----");

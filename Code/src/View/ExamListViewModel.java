@@ -28,7 +28,7 @@ public class ExamListViewModel
   }
 
 
-    public ObservableList<ExamViewModel> update() throws FileNotFoundException,NullPointerException
+    public ObservableList<ExamViewModel> update() throws NullPointerException
   {
     ArrayList<Exam> exams = new ArrayList<>();
     list.clear();
