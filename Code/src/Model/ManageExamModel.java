@@ -9,6 +9,7 @@ public interface  ManageExamModel
   public void validateTime(String timeString);
   public boolean isRoomBigEnough(int numberOfStudents,String name)
       throws FileNotFoundException;
+  public boolean isRoomSuited(String examType, Room room);
   public int getNumberOfStudentsByGroupAndSemester(String groupName,int semester)
       throws FileNotFoundException;
   public Examiner getTeacherByCourseAndGroup(String course,String Group)

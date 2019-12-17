@@ -8,6 +8,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
@@ -107,9 +108,7 @@ public class AddController
   Examiner teacher = new Examiner(model.getTeacherByCourseAndGroup(courseS,groupS).getName());
   Course course = new Course(teacher, courseS);
   Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
-
   try{
-    errorLabel.setText("");
     model.validateTime(timeStart.getText());
    model.validateTime(timeEnd.getText());
     model.validateExam(exam);
@@ -239,4 +238,5 @@ public class AddController
       courseField.getSelectionModel().select("AND1");
     }
   }
+
 }

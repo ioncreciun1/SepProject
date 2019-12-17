@@ -65,7 +65,9 @@ public class ManageExamModelManager implements ManageExamModel
     if(exam.getDateInterval().getStartDate().isBefore(new Date(now.getDayOfMonth(),now.getMonthValue(),now.getYear(),now.getHour(),now.getMinute()))){
       throw new IllegalArgumentException("This Date past");
     }
-
+    if(!isRoomSuited(exam.getType(),exam.getRoom())){
+      throw new IllegalArgumentException("Room Doesn't Have VGA OR HDMI");
+    }
   }
 
   /**
@@ -221,6 +223,16 @@ public class ManageExamModelManager implements ManageExamModel
     }
     return false;
 
+  }
+
+  @Override
+  public boolean isRoomSuited(String examType, Room room) {
+    if (examType.equals("Oral") || examType.equals("Oral/Written")){
+      if (room.isVGA() || room.isHDMI()) return true;
+      else return false;
+    }else{
+      return true;
+    }
   }
 
   /**

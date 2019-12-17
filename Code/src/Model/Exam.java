@@ -86,7 +86,7 @@ public class Exam
    */
   public void setType(String type)
   {
-    if (type.equals("Oral") || type.equals("Written"))
+    if (type.equals("Oral") || type.equals("Written") || type.equals("Oral/Written"))
     {
       this.type = type;
     }
