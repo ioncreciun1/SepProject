@@ -11,40 +11,69 @@ public class Exam
   private DateInterval dateInterval;
   private Course course;
 
+  /**
+   * Six parameters Constructor.
+   * Set room only if it is big enough
+   *
+   * @param dateInterval date Interval for exam
+   * @param room room for exam
+   * @param group class for this exam
+   * @param type exam type
+   * @param examiner external examiner
+   * @param course course for this exam
+   */
   public Exam(DateInterval dateInterval, Room room, Group group, String type,
       Examiner examiner, Course course)
   {
-    if(room.getChairs() >= group.getNumberOfStudents()) // && isRoomTaken(room,dateInterval))
+    if(room.getChairs() >= group.getNumberOfStudents())
       setRoom(room);
     this.group = group;
     setType(type);
-
-   //if(isExaminerTaken(examiner,dateInterval))
      this.examiner = examiner;
     this.dateInterval = dateInterval;
     this.course = course;
   }
 
+  /**
+   *
+   * @return date Interval
+   */
   public DateInterval getDateInterval()
   {
     return dateInterval;
   }
 
+  /**
+   *
+   * @return Course
+   */
   public Course getCourse()
   {
     return course;
   }
 
+  /**
+   *
+   * @return room
+   */
   public Room getRoom()
   {
     return room;
   }
 
+  /**
+   *
+   * @return group
+   */
   public Group getGroup()
   {
     return group;
   }
 
+  /**
+   *
+   * @return exam type
+   */
   public String getType()
   {
     return type;
@@ -78,7 +107,11 @@ public class Exam
 
   }
 
-
+  /**
+   *
+   * @param obj
+   * @return true if this exam is equal to another
+   */
   public boolean equals(Object obj)
   {
     if (!(obj instanceof Exam))

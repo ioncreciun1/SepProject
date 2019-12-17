@@ -32,8 +32,6 @@ public class LandingController
     viewHandler.openView("add");
 
   }
-  //BIG FUCKING SHIT
-  //TABLE DON'T UPDATE AFTER ADDING A GRADE
   public void init(ViewHandler viewHandler,ManageExamModel model,  Region root)
       throws FileNotFoundException
   {

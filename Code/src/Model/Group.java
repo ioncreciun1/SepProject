@@ -12,8 +12,8 @@ private ArrayList<Course> courses;
   /**
    *Three parameter Constructor
    * @param name name of Group
-   * @param numberOfStudents
-   * @param semester
+   * @param numberOfStudents number of students
+   * @param semester number of semester
    */
   public Group(String name, int numberOfStudents , int semester){
   this.name = name;
@@ -24,10 +24,19 @@ setSemester(semester);
 
 }
 
-public void addCourse(Course course)
+  /**
+   * add one course
+   * @param course one course for this group
+   */
+  public void addCourse(Course course)
 {
   courses.add(course);
 }
+
+  /**
+   * add all courses
+   * @param courses all courses for this group
+   */
   public void setCourses(ArrayList<Course> courses)
   {
     this.courses = courses;
@@ -55,7 +64,7 @@ public  ArrayList<Course> getCourses() {
 
   /**
    *
-   * @return name of group as
+   * @return name of group as string
    */
   public String  getName(){
   return name;
@@ -79,7 +88,12 @@ public  ArrayList<Course> getCourses() {
   if(numberOfStudents > 0) this.numberOfStudents = numberOfStudents;
 }
 
-public boolean equals(Object obj){
+  /**
+   *
+   * @param obj
+   * @return true if object have same information
+   */
+  public boolean equals(Object obj){
   if (!(obj instanceof Group))
     return false;
   Group other = (Group) obj;
@@ -87,7 +101,11 @@ public boolean equals(Object obj){
       this.semester==other.semester  && this.courses.equals(other.courses);
 }
 
-public String toString(){
+  /**
+   *
+   * @return group as string
+   */
+  public String toString(){
     String s = "";
     for(int i = 0;i<courses.size();i++)
     {

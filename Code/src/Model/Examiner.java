@@ -13,7 +13,7 @@ public class Examiner
   }
 
   /**
-   * Getter
+   *
    * @return name of Examiner
    */
   public String getName()
@@ -24,6 +24,7 @@ public class Examiner
   {
     return   name;
   }
+
 
   public void setName(String name)
   {

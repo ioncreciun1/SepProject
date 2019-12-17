@@ -28,7 +28,6 @@ public class TestExam
    file.ReadExamList();
    file.AddExamList(testExam);
     System.out.println(date3);
-   model.validateDate(date3);
 
 
 

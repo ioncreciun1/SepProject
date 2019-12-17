@@ -5,26 +5,61 @@ import java.util.ArrayList;
 
 public class ExamList
 {
-  private ArrayList<Exam> exams = new ArrayList<>();
+  private ArrayList<Exam> exams;
 
+  /**
+   * Zero parameter constructor.
+   */
+  public ExamList() {
+    exams = new ArrayList<>();
+  }
 
+  /**
+   * add Exam to list
+   * @param exam
+   */
   public void addExam(Exam exam){
 
     exams.add(exam);
   }
 
+  /**
+   *
+   * @param exams list of exams
+   */
   public void setExams(ArrayList<Exam> exams) {
     this.exams = exams;
   }
 
+  /**
+   *
+   * @return total number of exams
+   */
   public int size(){return exams.size();}
+
+  /**
+   * Remove an exam
+   * @param exam
+   */
   public void removeExam(Exam exam){
     exams.remove(exam);
   }
+
+  /**
+   *
+   * @param index index in list
+   * @return exam by index
+   */
   public Exam getExam(int index)
   {
     return exams.get(index);
   }
+
+  /**
+   *
+   * @param exam
+   * @return exam if it is equal to another
+   */
   public Exam getExam(Exam exam){
     for (int i = 0; i < exams.size(); i++)
     {
@@ -35,6 +70,13 @@ public class ExamList
     return null;
   }
 
+  /**
+   * remove an exam by course name,semester,group name and type
+   * @param course course of exam
+   * @param semester group semester
+   * @param group group name
+   * @param type exam type
+   */
   public void removeExam(String course, int semester, String group, String type){
     System.out.println("INPUT COURSE"+course);
   for(int i = 0; i < exams.size(); i++)
@@ -44,7 +86,6 @@ public class ExamList
       exams.remove(exams.get(i));
     }
   }
-    System.out.println("ERROR EXAM NOT FOUND BY COURSE");
   }
 
   public Exam getExam(String course, int semester, String group, String type){
@@ -60,6 +101,11 @@ public class ExamList
     return null;
   }
 
+
+  /**
+   *
+   * @return all exams as string
+   */
   public String toString() {
 
 return exams.toString();

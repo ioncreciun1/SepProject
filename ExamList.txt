@@ -1,3 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"standalone="no"?>
 <ExamList>
-</ExamList>
+<Exam>
+<Semester>1</Semester>
+<Course>SDJ1</Course>  
+<Group>Y</Group>     
+<Examiners>
+<Teacher>SWD</Teacher>
+<Examiner>Bob<Examiner>
+</Examiners>     
+<Type>Written</Type>  
+<RoomNumber>4</RoomNumber>   
+ <StartDate>
+<StartYear>2019</StartYear>
+<StartMonth>12</StartMonth>
+<StartDay>18</StartDay>
+<StartHour>10</StartHour>
+<StartMinute>20</StartMinute>
+</StartDate>   
+ <EndDate>
+<EndYear>2019</EndYear>
+<EndMonth>12</EndMonth>
+<EndDay>18</EndDay>
+<EndHour>10</EndHour>
+<EndMinute>50</EndMinute>
+</EndDate>
+</Exam>
+<Exam>
+<Semester>1</Semester>
+<Course>SDJ1</Course>  
+<Group>Z</Group>     
+<Examiners>
+<Teacher>SWD</Teacher>
+<Examiner>Bob<Examiner>
+</Examiners>     
+<Type>Written</Type>  
+<RoomNumber>301.A</RoomNumber>   
+ <StartDate>
+<StartYear>2019</StartYear>
+<StartMonth>12</StartMonth>
+<StartDay>19</StartDay>
+<StartHour>10</StartHour>
+<StartMinute>32</StartMinute>
+</StartDate>   
+ <EndDate>
+<EndYear>2019</EndYear>
+<EndMonth>12</EndMonth>
+<EndDay>19</EndDay>
+<EndHour>11</EndHour>
+<EndMinute>40</EndMinute>
+</EndDate>
+</Exam>
+<ExamList>

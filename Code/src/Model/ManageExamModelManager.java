@@ -9,19 +9,19 @@ public class ManageExamModelManager implements ManageExamModel
 {
   private ExamList list;
   private ManageExamFiles file;
+
+  /**
+   * Zero parameter constructor
+   */
   public  ManageExamModelManager(){list = new ExamList();
   file= new ManageExamFiles();
   }
 
-  @Override public void validateDate(Date date)
-  {
-    if(isCorrectFormat(date))
-    {
-      throw  new IllegalArgumentException("Enter Valid End time");
-    }
-
-  }
-
+  /**
+   * Validate if exam data is correct and throw exceptions message
+   * @param exam
+   * @throws FileNotFoundException
+   */
   @Override public void validateExam(Exam exam) throws FileNotFoundException
   {
     if(isExaminerTaken(exam.getExaminer(),exam.getDateInterval()))
@@ -32,6 +32,21 @@ public class ManageExamModelManager implements ManageExamModel
         {
           throw new IllegalArgumentException(
               "Examiner is Taken for this Interval:" + file.getExamList().getExam(i).getDateInterval());
+        }
+      }
+    }
+    if(isRoomBigEnough(exam.getGroup().getNumberOfStudents(),exam.getGroup().getName()))
+    {
+      throw new IllegalArgumentException("Room is not big enough");
+    }
+    if(isRoomTaken(exam.getRoom().getNumber(),exam.getDateInterval()))
+    {
+      for(int i=0;i<file.getExamList().size();i++)
+      {
+
+        if(file.getExamList().getExam(i).getRoom().getNumber().equals(exam.getRoom().getNumber()))
+        {
+          throw new IllegalArgumentException("Room is taken for this date Interval:" + file.getExamList().getExam(i).getDateInterval());
         }
       }
     }
@@ -52,13 +67,23 @@ public class ManageExamModelManager implements ManageExamModel
     }
 
   }
+
+  /**
+   * Validate hour and minute and throw an error message
+   * @param timeString
+   */
   public void validateTime(String timeString)
   {
     if(!validateTimeHourAndDate(timeString)) {
       throw  new IllegalArgumentException("Set Valid time");
     }
-
   }
+
+  /**
+   *
+   * @param timeString time as string(hh:mm)
+   * @return true if time format is wrong otherwise return true
+   */
   public boolean validateTimeHourAndDate(String timeString) {
     if (timeString.length() != 5) return false;
     if (!timeString.substring(2, 3).equals(":")) return false;
@@ -69,6 +94,11 @@ public class ManageExamModelManager implements ManageExamModel
     return true;
   }
 
+  /**
+   *
+   * @param numberString
+   * @return true if this string is a valid number
+   */
   public int validateNumber(String numberString) {
     try {
       int number = Integer.valueOf(numberString);
@@ -78,6 +108,14 @@ public class ManageExamModelManager implements ManageExamModel
     }
   }
 
+  /**
+   *
+   * @param course course name
+   * @param group group
+   * @param semester semester
+   * @return true if this exam is already in the system
+   * @throws FileNotFoundException
+   */
   @Override public boolean IsExamTaken(String course, String group, int semester)
       throws FileNotFoundException
   {
@@ -95,11 +133,13 @@ public class ManageExamModelManager implements ManageExamModel
     return false;
   }
 
-  public boolean isCorrectFormat(Date date)
-  {
-  return false;
-  }
-
+  /**
+   *
+   * @param examiner external examiner
+   * @param dateInterval Date Interval
+   * @return true if this examiner is taken for this date Interval
+   * @throws FileNotFoundException
+   */
   @Override public boolean isExaminerTaken(Examiner examiner, DateInterval dateInterval)
       throws FileNotFoundException
   {
@@ -114,12 +154,20 @@ public class ManageExamModelManager implements ManageExamModel
                && !dateInterval.getEndDate().isBefore(file.getExamList().getExam(i).getDateInterval().getEndDate()))
           ))
       {
+        System.out.println(file.getExamList().getExam(i).getDateInterval().getEndDate());
         return true;
       }
       }
     return false;
   }
 
+  /**
+   *
+   * @param room exam room
+   * @param dateInterval exam date Interval
+   * @return true if this room is taken for this date interval
+   * @throws FileNotFoundException
+   */
   @Override public boolean isRoomTaken(String room,DateInterval dateInterval)
       throws FileNotFoundException
   {
@@ -129,28 +177,59 @@ public class ManageExamModelManager implements ManageExamModel
     {
 
       if(file.getExamList().getExam(i).getRoom().getNumber().equals(room)
-      && (file.getExamList().getExam(i).getDateInterval().equals(dateInterval)
-          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getStartDate()))
-      )
+          && (file.getExamList().getExam(i).getDateInterval().equals(dateInterval)
+          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getStartDate())
+          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getEndDate())
+          || (dateInterval.getStartDate().isBefore(file.getExamList().getExam(i).getDateInterval().getStartDate())
+          && !dateInterval.getEndDate().isBefore(file.getExamList().getExam(i).getDateInterval().getEndDate()))
+      ))
       {
-        System.out.println("Room is taken");
+        System.out.println("I am here");
+        System.out.println("I am here");
         return true;
       }
     }
     return false;
   }
 
+  /**
+   *  add exam to list
+   * @param exam
+   */
   @Override public void addExam(Exam exam)
   {
     list.addExam(exam);
   }
 
-  @Override
-  public void removeExam(String course, int semester, String group, String type) {
-    list.removeExam(course,semester,group,type);
+  /**
+   *
+   * @param numberOfStudents number of students
+   * @param name name of room
+   * @return true if this room have enough chairs for this number of students
+   * @throws FileNotFoundException
+   */
+  @Override public boolean isRoomBigEnough(int numberOfStudents, String name)
+      throws FileNotFoundException
+  {
+    file.readRoomList();
+    for(int i=0;i<file.getRoomList().getRoomList().size();i++)
+    {
+      if(file.getRoomList().getRoomList().get(i).getNumber().equals(name) && file.getRoomList().getRoomList().get(i).getChairs() >= numberOfStudents)
+      {
+        return true;
+      }
+    }
+    return false;
+
   }
 
-
+  /**
+   *
+   * @param groupName name of group
+   * @param semester semester
+   * @return number of students as number based on group name and semester
+   * @throws FileNotFoundException
+   */
   @Override public int getNumberOfStudentsByGroupAndSemester(String groupName,
       int semester) throws FileNotFoundException
   {
@@ -166,6 +245,13 @@ public class ManageExamModelManager implements ManageExamModel
     return 0;
   }
 
+  /**
+   *
+   * @param course course name
+   * @param group group name
+   * @return Teacher based on course name and group name
+   * @throws FileNotFoundException
+   */
   @Override public Examiner getTeacherByCourseAndGroup(String course,String group)
       throws FileNotFoundException
   {
@@ -185,26 +271,4 @@ public class ManageExamModelManager implements ManageExamModel
     }
     return null;
   }
-
-  @Override public ArrayList<Room> getAllAvailableRooms(
-      //TODO: DON"T STOP AFTER SPECIFIC SIZE
-      DateInterval dateInterval) throws FileNotFoundException
-  {
-    file.readRoomList();
-    ArrayList<Room> availableRooms = new ArrayList<>();
-    int i=0;
-    while(i<file.getRoomList().getRoomList().size()) {
-    //System.out.println("I am here" + i);
-    if (!isRoomTaken(file.getRoomList().getRoomList().get(i).getNumber(),
-        dateInterval))
-    {
-      //System.out.println("WTF");
-      availableRooms.add(file.getRoomList().getRoomList().get(i));
-    }
-    if(i == file.getRoomList().getRoomList().size()-1) break;
-    i++;
-  }
-    return availableRooms;
-  }
-
 }
