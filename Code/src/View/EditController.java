@@ -78,7 +78,7 @@ public class EditController
     }
   }
   public void reset() {
-
+    errorLabel.setText("");
   }
 
   public Region getRoot()

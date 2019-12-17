@@ -3,6 +3,10 @@ package Model;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * a model class
+ * @author  Uldis Alksnisa and Ion Creciun
+ */
 public interface  ManageExamModel
 {
   public void addExam(Exam exam);
@@ -21,4 +25,7 @@ public interface  ManageExamModel
   public void validateExam(Exam exam) throws FileNotFoundException;
   public boolean IsExamTaken(String course,String group, int semester)
       throws FileNotFoundException;
+  public boolean isTeacherTaken(Examiner teacher,DateInterval dateInterval)
+      throws FileNotFoundException;
+  
 }

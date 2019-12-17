@@ -1,5 +1,10 @@
 package Model;
 
+/**
+ * A class representing a course
+ *
+ * @author Mario Handzhiev
+ */
 public class Course
 {
   private String name;

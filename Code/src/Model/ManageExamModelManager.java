@@ -5,6 +5,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+/**
+ *  an Exam Manager class
+ *  @author  Uldis Alksnisa and Ion Creciun
+ */
 public class ManageExamModelManager implements ManageExamModel
 {
   private ExamList list;
@@ -32,6 +36,17 @@ public class ManageExamModelManager implements ManageExamModel
         {
           throw new IllegalArgumentException(
               "Examiner is Taken for this Interval:" + file.getExamList().getExam(i).getDateInterval());
+        }
+      }
+    }
+    if(isTeacherTaken(exam.getCourse().getTeacher(),exam.getDateInterval()))
+    {
+      for(int i = 0;i<file.getExamList().size();i++)
+      {
+        if(file.getExamList().getExam(i).getCourse().getTeacher().equals(exam.getCourse().getTeacher()))
+        {
+          throw new IllegalArgumentException(
+              "Teacher " + file.getExamList().getExam(i).getCourse().getTeacher().getName() + " is Taken for this Interval:" + file.getExamList().getExam(i).getDateInterval());
         }
       }
     }
@@ -129,6 +144,27 @@ public class ManageExamModelManager implements ManageExamModel
           && file.getExamList().getExam(i).getGroup().getSemester() == semester
       )
       {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override public boolean isTeacherTaken(Examiner teacher,
+      DateInterval dateInterval) throws FileNotFoundException
+  {
+    file.ReadExamList();
+    for(int i=0;i<file.getExamList().size();i++)
+    {
+      if(file.getExamList().getExam(i).getCourse().getTeacher().equals(teacher)
+          && (file.getExamList().getExam(i).getDateInterval().equals(dateInterval)
+          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getStartDate())
+          || file.getExamList().getExam(i).getDateInterval().isBetween(dateInterval.getEndDate())
+          || (dateInterval.getStartDate().isBefore(file.getExamList().getExam(i).getDateInterval().getStartDate())
+          && !dateInterval.getEndDate().isBefore(file.getExamList().getExam(i).getDateInterval().getEndDate()))
+      ))
+      {
+        System.out.println(file.getExamList().getExam(i).getDateInterval().getEndDate());
         return true;
       }
     }

@@ -2,6 +2,11 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ * A class representing a group
+ *
+ * @author Mario Handzhiev
+ */
 public class Group
 {
 private String name;

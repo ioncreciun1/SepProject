@@ -1,5 +1,10 @@
 package Model;
 
+/**
+ * A class representing an Examiner
+ *
+ * @author Andrei Moldovanu, Eugen Cius, Mario Handzhiev
+ */
 public class Examiner
 {
   private String name;

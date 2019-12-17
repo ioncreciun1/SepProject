@@ -1,6 +1,11 @@
 package Model;
 
 import java.util.ArrayList;
+/**
+ * A class representing a Group list
+ *
+ * @author Mario Handzhiev
+ */
 
 public class GroupList
 {

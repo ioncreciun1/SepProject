@@ -7,6 +7,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * a class representing all files
+ *
+ * @author  Uldis Alksnisa and Ion Creciun
+ * */
 public class ManageExamFiles
 {
   private RoomList roomList = new RoomList();
