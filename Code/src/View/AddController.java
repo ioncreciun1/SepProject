@@ -98,6 +98,8 @@ public class AddController
       chairs = files.getRoomList().getRoomList().get(i).getChairs();
     }
   }
+
+
   if(groupField.getSelectionModel().getSelectedItem().toString().equals("----Select Group----"))
   {
     errorLabel.setText("Select a Group");
@@ -109,6 +111,7 @@ public class AddController
   Course course = new Course(teacher, courseS);
   Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
   try{
+
     model.validateTime(timeStart.getText());
    model.validateTime(timeEnd.getText());
     model.validateExam(exam);
@@ -117,8 +120,13 @@ public class AddController
     viewHandler.openView("landing");
   }catch (Exception e)
   {
+
     errorLabel.setText("");
     errorLabel.setText(e.getMessage());
+    if(roomS.equals("----Add Room----"))
+    {
+      errorLabel.setText("Select a room");
+    }
   }
   }
 

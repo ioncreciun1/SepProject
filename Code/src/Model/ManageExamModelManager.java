@@ -69,6 +69,10 @@ public class ManageExamModelManager implements ManageExamModel
     {
       throw new IllegalArgumentException("Select a group");
     }
+    if(exam.getGroup().getName().equals("----Add Room----"))
+    {
+      throw  new IllegalArgumentException("Select a room");
+    }
     if(IsExamTaken(exam.getCourse().getCourseName(),exam.getGroup().getName(),exam.getGroup().getSemester()))
     {
       throw new IllegalArgumentException("This Exam is already in the system");
