@@ -187,7 +187,7 @@ public class ManageExamFiles
       xml+="\n<Examiner>"+  examList.getExam(i).getExaminer() + "<Examiner>";
     xml += "\n</Examiners>";
       xml += "     \n<Type>"  +  examList.getExam(i).getType()  + "</Type>";
-    xml += "  \n<RoomNumber>" + "301.A" + "</RoomNumber>";
+    xml += "  \n<RoomNumber>" + examList.getExam(i).getRoom().getNumber() + "</RoomNumber>";
     xml += "   \n <StartDate>" ;
     xml+="\n<StartYear>" + examList.getExam(i).getDateInterval().getStartDate().getYear()  + "</StartYear>";
       xml+="\n<StartMonth>" +  examList.getExam(i).getDateInterval().getStartDate().getMonth() + "</StartMonth>";

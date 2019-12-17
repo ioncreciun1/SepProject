@@ -46,6 +46,20 @@ public class ExamList
   }
     System.out.println("ERROR EXAM NOT FOUND BY COURSE");
   }
+
+  public Exam getExam(String course, int semester, String group, String type){
+    System.out.println("INPUT COURSE"+course);
+    for(int i = 0; i < exams.size(); i++)
+    {
+      if(exams.get(i).getCourse().getCourseName().equals(course) && exams.get(i).getGroup().getSemester() == semester && exams.get(i).getGroup().getName().equals(group) && exams.get(i).getType().equals(type))
+      {
+        return exams.get(i);
+      }
+    }
+    System.out.println("ERROR EXAM NOT FOUND BY COURSE");
+    return null;
+  }
+
   public String toString() {
 
 return exams.toString();

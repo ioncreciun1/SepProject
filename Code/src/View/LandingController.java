@@ -113,6 +113,12 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
 
   public void editExamPressed(ActionEvent event) throws FileNotFoundException
   {
-    viewHandler.openView("edit");
+    if (!tableViewExam.getSelectionModel().isEmpty()){
+      ManageExamFiles file = new ManageExamFiles();
+      file.ReadExamList();
+      ExamViewModel selectedItem = tableViewExam.getSelectionModel().getSelectedItem();
+      viewHandler.setSelectedExam(file.getExamList().getExam(selectedItem.coursePropertyProperty().getValue(),Integer.parseInt(selectedItem.semesterPropertyProperty().getValue().toString()),selectedItem.groupPropertyProperty().getValue(),selectedItem.typePropertyProperty().getValue()));
+      viewHandler.openView("edit");
+    }
   }
 }

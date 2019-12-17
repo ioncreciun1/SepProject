@@ -186,7 +186,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="timeEnd" onKeyTyped="#validateDate"  prefHeight="25.0" prefWidth="200.0">
+                              <TextField fx:id="timeEnd" onKeyTyped="#validateDate" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -203,7 +203,7 @@
                                     <Insets left="270.0" />
                                  </HBox.margin>
                               </Label>
-                              <ComboBox fx:id="roomField"  prefHeight="25.0" prefWidth="200.0">
+                              <ComboBox fx:id="roomField" prefHeight="25.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets left="130.0" />
                                  </HBox.margin>
@@ -227,7 +227,7 @@
                         <Insets right="60.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#addExam"   prefHeight="20.0" prefWidth="150.0" text="Add">
+                  <Button mnemonicParsing="false" onAction="#addExam" prefHeight="20.0" prefWidth="150.0" text="Add">
                      <font>
                         <Font size="20.0" />
                      </font>

@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class AddController
 {
@@ -57,6 +58,7 @@ public class AddController
 
   public void cancel() throws FileNotFoundException
   {
+    viewHandler.closeView();
     viewHandler.openView("landing");
   }
 
@@ -68,7 +70,6 @@ public class AddController
   String examinerS = examiners[0];
   String roomS = roomField.getSelectionModel().getSelectedItem().toString();
   String typeS = typeField.getSelectionModel().getSelectedItem().toString();
-
   DateInterval dateInterval = getDateInterval();
   boolean hdmi = false;
   boolean vga = false;
@@ -94,12 +95,10 @@ public class AddController
   Examiner examiner = new Examiner(examinerS);
   Examiner teacher = new Examiner(model.getTeacherByCourseAndGroup(courseS,groupS).getName());
   Course course = new Course(teacher, courseS);
-    System.out.println("get This fksadk: " + model.getAllAvailableRooms(getDateInterval()).size());
   Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
 
   try{
     errorLabel.setText("");
-    System.out.println(getDateStart().toString());
     model.validateExam(exam);
     ManageExamFiles files = new ManageExamFiles();
     files.AddExamList(exam);
@@ -127,7 +126,7 @@ public class AddController
     }
     ///Init Type Dropdown
     typeField.getItems().removeAll(typeField.getItems());
-    typeField.getItems().addAll("Oral","Written");
+    typeField.getItems().addAll("Oral","Written","Oral/Written");
     typeField.getSelectionModel().select("Oral");
     //Init Semester
     semesterField.getItems().removeAll(semesterField.getItems());
@@ -194,16 +193,13 @@ public class AddController
 
   public void initializeRoom(ActionEvent event) throws FileNotFoundException
   {
-    roomList = new RoomList(); //Todo: getRoomList from file instead
     roomField.getItems().removeAll(roomField.getItems());
 //    roomField.getItems().add("----Add Room----");
 //    roomField.getSelectionModel().select("----Add Room----");
-    ManageExamFiles files = new ManageExamFiles();
-    files.readRoomList();
-
-    for (int i = 0; i < model.getAllAvailableRooms(getDateInterval()).size(); i++) {
-        roomField.getItems().add(
-            model.getAllAvailableRooms(getDateInterval()).get(i).getNumber());
+    ArrayList<Room> allAvailableRooms = model.getAllAvailableRooms(getDateInterval());
+    for (int i = 0; i < allAvailableRooms.size(); i++) {
+      String roomString = ""+allAvailableRooms.get(i).getNumber();
+        roomField.getItems().add(roomString);
       }
   }
 

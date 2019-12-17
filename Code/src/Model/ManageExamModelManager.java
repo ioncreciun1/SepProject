@@ -114,7 +114,6 @@ public class ManageExamModelManager implements ManageExamModel
                && !dateInterval.getEndDate().isBefore(file.getExamList().getExam(i).getDateInterval().getEndDate()))
           ))
       {
-        System.out.println(file.getExamList().getExam(i).getDateInterval().getEndDate());
         return true;
       }
       }
@@ -193,7 +192,6 @@ public class ManageExamModelManager implements ManageExamModel
   {
     file.readRoomList();
     ArrayList<Room> availableRooms = new ArrayList<>();
-    System.out.println("Size:" + file.getRoomList().getRoomList().size());
     int i=0;
     while(i<file.getRoomList().getRoomList().size()) {
     //System.out.println("I am here" + i);
@@ -206,7 +204,6 @@ public class ManageExamModelManager implements ManageExamModel
     if(i == file.getRoomList().getRoomList().size()-1) break;
     i++;
   }
-    System.out.println("Available size: " + availableRooms.size());
     return availableRooms;
   }
 

@@ -1,5 +1,6 @@
 package View;
 
+import Model.Exam;
 import Model.ManageExamModel;
 import Model.ManageExamModelManager;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import java.io.IOException;
 
 public class ViewHandler
 {
+  private Exam selectedExam = null;
   private Scene currentScene;
   private Stage primaryStage;
   private AddController addController;
@@ -74,6 +76,7 @@ public class ViewHandler
   }
   return  landingController.getRoot();
 }
+
   private Region addView(String fxml)
   {
     if(addController == null)
@@ -95,6 +98,7 @@ public class ViewHandler
     }
     return  addController.getRoot();
   }
+
   private Region editView(String fxml)
   {
     if(editController == null)
@@ -104,7 +108,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxml));
         Region root = loader.load();
         editController = loader.getController();
-        editController.init(this,root);
+        editController.init(this,model,root);
       }
       catch (IOException e)
       {
@@ -123,7 +127,11 @@ public class ViewHandler
     primaryStage.close();
   }
 
+  public Exam getSelectedExam() {
+    return selectedExam;
+  }
 
-
-
+  public void setSelectedExam(Exam selectedExam) {
+    this.selectedExam = selectedExam;
+  }
 }
