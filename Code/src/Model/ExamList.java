@@ -1,6 +1,10 @@
 package Model;
 
-import java.io.FileNotFoundException;
+/**
+ * A class representing an Exam list
+ *
+ * @author Andrei Moldovanu, Eugen Cius, Mario Handzhiev
+ */
 import java.util.ArrayList;
 
 public class ExamList

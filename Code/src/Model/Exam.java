@@ -1,7 +1,11 @@
 package Model;
 
-import java.io.FileNotFoundException;
 
+/**
+ * A class representing an Exam
+ *
+ * @author Mario Handzhiev, Andrei Moldovanu, Eugen Cius
+ */
 public class Exam
 {
   private String type;

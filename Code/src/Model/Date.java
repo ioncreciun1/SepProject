@@ -1,5 +1,10 @@
 package Model;
 
+/**
+ * A class representing a date
+ *
+ * @author Andrei Moldovanu
+ */
 public class Date
 {
   private int day, month, year, hour, minute;

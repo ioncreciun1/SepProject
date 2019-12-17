@@ -1,5 +1,10 @@
 package Model;
 
+/**
+ * A class representing a room
+ *
+ * @author Eugen Cius
+ */
 public class Room
 {
   private boolean HDMI;

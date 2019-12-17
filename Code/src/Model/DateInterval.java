@@ -1,5 +1,10 @@
 package Model;
 
+/**
+ * A class representing a date Interval
+ *
+ * @author Andrei Moldovanu
+ */
 public class DateInterval
 {
   private Date date1;

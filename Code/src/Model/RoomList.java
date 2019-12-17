@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * A class representing a room list
+ *
+ * @author Eugen Cius
+ */
 public class RoomList
 {
   private ArrayList<Room> rooms;
