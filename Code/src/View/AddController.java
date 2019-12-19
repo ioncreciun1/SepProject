@@ -107,6 +107,7 @@ public class AddController
   Room room = new Room(hdmi, vga, chairs, table, roomS);
   Group group = new Group(groupS, model.getNumberOfStudentsByGroupAndSemester(groupS,semesterS), semesterS);
   Examiner examiner = new Examiner(examinerS);
+
   Examiner teacher = new Examiner(model.getTeacherByCourseAndGroup(courseS,groupS).getName());
   Course course = new Course(teacher, courseS);
   Exam exam = new Exam(dateInterval, room, group, typeS, examiner, course);
@@ -114,6 +115,8 @@ public class AddController
 
     model.validateTime(timeStart.getText());
    model.validateTime(timeEnd.getText());
+
+    System.out.println("Examiner : " + examiner);
     model.validateExam(exam);
     ManageExamFiles files = new ManageExamFiles();
     files.AddExamList(exam);
@@ -123,10 +126,19 @@ public class AddController
 
     errorLabel.setText("");
     errorLabel.setText(e.getMessage());
+    if(getDateEnd().isBefore(getDateStart()))
+    {
+      errorLabel.setText("End date is before Start Date");
+    }
+    if(examinerS.equals(""))
+    {
+    errorLabel.setText("Insert Examiner Name");
+    }
     if(roomS.equals("----Add Room----"))
     {
       errorLabel.setText("Select a room");
-    }
+  }
+
   }
   }
 

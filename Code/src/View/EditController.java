@@ -88,22 +88,25 @@ public class EditController
 
   public void cancel(ActionEvent event) throws FileNotFoundException
   {
+    files.AddExamList(viewHandler.getSelectedExam());
     viewHandler.openView("landing");
   }
 
-  public void editExam(MouseEvent mouseEvent) {
+  public void editExam(MouseEvent mouseEvent) throws FileNotFoundException
+  {
+    files.ReadExamList();
+    files.readGroupList();
+    files.RemoveExamFromList(selectedExam.getCourse().getCourseName(),selectedExam.getGroup().getSemester(),selectedExam.getGroup().getName(),selectedExam.getType());
+    errorLabel.setText("");
+    String type = typeField.getSelectionModel().getSelectedItem().toString();
+    Room room = files.getRoomList().getRoomById(roomField.getSelectionModel().getSelectedItem().toString());
+    DateInterval dateInterval = getDateInterval();
+    Examiner examiner = new Examiner(examinerField.getText());
+    Group group = selectedExam.getGroup();
+    Course course = selectedExam.getCourse();
 
     try{
-      files.ReadExamList();
-      files.readGroupList();
-      files.RemoveExamFromList(selectedExam.getCourse().getCourseName(),selectedExam.getGroup().getSemester(),selectedExam.getGroup().getName(),selectedExam.getType());
-      errorLabel.setText("");
-      String type = typeField.getSelectionModel().getSelectedItem().toString();
-      Room room = files.getRoomList().getRoomById(roomField.getSelectionModel().getSelectedItem().toString());
-      DateInterval dateInterval = getDateInterval();
-      Examiner examiner = new Examiner(examinerField.getText());
-      Group group = selectedExam.getGroup();
-      Course course = selectedExam.getCourse();
+
       selectedExam = new Exam(dateInterval,room,group,type,examiner,course);
       model.validateExam(selectedExam);
       files.AddExamList(selectedExam);
@@ -112,6 +115,18 @@ public class EditController
     {
       errorLabel.setText("");
       errorLabel.setText(e.getMessage());
+      if(getDateEnd().isBefore(getDateStart()))
+      {
+        errorLabel.setText("End date is before Start Date");
+      }
+      if(examiner.getName().equals(""))
+      {
+        errorLabel.setText("Insert Examiner Name");
+      }
+      if(room.getNumber().equals("----Add Room----"))
+      {
+        errorLabel.setText("Select a room");
+      }
     }
   }
   //Date Management

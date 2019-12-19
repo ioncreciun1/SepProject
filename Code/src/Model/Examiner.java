@@ -33,7 +33,10 @@ public class Examiner
 
   public void setName(String name)
   {
+    if (name.length() > 1)
+    {
       this.name = name;
+    }
   }
 
   /**

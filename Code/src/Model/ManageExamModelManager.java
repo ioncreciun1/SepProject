@@ -54,6 +54,10 @@ public class ManageExamModelManager implements ManageExamModel
     {
       throw new IllegalArgumentException("Room is not big enough");
     }
+    if(exam.getExaminer().getName().equals("") || exam.getExaminer() == null)
+    {
+      throw new IllegalArgumentException("Examiner is not inserted");
+    }
     if(isRoomTaken(exam.getRoom().getNumber(),exam.getDateInterval()))
     {
       for(int i=0;i<file.getExamList().size();i++)
