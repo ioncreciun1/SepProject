@@ -23,7 +23,7 @@ public interface  ManageExamModel
   public boolean isExaminerTaken(Examiner examiner,DateInterval dateInterval)
       throws FileNotFoundException;
   public void validateExam(Exam exam) throws FileNotFoundException;
-  public boolean IsExamTaken(String course,String group, int semester)
+  public boolean IsExamTaken(String course,String group, int semester,String type)
       throws FileNotFoundException;
   public boolean isTeacherTaken(Examiner teacher,DateInterval dateInterval)
       throws FileNotFoundException;

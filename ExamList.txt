@@ -6,7 +6,7 @@
 <Group>Z</Group>     
 <Examiners>
 <Teacher>SWD</Teacher>
-<Examiner>Bob2<Examiner>
+<Examiner>Bob2</Examiner>
 </Examiners>     
 <Type>Written</Type>  
 <RoomNumber>301.A</RoomNumber>   
@@ -31,10 +31,10 @@
 <Group>Y</Group>     
 <Examiners>
 <Teacher>SWD</Teacher>
-<Examiner>Bob<Examiner>
+<Examiner>Bob</Examiner>
 </Examiners>     
 <Type>Oral/Written</Type>  
-<RoomNumber>301.B</RoomNumber>   
+<RoomNumber>301.A</RoomNumber>   
  <StartDate>
 <StartYear>2019</StartYear>
 <StartMonth>12</StartMonth>
@@ -56,10 +56,10 @@
 <Group>Z</Group>     
 <Examiners>
 <Teacher>Lars</Teacher>
-<Examiner>Bob1<Examiner>
+<Examiner>Bob1</Examiner>
 </Examiners>     
 <Type>Written</Type>  
-<RoomNumber>2</RoomNumber>   
+<RoomNumber>301.A</RoomNumber>   
  <StartDate>
 <StartYear>2019</StartYear>
 <StartMonth>12</StartMonth>
@@ -81,10 +81,10 @@
 <Group>Z</Group>     
 <Examiners>
 <Teacher>Lina</Teacher>
-<Examiner>BOb<Examiner>
+<Examiner>BOb</Examiner>
 </Examiners>     
 <Type>Written</Type>  
-<RoomNumber>7</RoomNumber>   
+<RoomNumber>301.A</RoomNumber>   
  <StartDate>
 <StartYear>2019</StartYear>
 <StartMonth>12</StartMonth>
@@ -100,4 +100,4 @@
 <EndMinute>30</EndMinute>
 </EndDate>
 </Exam>
-<ExamList>
+</ExamList>

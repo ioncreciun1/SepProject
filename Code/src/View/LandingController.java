@@ -53,7 +53,6 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
   public void reset() throws FileNotFoundException
   {
     this.viewModel = new ExamListViewModel(model);
-    System.out.println("I am now here");
     errorLabel.setText("");
     tableViewExam.setItems(viewModel.update());
 
@@ -102,8 +101,8 @@ startTimeColumn.setCellValueFactory(cellDate -> cellDate.getValue().startYearPro
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
     alert.setHeaderText(
-        "Remove exam: " + selectedItem.coursePropertyProperty().get() + selectedItem.semesterPropertyProperty().get()
-            + "-" + selectedItem.groupPropertyProperty().get() + ", "
+        "Remove exam: " + selectedItem.coursePropertyProperty().get()
+            + "-" +selectedItem.semesterPropertyProperty().get()  + selectedItem.groupPropertyProperty().get() + ", "
             + selectedItem.typePropertyProperty().get() + "?");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent()) && (result.get() == ButtonType.OK);

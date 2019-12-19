@@ -73,7 +73,7 @@ public class ManageExamModelManager implements ManageExamModel
     {
       throw  new IllegalArgumentException("Select a room");
     }
-    if(IsExamTaken(exam.getCourse().getCourseName(),exam.getGroup().getName(),exam.getGroup().getSemester()))
+    if(IsExamTaken(exam.getCourse().getCourseName(),exam.getGroup().getName(),exam.getGroup().getSemester(),exam.getType()))
     {
       throw new IllegalArgumentException("This Exam is already in the system");
     }
@@ -137,7 +137,7 @@ public class ManageExamModelManager implements ManageExamModel
    * @return true if this exam is already in the system
    * @throws FileNotFoundException
    */
-  @Override public boolean IsExamTaken(String course, String group, int semester)
+  @Override public boolean IsExamTaken(String course, String group, int semester,String type)
       throws FileNotFoundException
   {
     file.ReadExamList();
@@ -146,6 +146,7 @@ public class ManageExamModelManager implements ManageExamModel
       if (file.getExamList().getExam(i).getCourse().getCourseName().equals(course)
           && file.getExamList().getExam(i).getGroup().getName().equals(group)
           && file.getExamList().getExam(i).getGroup().getSemester() == semester
+          && file.getExamList().getExam(i).getType().equals(type)
       )
       {
         return true;
