@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="550.0" maxWidth="950.0" minHeight="550.0" minWidth="950.0" prefHeight="570.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
+<AnchorPane maxHeight="570.0" maxWidth="950.0" minHeight="550.0" minWidth="950.0" prefHeight="590.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddController">
    <children>
-      <VBox maxHeight="550.0" maxWidth="950.0" minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="950.0">
+      <VBox maxHeight="550.0" maxWidth="950.0" minHeight="0.0" minWidth="0.0" prefHeight="590.0" prefWidth="950.0">
          <children>
             <HBox maxWidth="950.0" minWidth="950.0" prefHeight="80.0" prefWidth="950.0">
                <children>
